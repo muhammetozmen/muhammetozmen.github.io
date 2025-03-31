@@ -6,19 +6,9 @@
 
 - title: "Hakkımda"
   href: "/about/"
-  
-- title: "Sertifikalarım"
-  href: "/certificates/"
+  subcategories:
+    - subtitle: "CV"
+      subhref: "/about/cv/"
+    - subtitle: "Portfolyo"
+      subhref: "/about/portfolio/"
 
-- title: "CV & Portfolyo"
-  href: "/cv/"
-
-#- title: "Miscellany"
-#  href: "/miscellany/"
-#  subcategories:
-#    - subtitle: "Courses Undertaken"
-#      subhref: "/miscellany/courses/"
-#    - subtitle: "Extracurriculars"
-#      subhref: "/miscellany/extracurricular/"
-#    - subtitle: "Travel"
-#      subhref: "/miscellany/travel/"
