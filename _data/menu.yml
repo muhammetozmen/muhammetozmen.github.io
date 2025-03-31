@@ -8,7 +8,7 @@
   href: "/about/"
   subcategories:
     - subtitle: "CV"
-      subhref: "/cv/"
+      subhref: "/cv"
     - subtitle: "Portfolyo"
-      subhref: "/portfolio/"
+      subhref: "/portfolio"
 
