@@ -4,7 +4,7 @@ title: Hakkımda
 permalink: /about/
 ---
 
-{% include image.html url="/images/profile.jpeg" caption="" width=300 align="right" %}
+{% include image.html url="/images/profile.jpeg" width=250 align="right" %}
 
 Ben **Muhammet Özmen**,
 
@@ -15,7 +15,15 @@ Sürekli öğrenmeyi ve paylaşmayı ilke edinerek, teknoloji ve mühendislik al
 
 Aktif olarak otonom sistemler ve gömülü yazılım alanında uzmanlaşmayı hedefliyor, bu doğrultuda staj ve profesyonel çalışma fırsatları arıyorum.
 
+<blockquote>Alt kategorilerden [CV'me](https://muhammetozmen.github.io/about/cv/) ve [Porfolyo'ma](https://muhammetozmen.github.io/about/portfolio/) ulaşabilirsiniz.</blockquote>
+
+
 ---
 
-<blockquote>Bu bir alıntıdır.</blockquote>
-Alt kategoriler içinden [CV'me](https://muhammetozmen.github.io/about/cv/) veya [Porfolyo'ma](https://muhammetozmen.github.io/about/portfolio/) ulaşabilirsiniz.
+İletişim Bilgilerim:
+
+**E*-mail Adresim:** ozmen.muhammet@outlook.com
+**Akademik E-mail Adresim:** muhammetozmen.mdbf21@iste.edu.tr
+
+**Github:** https://github.com/muhammetozmen
+**Linkedin:** https://www.linkedin.com/in/muhammetozmen
