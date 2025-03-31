@@ -1,10 +1,10 @@
 # Site settings
-title: Muhammet Özmen
+title: Kişisel Web Sayfam
 general_email: ozmen.muhammet@outlook.com
 academic_email: muhammetozmen.mdbf21@iste.edu.tr
 
 description: > # this means to ignore newlines until "baseurl:"
-  Bilgisayar mühendisliği 4. sınıf öğrencisiyim, gömülü sistemler ve makine öğrenimi yaklaşımlarıyla ilgileniyorum.
+  Kendi yaptıklarımı yazmak, belgelemek ve saklamak adına oluşturduğum websitem.
 
 #baseurl: "/academic-portfolio" # the subpath of your site, e.g. /blog/
 
