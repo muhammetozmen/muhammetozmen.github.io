@@ -1,15 +1,21 @@
 ---
 layout: page
-title: About
+title: Hakkımda
 permalink: /about/
 ---
 
-{% include image.html url="/images/profile.jpeg" width=200 align="right" %}
+{% include image.html url="/images/profile.jpeg" caption="" width=300 align="right" %}
 
-Describe yourself here. Dummy text ahead.
+Ben **Muhammet Özmen**,
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+İskenderun Teknik Üniversitesi Bilgisayar Mühendisliği 4. sınıf öğrencisiyim. Gömülü yazılım, algoritma geliştirme ve donanım konularında odaklanarak otonom sistemler, IoT ve robotik teknolojileri üzerine çalışıyorum. Şu anda Serbest Görev İHA projesinde yazılım ekibi kaptanı olarak görev alıyor, otonom drone hareket sistemlerinin geliştirilmesine liderlik ediyorum.
 
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. 
+Teknolojik çözümler üretmeye ve inovasyonu teşvik etmeye odaklanarak *C*/*C++*, *Python* ve daha bir çok dilin syntaxına sahip olmanın yanında, yapay zeka algoritmaları (*YOLO, OpenCV, MLP*) gibi alanlarda derinlemesine çalışmalar yapıyorum. Daha önce Teknofest finalistliği elde eden projelerde yer aldım ve akademik araştırmalarla yazılım geliştirme süreçlerine katkı sağladım. Aynı zamanda geçmişte IEEE gibi saygın öğrenci topluluklarında öğrencilere rehberlik ettim, teknik eğitimler veriyor ve topluluk organizasyonlarını yönettim. 
+Sürekli öğrenmeyi ve paylaşmayı ilke edinerek, teknoloji ve mühendislik alanında sürdürülebilir çözümler üretmeye devam ediyorum.
 
-Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
+Aktif olarak otonom sistemler ve gömülü yazılım alanında uzmanlaşmayı hedefliyor, bu doğrultuda staj ve profesyonel çalışma fırsatları arıyorum.
+
+---
+
+<blockquote>Bu bir alıntıdır.</blockquote>
+Alt kategoriler içinden [CV'me](https://muhammetozmen.github.io/about/cv/) veya [Porfolyo'ma](https://muhammetozmen.github.io/about/portfolio/) ulaşabilirsiniz.
