@@ -1,24 +1,24 @@
-- title: "About"
-  href: "/about/"
-
-- title: "Research"
-  href: "/research/"
-
-- title: "Projects"
+- title: "Projelerim"
   href: "/projects/"
 
-- title: "Blog"
+- title: "Yazılarım"
   href: "/blog/"
 
-- title: "CV"
+- title: "Hakkımda"
+  href: "/about/"
+  
+- title: "Sertifikalarım"
+  href: "/certificates/"
+
+- title: "CV & Portfolyo"
   href: "/cv/"
 
-- title: "Miscellany"
-  href: "/miscellany/"
-  subcategories:
-    - subtitle: "Courses Undertaken"
-      subhref: "/miscellany/courses/"
-    - subtitle: "Extracurriculars"
-      subhref: "/miscellany/extracurricular/"
-    - subtitle: "Travel"
-      subhref: "/miscellany/travel/"
+#- title: "Miscellany"
+#  href: "/miscellany/"
+#  subcategories:
+#    - subtitle: "Courses Undertaken"
+#      subhref: "/miscellany/courses/"
+#    - subtitle: "Extracurriculars"
+#      subhref: "/miscellany/extracurricular/"
+#    - subtitle: "Travel"
+#      subhref: "/miscellany/travel/"
