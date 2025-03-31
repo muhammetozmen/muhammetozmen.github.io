@@ -4,7 +4,7 @@ title: Blog
 permalink: /blog/
 ---
 
-Henüz hiçbir yazım yok. <a href="{{ site.baseurl }}/categories/">here</a>.
+Henüz hiçbir yazım yok.
 
 <ul class="listing">
 {% for post in site.posts %}
