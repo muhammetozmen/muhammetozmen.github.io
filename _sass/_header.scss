@@ -1,62 +1,69 @@
 /**
- * Site header ^
+ * Site header
  */
- .site-header {
-    border-top: 0px solid #778DA9; /* Gri-mavi */
-    background-image: linear-gradient(#415A77, #0D1B2A); /* Koyu mavi ve çok koyu mavi */
+.site-header {
+    border-top: 0px solid $grey-color-dark;
+    // min-height: 56px;
+    background-image: linear-gradient($blue-color-light, $blue-color-dark);
     box-shadow: 0px 5px 10px grey;
+    // Positioning context for the mobile navigation icon
     position: relative;
 }
 
 .site-title {
     font-size: 26px;
+/* 		margin-top: 15px;
+    line-height: 40px; */
+    // letter-spacing: -1px;
+    // margin-bottom: 0;
     float: left;
     font-weight: 500;
-    font-family: 'Titillium Web', sans-serif;
-    color: #E0E1DD; /* Açık gri */
+		font-family: 'Titillium Web', sans-serif;
+    color: #ffffff;
     &,
     &:visited {
-        color: #E0E1DD;
+        color: #ffffff;
     }
     &,
     &:hover {
-        color: #E0E1DD;
-        text-decoration: none;
+        color: #ffffff;
+	   text-decoration: none;
     }
 }
 
 .site-header .wrapper {
-    padding-top: 10px;
+	padding-top: 10px;
     padding-bottom: 10px;
-    position: relative;
+	position: relative;
 }
 
 .site-nav ul li a {
-    color: #E0E1DD; /* Açık gri */
+	color: #fff;
 }
 
 .site-nav ul {
-    text-align: right;
-    float: right;
-    padding-top: 9px;
-    font-size: 85%;
-    letter-spacing: 1px;
-    line-height: 1em;
-    font-weight: 600;
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    text-transform: uppercase;
+
+	text-align: right;
+	float: right;
+	padding-top: 9px;
+	font-size: 85%;
+	letter-spacing: 1px;
+	line-height: 1em;
+	font-weight: 600;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	text-transform: uppercase;
     font-family: 'Titillium Web', sans-serif;
 }
 
 .site-nav .menu > li {
-    border-bottom: 0px solid transparent;
-    display: inline-block;
-    height: 23px;
-    line-height: normal;
-    margin: 12px 10px 0 10px;
-    position: relative;
+	border-bottom: 0px solid transparent;
+	display: inline-block;
+	height: 23px;
+	line-height: normal;
+	margin: 12px 10px 0 10px;
+	position: relative;
     vertical-align: top;
     &:hover {
         text-decoration: underline;
@@ -64,125 +71,147 @@
 }
 
 .site-nav a {
-    display: block;
-    color: #E0E1DD; /* Açık gri */
+	display: block;
+    color: #ffffff;
 }
 
 /* Sub Menu */
 
 .site-nav .sub-menu a {
-    display: block;
-    font-weight: normal;
-    height: auto;
-    letter-spacing: 0;
-    line-height: 1.2em;
-    padding: 4px 10px;
-    color: #778DA9; /* Gri-mavi */
+	display: block;
+	font-weight: normal;
+	height: auto;
+	letter-spacing: 0;
+	line-height: 1.2em;
+	padding: 4px 10px;
+    color: $blue-color-dark;
 }
 
 .site-nav .sub-menu a:hover {
-    color: #415A77; /* Koyu mavi */
+	color: $blue-color-light;
 }
+.site-nav  .sub-menu {
+	// background: #ffffff;
+    // border-color: $blue-color-dark;
+	// min-width: 265px;
 
-.site-nav .sub-menu {
-    z-index: 2147483647;
+	z-index:2147483647;
 }
-
 .site-nav .sub-menu li.current-menu-item > a {
-    border-left-color: #415A77; /* Koyu mavi */
-    border-right-color: #415A77; /* Koyu mavi */
-    border-right: 0px;
+	border-left-color: $blue-color-light;
+	border-right-color: $blue-color-light;
+	border-right: 0px;
+
 }
+
 
 .sub-menu {
-    border: 3px solid #778DA9; /* Gri-mavi */
+	border: 3px solid $red-color-dark;
     border-top: 20px solid transparent;
-    box-shadow: 0 2px 2px rgba(0,0,0,0.4);
-    display: none;
-    right: -25%;
-    padding: 4px 0 3px 0;
-    position: absolute;
-    text-align: left;
-    text-transform: none;
-    top: 15px;
-    z-index: 2147483647;
-    font-family: Helvetica, Arial, Verdana, sans-serif;
+	/* bg and border colors set in header */
+	box-shadow: 0 2px 2px rgba(0,0,0,0.4);
+	-moz-box-shadow: 0 2px 2px rgba(0,0,0,0.4);
+	-webkit-box-shadow: 0 2px 2px rgba(0,0,0,0.4);
+	display: none;
+	right: -25%;
+	padding: 4px 0 3px 0;
+	position: absolute;
+	text-align: left;
+	text-transform: none;
+	top: 15px;
+	// min-width: 265px;
+
+    z-index:2147483647;
+	font-family: Helvetica, Arial, Verdana, sans-serif;
+
 }
 
 .sub-menu li {
-    border-bottom: 0;
-    display: block;
-    padding: 0;
+	border-bottom: 0;
+	display: block;
+	height: auto;
+	// margin: 3px 0;
+	padding: 0;
     text-align: left;
-    background: #0D1B2A; /* Çok koyu mavi */
+    background: #ffffff;
 }
 
 .site-nav li:hover > .sub-menu {
-    display: block;
+	display: block;
 }
 
+
+
 .site-nav h1 {
-    position: absolute;
-    left: -999em;
+	position: absolute;
+	left: -999em;
 }
+
 
 .site-nav {
     float: right;
     line-height: 40px;
-}
 
-.site-nav .menu-icon {
-    display: none;
-}
-
-.site-nav .page-link {
-    color: #E0E1DD; /* Açık gri */
-    line-height: $base-line-height;
-    &:not(:first-child) {
-        margin-left: 20px;
-    }
-}
-
-@include media-query($on-palm) {
-    position: absolute;
-    top: 9px;
-    right: 30px;
-    background-color: #1B263B; /* Lacivert */
-    border: 1px solid #778DA9; /* Gri-mavi */
-    border-radius: 5px;
-    text-align: right;
 
     .menu-icon {
-        display: block;
-        float: right;
-        width: 36px;
-        height: 26px;
-        line-height: 0;
-        padding-top: 10px;
-        text-align: center;
-
-        > svg {
-            width: 18px;
-            height: 15px;
-
-            path {
-                fill: #415A77; /* Koyu mavi */
-            }
-        }
-    }
-
-    .trigger {
-        clear: both;
         display: none;
     }
 
-    &:hover .trigger {
-        display: block;
-        padding-bottom: 5px;
+    .page-link {
+        color: #ffffff;
+        line-height: $base-line-height;
+
+        // Gaps between nav items, but not on the first one
+        &:not(:first-child) {
+            margin-left: 20px;
+        }
     }
 
-    .page-link {
-        display: block;
-        padding: 5px 10px;
+
+
+    @include media-query($on-palm) {
+        position: absolute;
+        top: 9px;
+        right: 30px;
+        background-color: $background-color;
+        border: 1px solid $grey-color-light;
+        border-radius: 5px;
+        text-align: right;
+
+        .menu-icon {
+            display: block;
+            float: right;
+            width: 36px;
+            height: 26px;
+            line-height: 0;
+            padding-top: 10px;
+            text-align: center;
+
+            > svg {
+                width: 18px;
+                height: 15px;
+
+                path {
+                    fill: $grey-color-dark;
+                }
+            }
+        }
+
+        .trigger {
+            clear: both;
+            display: none;
+        }
+
+        &:hover .trigger {
+            display: block;
+            padding-bottom: 5px;
+        }
+
+        .page-link {
+            display: block;
+            padding: 5px 10px;
+        }
     }
 }
+
+
