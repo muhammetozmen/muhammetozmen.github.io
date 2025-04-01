@@ -16,13 +16,18 @@ Sürekli öğrenmeyi ve paylaşmayı ilke edinerek, teknoloji ve mühendislik al
 
 Aktif olarak otonom sistemler ve gömülü yazılım alanında uzmanlaşmayı hedefliyor, bu doğrultuda staj ve profesyonel çalışma fırsatları arıyorum.
 Alt kategorilerden [CV'me](https://muhammetozmen.github.io/about/cv/) ve [Porfolyo'ma](https://muhammetozmen.github.io/about/portfolio/) ulaşabilirsiniz.
-
+<br>
 ---
+<br>
+<fieldset>
+<p>
+    İletişim Bilgilerim:
 
-İletişim Bilgilerim:
+    **E-mail Adresim:** ozmen.muhammet@outlook.com  <br>
+    **Akademik E-mail Adresim:** muhammetozmen.mdbf21@iste.edu.tr<br>
 
-**E-mail Adresim:** ozmen.muhammet@outlook.com  <br>
-**Akademik E-mail Adresim:** muhammetozmen.mdbf21@iste.edu.tr<br>
+    **Github:** https://github.com/muhammetozmen<br>
+    **Linkedin:** https://www.linkedin.com/in/muhammetozmen<br>
+</p>
 
-**Github:** https://github.com/muhammetozmen<br>
-**Linkedin:** https://www.linkedin.com/in/muhammetozmen<br>
+</fieldset>
