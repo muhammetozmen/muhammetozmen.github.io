@@ -1,12 +1,10 @@
 ---
 layout: page
 permalink: /projects/
-title: Projects
+title: Projelerim
 ---
 
 <div style="max-width: 800px; margin: 0 auto; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.7; color: #333; padding: 1rem 0;">
-
-    <h2 style="border-bottom: 2px solid #007acc; padding-bottom: 0.5rem;">Projelerim</h2>
 
     <ul style="list-style-type: none; padding-left: 0;">
         <li style="margin-bottom: 1.5rem;">
