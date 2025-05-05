@@ -19,6 +19,28 @@ permalink: /about/
         Sürekli öğrenmeyi ve paylaşmayı ilke edinerek, teknoloji ve mühendislik alanında sürdürülebilir çözümler üretmeye devam ediyorum.
     </p>
 
+    
+    <div class="updates" style="height: auto; overflow-y: auto; background: #f9f9f9; padding: 1.5rem; border-radius: 8px; margin-top: 1rem; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
+    <h3 style="font-size: 1.3rem; color: #007acc; margin-bottom: 1rem;">Eğitim ve Deneyim</h3>
+    <ul style="padding-left: 1.5rem; font-size: 1rem; line-height: 1.8; list-style-type: none;">
+        <li style="margin-bottom: 1.5rem;">
+            <span style="font-weight: bold; color: #007acc;">Eylül 2015 </span><br>
+            <i>Kızıltepe Fen Lisesi, Kızıltepe/Mardin</i>
+            <strong>GNO:</strong> 78,5
+        </li>
+        <li style="margin-bottom: 1.5rem;">
+            <span style="font-weight: bold; color: #007acc;">Ekim 2021 - Günümüz</span><br>
+            <i>Lisans - Bilgisayar Mühendisliği 4. Sınıf - İskenderun Teknik Üniversitesi, İskenderun/Hatay</i><br>
+            <strong>GNO:</strong> 3.23
+        </li>
+        <li style="margin-bottom: 1.5rem;">
+            <span style="font-weight: bold; color: #007acc;">Ocak 2024 - Günümüz</span><br>
+            <i>Uzun Dönem Staj - Winton Yazılım ve İnovasyon Limited Şirketi, İskenderun/Hatay</i><br>
+        </li>
+    </ul>
+</div>
+
+
     <div style="margin: 2rem 0; background-color: #f0f0f0; border-left: 5px solid #007acc; padding: 1rem 1.5rem; border-radius: 6px;">
         <p style="margin: 0;">
             Aktif olarak otonom sistemler ve gömülü yazılım alanında uzmanlaşmayı hedefliyor; bu doğrultuda staj ve profesyonel çalışma fırsatları arıyorum.<br>
