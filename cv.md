@@ -12,10 +12,10 @@ permalink: /cv/
 
     <ul style="list-style-type: none; padding-left: 0; font-size: 1rem;">
         <li style="margin: 0.5rem 0;">
-            📄 <a href="long_cv.pdf" style="color: #007acc; text-decoration: none;">CV</a> <span style="color: #555;">(4 sayfa)</span>
+            📄 <a href="long_cv.pdf" style="color: #007acc; text-decoration: none;">Kapsamlı CV (Önerdiğim)</a> <span style="color: #555;">(4 sayfa)</span>
         </li>
         <li style="margin: 0.5rem 0;">
-            📄 <a href="short_cv.pdf" style="color: #007acc; text-decoration: none;">Kısa Özgeçmiş</a> <span style="color: #555;">(1 sayfa)</span>
+            📄 <a href="short_cv.pdf" style="color: #007acc; text-decoration: none;">Kısaltılmış CV</a> <span style="color: #555;">(1 sayfa)</span>
         </li>
     </ul>
 
