@@ -6,82 +6,129 @@ permalink: /about/
 
 <div style="max-width: 900px; margin: 0 auto; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.7; color: #333;">
 
-{% include image.html url="/images/profile.jpeg" width=250 align="right" %}
+    {% include image.html url="/images/profile.jpeg" width=250 align="right" %}
 
-## Merhaba, ben Muhammet Özmen
+    <p style="font-size: 1.1rem;">
+        Bilgisayar Mühendisliği 4. sınıf öğrencisiyim ve eğitim sürecim boyunca gömülü sistemler, algoritma geliştirme ve donanım-yazılım entegrasyonu konularına odaklandım. Özellikle otonom sistemler, IoT ve robotik teknolojiler üzerine çalışıyor; C/C++, Python gibi dillere hâkim olarak düşük seviyeli sistem programlama ve yapay zeka algoritmalarını (YOLO, OpenCV, MLP) projelerimde aktif olarak kullanıyorum.
 
-Bilgisayar Mühendisliği 4. sınıf öğrencisiyim. Eğitim sürecim boyunca **gömülü sistemler**, **algoritma geliştirme** ve **donanım-yazılım entegrasyonu** konularına odaklandım. Özellikle **otonom sistemler**, **IoT** ve **robotik teknolojiler** üzerine çalışıyor; C/C++, Python gibi dillere hâkim olarak sistem programlama ve yapay zekâ algoritmalarını (YOLO, OpenCV, MLP) projelerimde aktif kullanıyorum.
+        Şu anda, Serbest Görev İHA projesinde yazılım kaptanı olarak görev almakta; otonom drone hareket sistemlerinin geliştirilmesini yürütmekteyim. Geçmişte TEKNOFEST finalistliği elde etmiş projelerde yazılım geliştirme süreçlerinde sorumluluk aldım. IEEE gibi teknik topluluklarda eğitimler vererek ekip çalışması, mentorluk ve teknik liderlik alanlarında deneyim kazandım.
+        
+        Sürekli öğrenmeye ve teknik sorunlara çözüm üretmeye istekli bir mühendis adayı olarak, gömülü yazılım alanında staj ve profesyonel gelişim fırsatları arıyorum.    
+    </p>
 
-Şu anda Serbest Görev İHA projesinde **yazılım kaptanı** olarak görev yapıyor, otonom drone hareket sistemlerinin geliştirilmesine liderlik ediyorum. Geçmişte **TEKNOFEST finalistliği** elde etmiş projelerde yer aldım. IEEE gibi topluluklarda teknik eğitimler vererek ekip yönetimi, mentorluk ve organizasyon deneyimi kazandım.
+    <!-- Eğitim ve Deneyim Çalışmaları Bölümü Başlangıcı -->
+    
+    <div class="updates" style="height: auto; overflow-y: auto; background: #f9f9f9; padding: 1.5rem; border-radius: 8px; margin-top: 1rem; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
+    <h3 style="font-size: 1.3rem; color: #006cb4; margin-bottom: 1rem;">Eğitim ve Deneyim</h3>
+    <ul style="padding-left: 1.5rem; font-size: 1rem; line-height: 1.8; list-style-type: none;">
+        
+        <li style="margin-bottom: 1.5rem;">
+            <span style="font-weight: bold; color: #16496b;">Lisans - Bilgisayar Mühendisliği</span><br>
+            <i>10/2021 - Günümüz, İskenderun Teknik Üniversitesi, İskenderun/Hatay</i><br>
+            <strong>GNO:</strong> 3.22
+        </li>
 
-Sürekli öğrenmeyi, üretmeyi ve paylaşmayı ilke edinen biri olarak, gömülü yazılım alanında profesyonelleşmeyi hedefliyor ve bu doğrultuda **staj ile çalışma fırsatları** arıyorum.
+        <li style="margin-bottom: 1.5rem;">
+            <span style="font-weight: bold; color: #16496b;">Uzun Dönem Staj</span><br>
+            <i> 01/2024 - Günümüz, Winton Yazılım ve İnovasyon Limited Şirketi, İskenderun/Hatay</i>
+        </li>
+        
+    </ul>
+    </div>
 
----
+    <!-- Gönüllülük ve Topluluk Çalışmaları Bölümü Başlangıcı -->
 
-## 🎓 Eğitim ve Deneyim
+    <div class="updates" style="height: auto; overflow-y: auto; background: #f9f9f9; padding: 1.5rem; border-radius: 8px; margin-top: 1rem; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
+        <h3 style="font-size: 1.3rem; color: #006cb4; margin-bottom: 1rem;">Gönüllülük ve Topluluk Çalışmaları</h3>
+        <ul style="padding-left: 1.5rem; font-size: 1rem; line-height: 1.8; list-style-type: none;">
+    
+            <li style="margin-bottom: 1.5rem;">
+                <span style="font-weight: bold; color: #16496b;">T3 Vakfı: T3 Eğitmen Mentor</span><br>
+                <i>3/2024 - Günümüz, DENEYAP atölyelerinde öğrencilere rehberlik ederek teknik eğitimler sundum ve atölye projelerini yönettim.</i>
+            </li>
+    
+            <li style="margin-bottom: 1.5rem;">
+                <span style="font-weight: bold; color: #16496b;">T3 Vakfı: T3 AI’LE Topluluk Gönüllüsü</span><br>
+                <i>2/2024 – Günümüz</i>
+                Yerli yapay zeka modeli geliştirme sürecinde veri sağlayarak modelin eğitilmesine katkı sağladım.
+            </li>
+    
+            <li style="margin-bottom: 1.5rem;">
+                <span style="font-weight: bold; color: #16496b;">İSTE İHA Topluluğu: Başkan Yardımcısı</span><br>
+                <i>10/2024 - Günümüz, İskenderun Teknik Üniversitesi</i><br>
+                Toplulukta proje yönetimi ve mentorlük yapmaktayım. Yeni başlayan öğrencilerin karşılaştığı problemlerde yardımcı olmaktayım.
+            </li>
+    
+            <li style="margin-bottom: 1.5rem;">
+                <span style="font-weight: bold; color: #16496b;">IEEE - İSTE Student Branch: Computer Science Başkanı</span><br>
+                <i>6/2022 - 6/2023</i><br>
+                Python yazılım eğitimi düzenleyerek yeni gelen öğrencilere mühendislik ile tanışma fırsatı sundum.    
+            </li>
+    
+        </ul>
+    </div>
 
-- **Bilgisayar Mühendisliği, Lisans**  
-  *10/2021 - Günümüz · İskenderun Teknik Üniversitesi · GNO: 3.22*
+    <!-- Hobi ve ilgi alanı Çalışmaları Bölümü Başlangıcı -->
 
-- **Uzun Dönem Stajyer**  
-  *01/2024 - Günümüz · Winton Yazılım ve İnovasyon Ltd. Şti.*
+    <!-- Kişisel Yetenekler ve İlgi Alanları -->
+<div class="updates" style="height: auto; overflow-y: auto; background: #f9f9f9; padding: 1.5rem; border-radius: 8px; margin-top: 1rem; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
+    <h3 style="font-size: 1.3rem; color: #006cb4; margin-bottom: 1rem;">Dil Yetenekleri</h3>
+    <ul style="padding-left: 1.5rem; font-size: 1rem; line-height: 1.8; list-style-type: none;">
+        <li style="margin-bottom: 1rem;">
+            <strong style="color: #16496b;">Türkçe ve Kürtçe:</strong> Anadil
+        </li>
+        <li style="margin-bottom: 1rem;">
+            <strong style="color: #16496b;">İngilizce:</strong> İleri Seviye (Berlitz Level 5, CEFR B1.1) <br>
+        </li>
+    </ul>
 
----
+    <!-- Sosyal beceriler bölümü -->
+    <h3 style="font-size: 1.3rem; color: #006cb4; margin-top: 2rem; margin-bottom: 1rem;">Sosyal Beceriler</h3>
+    <ul style="padding-left: 1.5rem; font-size: 1rem; line-height: 1.8; list-style-type: disc;">
 
-## 👥 Gönüllülük ve Topluluk Çalışmaları
+        <li style="margin-bottom: 1rem;">
+            <strong>Liderlik ve Kriz Yönetimi:</strong> Topluluklarda görev alırken stres anlarında doğru kararlar alarak ekip arkadaşlarını yönlendirme tecrübesi kazandım.
+        </li>
+        <li style="margin-bottom: 1rem;">
+            <strong>Kendi Kendine Öğrenme:</strong> Alanımla ilgili birçok bilgiyi kendi başıma öğrendim. Araştırma yaparak problem çözme ve kendi kendini geliştirme becerisine sahibim.
+        </li>
+        <li style="margin-bottom: 1rem;">
+            <strong>Takım Çalışması:</strong> Diğer bölümlerle iş birliği içinde çalışarak onların problemlerini bilgisayar mühendisliği bilgimle çözümledim.
+        </li>
+    </ul>
 
-- **T3 Vakfı: T3 Eğitmen Mentor**  
-  *03/2024 - Günümüz*  
-  Deneyap Atölyelerinde teknik eğitimler verdim, atölye projelerini yönettim.
+    <!-- Hobiler bölümü -->
+    <h3 style="font-size: 1.3rem; color: #006cb4; margin-top: 2rem; margin-bottom: 1rem;">Hobiler</h3>
+    <ul style="padding-left: 1.5rem; font-size: 1rem; line-height: 1.8; list-style-type: disc;">
 
-- **T3 Vakfı: AI’LE Topluluk Gönüllüsü**  
-  *02/2024 - Günümüz*  
-  Yerli yapay zekâ modeli geliştirme sürecine veri katkısı sağladım.
+        <li style="margin-bottom: 1rem;">
+            <strong>Çizim:</strong> Grafik ve karakalem alanında amatör olarak çizim yapıyor, çalışmalarımı sosyal medyada paylaşıyorum.
+        </li>
+        <li style="margin-bottom: 1rem;">
+            <strong>Sinema:</strong> Film izlemeyi ve ardından düşüncelerimi yazmayı seviyorum.
+        </li>
+        <li style="margin-bottom: 1rem;">
+            <strong>Bilgisayar Oyunları:</strong> RPG ve stratejik simülasyon türü oyunlara ilgi duyuyorum; video oyun kültürüyle yakından ilgiliyim.
+        </li>
+    </ul>
+    </div>
 
-- **İSTE İHA Topluluğu: Başkan Yardımcısı**  
-  *10/2024 - Günümüz*  
-  Proje yönetimi, mentorluk ve yeni öğrencilere rehberlik sağlıyorum.
+    <div style="margin: 2rem 0; background-color: #f0f0f0; border-left: 5px solid #007acc; padding: 1rem 1.5rem; border-radius: 6px;">
+        <p style="margin: 0;">
+            Alt kategorilerden <a href="https://muhammetozmen.github.io/about/cv/" style="text-decoration: none; color: #007acc;">CV'me</a> ve <a href="https://muhammetozmen.github.io/about/portfolio/" style="text-decoration: none; color: #007acc;">Portfolyo'ma</a> ulaşabilirsiniz.
+        </p>
+    </div>
 
-- **IEEE - İSTE Student Branch: Computer Science Başkanı**  
-  *06/2022 - 06/2023*  
-  Python eğitimleri düzenleyerek mühendislik disiplinleriyle tanışma fırsatları sundum.
+    <hr style="margin: 2rem 0;">
 
----
-
-## 🌍 Dil Yetenekleri
-
-- **Türkçe & Kürtçe:** Anadil  
-- **İngilizce:** CEFR B1.1 (Berlitz Level 5)
-
----
-
-## 💼 Sosyal Beceriler
-
-- **Liderlik & Kriz Yönetimi:** Topluluk deneyimleriyle stres altında doğru karar alma.  
-- **Kendi Kendine Öğrenme:** Sürekli araştırarak teknik bilgi edinme ve geliştirme becerisi.  
-- **Takım Çalışması:** Farklı bölümlerle birlikte üretken iş birlikleri kurma tecrübesi.
-
----
-
-## 🎨 Hobiler
-
-- **Çizim:** Grafik ve karakalem çizimle ilgileniyorum.  
-- **Sinema:** Film izleyip analiz yazıları yazmaktan keyif alıyorum.  
-- **Oyun:** RPG ve strateji türlerine ilgi duyuyorum.
-
----
-
-## 📎 Diğer Sayfalar
-
-Alt kategorilerden [CV'me](/about/cv/) ve [Portfolyo'ma](/about/portfolio/) ulaşabilirsiniz.
-
----
-
-## 📬 İletişim
-
-- **E-posta:** ozmen.muhammet@outlook.com  
-- **Akademik E-posta:** muhammetozmen.mdbf21@iste.edu.tr  
-- **GitHub:** [github.com/muhammetozmen](https://github.com/muhammetozmen)  
-- **LinkedIn:** [linkedin.com/in/muhammetozmen](https://www.linkedin.com/in/muhammetozmen)
+    <div style="background-color: #fafafa; padding: 1.5rem; border-radius: 6px; border: 1px solid #ddd;">
+        <h3 style="margin-top: 0;">İletişim Bilgilerim</h3>
+        <ul style="list-style-type: none; padding-left: 0; font-size: 1rem;">
+            <li><strong>E-mail:</strong> ozmen.muhammet@outlook.com</li>
+            <li><strong>Akademik E-mail:</strong> muhammetozmen.mdbf21@iste.edu.tr</li>
+            <li><strong>GitHub:</strong> <a href="https://github.com/muhammetozmen" style="color: #007acc;">github.com/muhammetozmen</a></li>
+            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/muhammetozmen" style="color: #007acc;">linkedin.com/in/muhammetozmen</a></li>
+        </ul>
+    </div>
 
 </div>
