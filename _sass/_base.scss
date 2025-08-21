@@ -44,6 +44,8 @@ ul, ol, dl, figure,
 img {
     max-width: 100%;
     vertical-align: middle;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 
@@ -57,6 +59,9 @@ figure > img {
 
 figcaption {
     font-size: $small-font-size;
+    color: $grey-color-light;
+    text-align: center;
+    margin-top: 8px;
 }
 
 
@@ -82,6 +87,10 @@ li {
  */
 h1, h2, h3, h4, h5, h6 {
     font-weight: 200;
+    color: $text-color;
+    border-bottom: 2px solid $blue-color-light;
+    padding-bottom: 8px;
+    margin-bottom: 16px;
 }
 
 
@@ -92,14 +101,15 @@ h1, h2, h3, h4, h5, h6 {
 a {
     color: $brand-color;
     text-decoration: none;
+    transition: color 0.3s ease;
 
    &:visited {
-    /*    color: darken($brand-color, 15%); */
+        color: darken($brand-color, 15%);
     } 
 
     &:hover {
-        color: $text-color;
-        // text-decoration: underline;
+        color: $blue-color-light;
+        text-decoration: underline;
     }
 }
 
@@ -108,11 +118,15 @@ a {
  */
 blockquote {
     color: $grey-color;
-    border-left: 4px solid $grey-color-light;
+    border-left: 4px solid $blue-color-light;
     padding-left: $spacing-unit / 2;
     font-size: 18px;
     letter-spacing: -1px;
     font-style: italic;
+    background-color: lighten($background-color, 5%);
+    padding: 16px;
+    border-radius: 0 8px 8px 0;
+    margin: 20px 0;
 
     > :last-child {
         margin-bottom: 0;
@@ -128,22 +142,29 @@ pre,
 code {
     font-size: 14px;
     border: 1px solid $grey-color-light;
-    border-radius: 3px;
-    background-color: lighten($blue-color-light, 35%);
+    border-radius: 6px;
+    background-color: #2a2a2a;
+    color: #e0e0e0;
 }
 
 code {
-    padding: 1px 5px;
+    padding: 2px 6px;
+    font-family: 'Fira Code', 'Consolas', 'Monaco', monospace;
 }
 
 pre {
-    padding: 8px 12px;
-    overflow-x: scroll;
+    padding: 12px 16px;
+    overflow-x: auto;
+    background-color: #2a2a2a;
+    border: 1px solid #404040;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 
     > code {
         border: 0;
         padding-right: 0;
         padding-left: 0;
+        background-color: transparent;
     }
 }
 
@@ -213,21 +234,65 @@ pre {
     font-weight: bold;
     font-size: 12px;
     display: inline-block;
-    padding: 0px 10px;
+    padding: 8px 16px;
     margin: 0px 5px 0 0;
     cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    
     &:hover {
         background: $blue-color-light;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
 }
 
 a.tosu {
-color: #b00000;
-background: #f5f5f5;
+color: #ff6b6b;
+background: #2a2a2a;
 text-decoration: none;
- padding: 2px; 
+ padding: 4px 8px; 
  font-weight: 600; 
 font-family: 'Capita', Georgia, serif;
+border-radius: 4px;
+transition: all 0.3s ease;
+
+&:hover {
+    background: #3a3a3a;
+    color: #ff8e8e;
+}
+}
+
+/**
+ * Dark theme enhancements
+ */
+hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, $blue-color-light, transparent);
+    margin: 30px 0;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid $grey-color-light;
+    }
+    
+    th {
+        background-color: lighten($background-color, 5%);
+        font-weight: 600;
+        color: $text-color;
+    }
+    
+    tr:hover {
+        background-color: lighten($background-color, 3%);
+    }
 }
 
 

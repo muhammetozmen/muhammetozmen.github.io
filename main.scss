@@ -10,17 +10,17 @@ $base-line-height: 1.5;
 
 $spacing-unit:     30px;
 
-$text-color:       #111;
-$background-color: #fdfdfd;
-$brand-color:      #1B263B;
+// Dark theme colors
+$text-color:       #e0e0e0;
+$background-color: #1a1a1a;
+$brand-color:      #4a9eff;
 
-$blue-color-dark: darken(#415A77, 10%);
-$blue-color-light: #778DA9;
+$blue-color-dark: #4a9eff;
+$blue-color-light: #64b5f6;
 
-$grey-color:       #1B263B;
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
-
+$grey-color:       #b0b0b0;
+$grey-color-light: #888888;
+$grey-color-dark:  #e0e0e0;
 
 // Width of the content area
 $content-width:    950px;

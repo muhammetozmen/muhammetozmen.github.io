@@ -1,16 +1,72 @@
-<ul class="menu">
-
-    {% for menu_item in site.data.menu %}
-    {% if menu_item.subcategories != null %}
-    <li><a href="{{ site.baseurl }}{{ menu_item.href }}" class="page-link">{{ menu_item.title }}</a>
-    <ul class="sub-menu">
-    {% for subcategory in menu_item.subcategories %}
-    <li><a href="{{ site.baseurl }}{{ subcategory.subhref }}">{{ subcategory.subtitle }}</a></li>
-    {% endfor %}
-    </ul>
+<ul class="menu" style="display: flex; align-items: center;">
+    {% if page.lang == "en" %}
+        {% for menu_item in site.data.en.menu %}
+        {% if menu_item.subcategories != null %}
+        <li style="font-size: 1.13em;"><a href="{{ site.baseurl }}{{ menu_item.href }}" class="page-link">{{ menu_item.title }}</a>
+        <ul class="sub-menu">
+        {% for subcategory in menu_item.subcategories %}
+        <li><a href="{{ site.baseurl }}{{ subcategory.subhref }}">{{ subcategory.subtitle }}</a></li>
+        {% endfor %}
+        </ul>
+        {% else %}
+         <li style="font-size: 1.13em;"><a href="{{ site.baseurl }}{{ menu_item.href }}" class="page-link">{{ menu_item.title }}</a>
+        {% endif %}
+        </li>
+        {% endfor %}
     {% else %}
-     <li><a href="{{ site.baseurl }}{{ menu_item.href }}" class="page-link">{{ menu_item.title }}</a>
+        {% for menu_item in site.data.menu %}
+        {% if menu_item.subcategories != null %}
+        <li style="font-size: 1.13em;"><a href="{{ site.baseurl }}{{ menu_item.href }}" class="page-link">{{ menu_item.title }}</a>
+        <ul class="sub-menu">
+        {% for subcategory in menu_item.subcategories %}
+        <li><a href="{{ site.baseurl }}{{ subcategory.subhref }}">{{ subcategory.subtitle }}</a></li>
+        {% endfor %}
+        </ul>
+        {% else %}
+         <li style="font-size: 1.13em;"><a href="{{ site.baseurl }}{{ menu_item.href }}" class="page-link">{{ menu_item.title }}</a>
+        {% endif %}
+        </li>
+        {% endfor %}
     {% endif %}
+    <!-- Language Selector (en sağda) -->
+    <li class="language-selector" style="margin-left: auto; background: transparent; border-radius: 0; display: flex; align-items: center;">
+        <a href="#" class="page-link language-icon" style="color: #fff; font-size: 1.5em; background: transparent; padding: 0 0 0 10px; line-height: 1; display: flex; align-items: center;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="11" stroke="white" stroke-width="2" fill="none"/>
+                <path d="M2 12h20M12 2c2.5 3.5 2.5 16.5 0 20M12 2c-2.5 3.5-2.5 16.5 0 20" stroke="white" stroke-width="2" fill="none"/>
+            </svg>
+        </a>
+        <ul class="sub-menu">
+            <li><a href="{{ page.url | replace: '/en/', '/' | replace: '/tr/', '/' }}">🇹🇷 Türkçe</a></li>
+            <li><a href="/en{{ page.url | replace: '/en/', '/' | replace: '/tr/', '/' }}">🇺🇸 English</a></li>
+        </ul>
     </li>
-    {% endfor %}
 </ul>
+<style>
+.menu > li {
+    vertical-align: middle;
+    margin-left: 10px;
+}
+.menu > li > a.page-link {
+    font-size: 1.13em;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+.language-icon {
+    color: #fff !important;
+    font-size: 1.5em !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    margin: 0 0 0 8px !important;
+    padding: 0 !important;
+    vertical-align: middle !important;
+    display: flex !important;
+    align-items: center !important;
+    height: 100%;
+}
+.menu > .language-selector {
+    margin-left: auto !important;
+    padding-right: 0 !important;
+}
+</style>

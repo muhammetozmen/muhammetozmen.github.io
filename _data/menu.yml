@@ -7,8 +7,6 @@
 - title: "Hakkımda"
   href: "/about/"
   subcategories:
-    - subtitle: "CV"
+    - subtitle: "CV & Portfolyo"
       subhref: "/cv/"
-    - subtitle: "Portfolyo"
-      subhref: "/portfolio/"
 

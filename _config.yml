@@ -1,5 +1,5 @@
 # Site settings
-title: Kişisel Web Sayfam
+title: Muhammet Özmen
 general_email: ozmen.muhammet@outlook.com
 academic_email: muhammetozmen.mdbf21@iste.edu.tr
 
@@ -18,9 +18,41 @@ linkedin_username: muhammetozmen
 
 # Build settings
 markdown: kramdown
+include:
+  - _pages
 
 kramdown:
   math_engine: mathjax
 
 # Other options
 permalink: blog/:year/:month/:title
+
+# Defaults for pages
+defaults:
+  - scope:
+      path: "_pages/tr"
+      type: "pages"
+    values:
+      layout: "page"
+      lang: "tr"
+
+  - scope:
+      path: "_pages/en"
+      type: "pages"
+    values:
+      layout: "page"
+      lang: "en"
+
+  - scope:
+      path: "_posts/tr"
+      type: "posts"
+    values:
+      layout: "post"
+      lang: "tr"
+
+  - scope:
+      path: "_posts/en"
+      type: "posts"
+    values:
+      lang: "en"
+      permalink: "/en/blog/:year/:month/:title/"

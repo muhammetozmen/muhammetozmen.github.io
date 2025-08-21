@@ -1,0 +1,11 @@
+- title: "Projects"
+  href: "/en/projects/"
+
+- title: "Blog"
+  href: "/en/blog/"
+
+- title: "About"
+  href: "/en/about/"
+  subcategories:
+    - subtitle: "CV & Portfolio"
+      subhref: "/en/cv/" 
