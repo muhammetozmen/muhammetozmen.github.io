@@ -7,5 +7,5 @@
 - title: "About"
   href: "/en/about/"
   subcategories:
-    - subtitle: "CV & Portfolio"
+    - subtitle: "My CVs in PDF"
       subhref: "/en/cv/" 

@@ -9,23 +9,17 @@ lang: en
 
     <h2 style="font-size: 1.3rem; border-bottom: 2px solid #007acc; padding-bottom: 0.5rem; margin-bottom: 1.5rem;">CV</h2>
     <p style="font-size: 1.1rem;">
-        You can access my short and long CVs in PDF format below:
+        You can access my Turkish and English CVs in PDF format below:
     </p>
     <ul style="list-style-type: none; padding-left: 0; font-size: 1rem;">
+    
         <li style="margin: 0.5rem 0;">
-            &#128196; <a href="long_cv.pdf" style="color: #007acc; text-decoration: none;">Comprehensive CV</a> <span style="color: #555;">(2 pages)</span>
+            &#128196; <a href="muhammetozmen_cv_en.pdf" style="color: #007acc; text-decoration: none;">CV English</a> <span style="color: #555;">(1 pages)</span>
+        </li>
+        <li style="margin: 0.5rem 0;">
+            &#128196; <a href="muhammetozmen_cv_tr.pdf" style="color: #007acc; text-decoration: none;">CV Turkish</a> <span style="color: #555;">(1 pages)</span>
         </li>
         <!-- Note: CVs go here -->
-    </ul>
-
-    <h2 style="font-size: 1.3rem; border-bottom: 2px solid #007acc; padding-bottom: 0.5rem; margin: 2.5rem 0 1.5rem 0;">Portfolio</h2>
-    <p style="font-size: 1.1rem;">
-        You can access my portfolio below:
-    </p>
-    <ul style="list-style-type: none; padding-left: 0; font-size: 1rem;">
-        <li style="margin: 0.5rem 0;">
-            &#128196; <a href="long_cv.pdf" style="color: #007acc; text-decoration: none;">I haven’t created a portfolio yet. Instead, you can take a look at the About section or my CV.</a> <span style="color: #555;">(x pages)</span>
-        </li>
     </ul>
 
 </div>
