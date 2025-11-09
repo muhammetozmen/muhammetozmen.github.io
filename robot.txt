@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://muhammetozmen.github.io/sitemap.xml
+Sitemap: https://muhammetozmen.org/sitemap.xml
