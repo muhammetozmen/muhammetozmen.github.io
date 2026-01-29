@@ -1,0 +1,1259 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+:root {
+  --bg-color: #1a1a1a;
+  --text-main: #cccccc;
+  --text-bright: #ffffff;
+  --accent-neon-green: #00ff41;
+  --accent-neon-teal: #00e0d0;
+  --accent-neon-purple: #bd00ff;
+  --border-light: #444444;
+  --border-dark: #000000;
+  --header-grad-start: #000080;
+  --header-grad-end: #1084d0;
+  --header-grad-end: #1084d0;
+  --font-main: 'VT323', monospace;
+  /* Global Retro Font */
+  --font-mono: 'VT323', monospace;
+}
+
+/* ... existing styles ... */
+
+/* Pulsing Glow Effect */
+.pulse-glow {
+  /* White core for the "lamp" effect */
+  font-family: var(--font-main);
+  /* Retro font */
+  font-size: 2.2em;
+  letter-spacing: 2px;
+  color: #ffffff;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px var(--accent-neon-teal),
+    0 0 20px var(--accent-neon-teal);
+  animation: pulse-bloom 4s ease-in-out infinite, neon-flicker 6s linear infinite;
+}
+
+@keyframes pulse-bloom {
+
+  0%,
+  100% {
+    text-shadow: 0 0 5px var(--accent-neon-teal), 0 0 10px var(--accent-neon-teal);
+  }
+
+  50% {
+    text-shadow: 0 0 5px #fff, 0 0 10px var(--accent-neon-teal), 0 0 15px var(--accent-neon-teal);
+  }
+}
+
+@keyframes neon-flicker {
+
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+    opacity: 1;
+  }
+
+  20%,
+  24%,
+  55% {
+    opacity: 0.8;
+  }
+
+  22% {
+    opacity: 0.4;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #050505;
+  background-image:
+    linear-gradient(#111 1px, transparent 1px),
+    linear-gradient(90deg, #111 1px, transparent 1px),
+    linear-gradient(#1a1a1a 1px, transparent 1px),
+    linear-gradient(90deg, #1a1a1a 1px, transparent 1px);
+  background-size:
+    20px 20px,
+    20px 20px,
+    100px 100px,
+    100px 100px;
+  background-attachment: fixed;
+  color: var(--text-main);
+  font-family: var(--font-main);
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  /* Increased readability size */
+  line-height: 1.5;
+  /* Log file spacing */
+}
+
+/* Global Typography Overrides */
+p,
+.side-right {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+
+li,
+a,
+span,
+input,
+textarea,
+button {
+  font-family: var(--font-main);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-main);
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+a {
+  color: var(--accent-neon-green);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #fff;
+  text-shadow: 0 0 5px #ffffff;
+}
+
+/* Layout Grid */
+.container {
+  display: grid;
+  grid-template-columns: 200px 1fr 200px;
+  grid-template-areas:
+    "header header header"
+    "sidebar-left main sidebar-right"
+    "footer footer footer";
+  row-gap: 0;
+  column-gap: 5px;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 10px;
+}
+
+/* Common Beveled Box Style */
+.beveled-box {
+  background-color: var(--bg-color);
+  border: 3px solid;
+  border-color: var(--border-light) var(--border-dark) var(--border-dark) var(--border-light);
+  padding: 2px;
+}
+
+.box-header {
+  background: linear-gradient(90deg, var(--header-grad-start), var(--header-grad-end));
+  color: #fff;
+  padding: 3px 5px;
+  font-weight: bold;
+  font-family: var(--font-main);
+  border: 1px solid;
+  border-color: #666 #222 #222 #666;
+  /* Inner bevel for header */
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.box-content {
+  padding: 10px;
+}
+
+/* Header/Marquee */
+header {
+  grid-area: header;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.marquee-container {
+  background: #000;
+  border: 2px inset #666;
+  color: #33cc33;
+  font-family: 'Courier New', Courier, monospace;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 5px 0;
+}
+
+.marquee-content {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 30s linear infinite;
+  will-change: transform;
+}
+
+.marquee-content span {
+  display: inline-block;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
+
+
+/* Sidebar Grid Areas */
+.side-left {
+  grid-area: sidebar-left;
+}
+
+main {
+  grid-area: main;
+  min-height: 500px;
+  /* Prevents collapsing when there are no blog posts */
+}
+
+.side-right {
+  grid-area: sidebar-right;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding-left: 10px;
+  margin: 0;
+}
+
+.sidebar li {
+  margin-bottom: 5px;
+  padding-bottom: 2px;
+  border-bottom: 1px dashed #333;
+}
+
+.sidebar li:last-child {
+  border-bottom: none;
+}
+
+.sidebar a {
+  color: #fff;
+}
+
+/* Nested Navigation Styling */
+.sidebar ul ul {
+  margin-left: 15px;
+  margin-top: 5px;
+  border-left: 1px dotted var(--accent-neon-green);
+  padding-left: 5px;
+}
+
+.sidebar ul ul img {
+  width: 16px;
+  height: 16px;
+}
+
+.sidebar ul ul li {
+  border-bottom: none;
+  margin-bottom: 3px;
+}
+
+.sidebar ul ul li a {
+  font-size: 0.9em;
+  color: #aaa;
+}
+
+.sidebar ul ul li a:hover {
+  color: #fff;
+}
+
+/* Right Sidebar specific */
+.button-wall {
+  display: grid;
+  grid-template-columns: repeat(2, 88px);
+  gap: 5px;
+  justify-content: center;
+}
+
+.button-wall img {
+  width: 88px;
+  height: 31px;
+  display: block;
+  border: 1px solid #333;
+}
+
+/* Main Content */
+main h1 {
+  color: #50aae6;
+  border-bottom: 2px solid #50aae6;
+  margin-top: 0;
+}
+
+main h2,
+main h3 {
+  color: #fff;
+}
+
+code {
+  background: #000;
+  color: #0f0;
+  padding: 2px 5px;
+  font-family: var(--font-mono);
+  border: 1px solid #333;
+}
+
+pre {
+  background: #000;
+  border: 2px inset #555;
+  padding: 10px;
+  overflow-x: auto;
+}
+
+pre code {
+  border: none;
+  padding: 0;
+  background: transparent;
+}
+
+/* Gallery Grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.gallery-item {
+  border: 1px solid var(--border-light);
+  padding: 10px;
+  text-align: center;
+  background: #000;
+}
+
+.gallery-item:hover {
+  border-color: #fff;
+  box-shadow: 0 0 5px #fff;
+}
+
+.marquee-icon {
+  height: 14px;
+  /* Yazı fontunla kabaca aynı yükseklikte olsun */
+  width: auto;
+  /* Oran bozulmasın */
+  display: inline-block;
+  /* Satır içi blok davranışı */
+
+  /* Kritik Kısım: Hizalama */
+  vertical-align: middle;
+  /* Yazının ortasına hizalamaya çalışır */
+
+  /* İnce Ayar (Fine Tuning) */
+  position: relative;
+  top: -1px;
+  /* Eksi değer yukarı, artı değer aşağı iter. */
+  /* Gif hala yukarıdaysa burayı 1px veya 2px yap */
+
+  margin: 0 6px;
+  /* Sağdan soldan boşluk */
+}
+
+/* Living Terminal */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+#living-terminal {
+  background: #0d0d0d;
+  /* Slightly lighter black to show scanlines */
+  height: 300px;
+  position: relative;
+  border: 3px solid #333;
+  border-color: #000 #555 #555 #000;
+  box-shadow: inset 0 0 20px rgba(0, 255, 0, 0.1);
+  margin-bottom: 20px;
+
+  /* CRT screen effect keyframe still applies to parent or move to child? flickering background is fine on parent */
+  animation: flicker 0.15s infinite;
+}
+
+.terminal-content {
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+  overflow-y: hidden;
+  /* Internal scrolling */
+  color: #00FF00;
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+  font-size: 16px;
+  /* Increased from 10px */
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  text-shadow: 0 0 2px #00FF00;
+}
+
+#living-terminal::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 2;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+@keyframes flicker {
+
+  0%,
+  100% {
+    opacity: 0.98;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+
+
+/* Footer */
+footer {
+  grid-area: footer;
+  text-align: center;
+  padding: 20px;
+  font-size: 11px;
+  color: #666;
+  border-top: 2px groove #444;
+  margin-top: 20px;
+}
+
+/* Specific Link Overrides */
+.gallery-item a,
+.project-list li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.gallery-item a:hover,
+.project-list li a:hover {
+  text-shadow: 0 0 8px #fff;
+}
+
+/* Projects List */
+.project-list li {
+  border-bottom: 1px dashed #444;
+  padding: 10px 0;
+}
+
+.project-list li:last-child {
+  border-bottom: none;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Glitch Effect for Headers */
+.glitch-header {
+  position: relative;
+  display: inline-block;
+  color: #fff;
+}
+
+.glitch-header::before,
+.glitch-header::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--header-grad-start), var(--header-grad-end));
+}
+
+.glitch-header::before {
+  left: 2px;
+  text-shadow: -1px 0 #ff00c1;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.glitch-header::after {
+  left: -2px;
+  text-shadow: -1px 0 #00fff9;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim-2 5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+  0% {
+    clip: rect(31px, 9999px, 94px, 0);
+    transform: skew(0.85deg);
+  }
+
+  5% {
+    clip: rect(70px, 9999px, 1px, 0);
+    transform: skew(0.85deg);
+  }
+
+  10% {
+    clip: rect(6px, 9999px, 86px, 0);
+    transform: skew(0.57deg);
+  }
+
+  15% {
+    clip: rect(62px, 9999px, 19px, 0);
+    transform: skew(0.24deg);
+  }
+
+  20% {
+    clip: rect(3px, 9999px, 60px, 0);
+    transform: skew(0.01deg);
+  }
+
+  25% {
+    clip: rect(27px, 9999px, 34px, 0);
+    transform: skew(0.39deg);
+  }
+
+  30% {
+    clip: rect(48px, 9999px, 86px, 0);
+    transform: skew(0.97deg);
+  }
+
+  35% {
+    clip: rect(49px, 9999px, 3px, 0);
+    transform: skew(0.32deg);
+  }
+
+  40% {
+    clip: rect(81px, 9999px, 2px, 0);
+    transform: skew(0.79deg);
+  }
+
+  45% {
+    clip: rect(71px, 9999px, 96px, 0);
+    transform: skew(0.77deg);
+  }
+
+  50% {
+    clip: rect(75px, 9999px, 56px, 0);
+    transform: skew(0.09deg);
+  }
+
+  55% {
+    clip: rect(10px, 9999px, 86px, 0);
+    transform: skew(0.44deg);
+  }
+
+  60% {
+    clip: rect(89px, 9999px, 78px, 0);
+    transform: skew(0.25deg);
+  }
+
+  65% {
+    clip: rect(7px, 9999px, 33px, 0);
+    transform: skew(0.96deg);
+  }
+
+  70% {
+    clip: rect(17px, 9999px, 32px, 0);
+    transform: skew(0.07deg);
+  }
+
+  75% {
+    clip: rect(78px, 9999px, 39px, 0);
+    transform: skew(0.04deg);
+  }
+
+  80% {
+    clip: rect(31px, 9999px, 77px, 0);
+    transform: skew(0.91deg);
+  }
+
+  85% {
+    clip: rect(66px, 9999px, 4px, 0);
+    transform: skew(0.97deg);
+  }
+
+  90% {
+    clip: rect(25px, 9999px, 43px, 0);
+    transform: skew(0.34deg);
+  }
+
+  95% {
+    clip: rect(13px, 9999px, 89px, 0);
+    transform: skew(0.53deg);
+  }
+
+  100% {
+    clip: rect(35px, 9999px, 61px, 0);
+    transform: skew(0.18deg);
+  }
+}
+
+@keyframes glitch-anim-2 {
+  0% {
+    clip: rect(65px, 9999px, 100px, 0);
+    transform: skew(0.85deg);
+  }
+
+  5% {
+    clip: rect(52px, 9999px, 74px, 0);
+    transform: skew(0.85deg);
+  }
+
+  10% {
+    clip: rect(79px, 9999px, 85px, 0);
+    transform: skew(0.57deg);
+  }
+
+  15% {
+    clip: rect(75px, 9999px, 5px, 0);
+    transform: skew(0.24deg);
+  }
+
+  20% {
+    clip: rect(67px, 9999px, 61px, 0);
+    transform: skew(0.01deg);
+  }
+
+  25% {
+    clip: rect(14px, 9999px, 79px, 0);
+    transform: skew(0.39deg);
+  }
+
+  30% {
+    clip: rect(1px, 9999px, 66px, 0);
+    transform: skew(0.97deg);
+  }
+
+  35% {
+    clip: rect(86px, 9999px, 30px, 0);
+    transform: skew(0.32deg);
+  }
+
+  40% {
+    clip: rect(23px, 9999px, 98px, 0);
+    transform: skew(0.79deg);
+  }
+
+  45% {
+    clip: rect(85px, 9999px, 72px, 0);
+    transform: skew(0.77deg);
+  }
+
+  50% {
+    clip: rect(71px, 9999px, 97px, 0);
+    transform: skew(0.09deg);
+  }
+
+  55% {
+    clip: rect(2px, 9999px, 24px, 0);
+    transform: skew(0.44deg);
+  }
+
+  60% {
+    clip: rect(75px, 9999px, 7px, 0);
+    transform: skew(0.25deg);
+  }
+
+  65% {
+    clip: rect(44px, 9999px, 50px, 0);
+    transform: skew(0.96deg);
+  }
+
+  70% {
+    clip: rect(10px, 9999px, 42px, 0);
+    transform: skew(0.07deg);
+  }
+
+  75% {
+    clip: rect(93px, 9999px, 91px, 0);
+    transform: skew(0.04deg);
+  }
+
+  80% {
+    clip: rect(4px, 9999px, 50px, 0);
+    transform: skew(0.91deg);
+  }
+
+  85% {
+    clip: rect(92px, 9999px, 91px, 0);
+    transform: skew(0.97deg);
+  }
+
+  90% {
+    clip: rect(15px, 9999px, 70px, 0);
+    transform: skew(0.34deg);
+  }
+
+  95% {
+    clip: rect(97px, 9999px, 62px, 0);
+    transform: skew(0.53deg);
+  }
+
+  100% {
+    clip: rect(46px, 9999px, 7px, 0);
+    transform: skew(0.18deg);
+  }
+}
+
+/* Glitch Effect for Marquee */
+.glitch-marquee {
+  display: inline-block;
+  position: relative;
+  animation: marquee-glitch 2s infinite linear alternate-reverse;
+}
+
+@keyframes marquee-glitch {
+  0% {
+    transform: skew(0deg);
+    text-shadow: 0 0 0 transparent;
+  }
+
+  2% {
+    transform: skew(-1deg);
+    text-shadow: -2px 0 #ff00c1;
+  }
+
+  4% {
+    transform: skew(1deg);
+    text-shadow: 2px 0 #00fff9;
+  }
+
+  6% {
+    transform: skew(0deg);
+    text-shadow: 0 0 0 transparent;
+  }
+
+  50% {
+    transform: skew(0deg);
+    text-shadow: 0 0 0 transparent;
+  }
+
+  52% {
+    transform: skew(2deg);
+    text-shadow: -2px 0 #ff00c1;
+  }
+
+  54% {
+    transform: skew(-1deg);
+    text-shadow: 2px 0 #00fff9;
+  }
+
+  56% {
+    transform: skew(0deg);
+    text-shadow: 0 0 0 transparent;
+  }
+
+  100% {
+    transform: skew(0deg);
+    text-shadow: 0 0 0 transparent;
+  }
+}
+
+/* CRT Scanline Effect */
+.marquee-container::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 2;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+}
+
+.marquee-container {
+  position: relative;
+  /* Ensure ::after is positioned relative to this */
+}
+
+/* Holographic CRT Effect for Container */
+.holo-crt {
+  position: relative;
+  overflow: hidden;
+  /* Ensure scanlines stay inside */
+}
+
+/* Scanlines only - removed text glitch for container stability */
+.holo-crt::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 10;
+  background-size: 100% 3px, 3px 100%;
+  pointer-events: none;
+  opacity: 0.2;
+}
+
+/* Cyber Scanner Animation for Sidebar Headers */
+.cyber-scan {
+  position: relative;
+  overflow: hidden;
+  /* Contains the light beam */
+}
+
+.cyber-scan::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.1) 40%,
+      rgba(255, 255, 255, 0.6) 50%,
+      rgba(255, 255, 255, 0.1) 60%,
+      transparent 100%);
+  transform: skewX(-25deg);
+  animation: shine-sweep 6s infinite;
+  pointer-events: none;
+}
+
+@keyframes shine-sweep {
+  0% {
+    left: -150%;
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  40% {
+    left: 150%;
+    opacity: 0;
+  }
+
+  100% {
+    left: 150%;
+    opacity: 0;
+  }
+
+  /* Long pause */
+}
+
+/* System Header Pulse Effect */
+.system-header {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(90deg, #001100, #003300);
+  /* Dark green tech BG */
+}
+
+/* Moving data beam */
+.system-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 20%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 0, 0.8), transparent);
+  transform: skewX(-25deg);
+  animation: sys-scan 4s infinite cubic-bezier(0.4, 0.0, 0.2, 1);
+  pointer-events: none;
+}
+
+/* Digital Grid Pattern Overlay */
+.system-header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(rgba(0, 255, 0, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 0, 0.1) 1px, transparent 1px);
+  background-size: 10px 10px;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+@keyframes sys-scan {
+  0% {
+    left: -50%;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    left: 150%;
+    opacity: 1;
+  }
+
+  100% {
+    left: 150%;
+    opacity: 0;
+  }
+}
+
+#sys-status {
+  display: inline-block;
+  position: relative;
+}
+
+/* Status indicator dot */
+#sys-status::before {
+  content: "●";
+  color: #00ff00;
+  margin-right: 5px;
+  animation: blink-fast 1s infinite alternate;
+}
+
+@keyframes blink-fast {
+  from {
+    text-shadow: 0 0 2px #00ff00;
+    opacity: 1;
+  }
+
+  to {
+    text-shadow: 0 0 10px #00ff00;
+    opacity: 0.5;
+  }
+}
+
+/* Retro Status Bar - Amber Monitor Style */
+.retro-status-bar {
+  background: #000;
+  border: 2px inset #444;
+  color: #ffb000;
+  /* Amber */
+  font-family: 'Press Start 2P', monospace;
+  /* Pixel font */
+  font-size: 10px;
+  padding: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 0 2px #ffb000;
+}
+
+.retro-status-bar span {
+  display: inline-block;
+}
+
+.status-label {
+  color: #cc8800;
+  margin-right: 10px;
+}
+
+/* Sidebar Link Hover Effect - Windows 95 Button Style */
+/* Sidebar Link Hover Effect - Dark Retro Button Style */
+.sidebar li {
+  position: relative;
+  transition: none;
+  border: 1px solid transparent;
+  /* Subtle border prep */
+  padding: 0;
+  margin-bottom: 2px;
+  display: block;
+  /* Fix nested list alignment issue */
+}
+
+.sidebar li:hover {
+  background-color: #333333;
+  /* Dark Gray request */
+  border-top: 1px solid #555555;
+  border-left: 1px solid #555555;
+  border-right: 1px solid #111111;
+  border-bottom: 1px solid #111111;
+  cursor: pointer;
+}
+
+.sidebar li:active {
+  border-top: 1px solid #111111;
+  border-left: 1px solid #111111;
+  border-right: 1px solid #555555;
+  border-bottom: 1px solid #555555;
+  transform: translate(1px, 1px);
+}
+
+.sidebar li a {
+  display: flex;
+  /* Flexbox for image/text alignment */
+  align-items: center;
+  width: 100%;
+  padding: 2px 4px;
+  /* Move padding here */
+  text-decoration: none;
+  font-family: 'VT323', monospace;
+  font-size: 1.2em;
+  color: #aaaaaa;
+  /* Softer default text */
+  padding-left: 5px;
+  vertical-align: middle;
+}
+
+.sidebar li:hover>a {
+  color: #ffffff;
+  /* White text on dark button */
+  font-weight: normal;
+  text-shadow: 0 1px 0 #000000;
+}
+
+/* Adjust nested lists */
+.sidebar ul ul {
+  display: block;
+  margin-top: 5px;
+}
+
+.sidebar img {
+  vertical-align: middle;
+  margin-right: 5px;
+  display: inline-block;
+  position: relative;
+  top: 1px;
+  /* Micro alignment adjustment */
+}
+
+/* Custom Retro Scrollbar */
+::-webkit-scrollbar {
+  width: 14px;
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-neon-teal);
+  border: none;
+  /* Hard square edges */
+  box-shadow: none;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00ffff;
+  /* Brighter teal */
+  box-shadow: 0 0 10px #00ffff;
+  /* Glow */
+}
+
+::-webkit-scrollbar-corner {
+  background: #000;
+}
+
+/* --- UI Polish Phase 2 Fixes --- */
+
+/* Header Background Opacity */
+header .beveled-box {
+  background-color: rgba(26, 26, 26, 0.9);
+}
+
+/* Force IBM Plex Mono on Sidebar Right */
+.side-right,
+.side-right * {
+  font-family: 'IBM Plex Mono', monospace !important;
+}
+
+/* RN Busy With section font size */
+.side-right .box-content[style*="aspect-ratio"] {
+  font-size: 12px !important;
+}
+
+/* Force IBM Plex Mono on Blog Post Content (Headers, paragraphs, lists) */
+article p,
+article h1,
+article h2,
+article h3,
+article h4,
+article h5,
+article h6,
+article li,
+article ul,
+article ol,
+article a,
+article strong,
+article b {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* --- UI Polish Phase 3 --- */
+
+/* Distinct Headers (Navigation, Cool Stuffs, etc.) */
+.box-header {
+  font-family: 'Orbitron', 'Press Start 2P', sans-serif !important;
+  font-size: 14px !important;
+  letter-spacing: 2px;
+}
+
+/* Fix Terminal Font Inconsistency - Ensure typed spans match background text */
+.terminal-content,
+.terminal-content span,
+.terminal-content input {
+  font-family: 'Press Start 2P', monospace !important;
+}
+
+/* Reduce Markdown Font Size */
+article {
+  font-size: 16px !important;
+  /* Reduced from global 20px */
+}
+
+/* Unify Content Fonts (Home, About Me, etc) */
+.box-content,
+.box-content p,
+.box-content div {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* --- FINAL FONT OVERRIDE --- */
+/* Ensure ALL content in box-content uses IBM Plex Mono */
+.box-content h1,
+.box-content h2,
+.box-content h3,
+.box-content h4,
+.box-content h5,
+.box-content h6,
+.box-content a,
+.box-content li,
+.box-content ul,
+.box-content ol,
+.box-content strong,
+.box-content b {
+  font-family: 'IBM Plex Mono', monospace !important;
+}
+
+/* --- UI Polish Phase 4: Size Reductions --- */
+
+/* Reduce generic content size (Home, About, etc.) */
+.box-content {
+  font-size: 16px !important;
+  line-height: 1.5;
+}
+
+/* Reduce Terminal Size */
+.terminal-content,
+.terminal-content span,
+.terminal-content input {
+  font-size: 13px !important;
+  /* Reduced from 16px */
+}
+
+/* --- Cbox Guestbook Styling --- */
+#cboxmain {
+  border: 2px solid var(--accent-neon-green) !important;
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+}
+
+/* --- Sidebar Layout Fix --- */
+/* Make right sidebar a flex container to push Cool Stuffs to bottom */
+.side-right {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* --- Blog List Font --- */
+.blog-list,
+.blog-list *,
+.project-list,
+.project-list * {
+  font-family: 'IBM Plex Mono', monospace !important;
+}
+
+/* --- Defect Blink Effect --- */
+.blink-defect {
+  animation: defect-dim 10s linear infinite;
+  font-family: inherit;
+  font-size: 1em;
+}
+
+@keyframes defect-dim {
+
+  0%,
+  85% {
+    opacity: 1;
+  }
+
+  88% {
+    /* Slightly slower fade out (0.3s transition) */
+    opacity: 0.1;
+  }
+
+  88.1%,
+  91% {
+    /* Stay dark */
+    opacity: 0.1;
+  }
+
+  /* Flicker on return (approx 1 second duration: 91% to ~100%) */
+  91.5% {
+    opacity: 0.8;
+  }
+
+  92% {
+    opacity: 0.1;
+  }
+
+  92.5% {
+    opacity: 1;
+  }
+
+  93% {
+    opacity: 0.3;
+  }
+
+  93.5% {
+    opacity: 1;
+  }
+
+  94% {
+    opacity: 0.5;
+  }
+
+  95% {
+    opacity: 1;
+  }
+
+  96% {
+    opacity: 0.2;
+  }
+
+  97% {
+    opacity: 1;
+  }
+
+  98% {
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

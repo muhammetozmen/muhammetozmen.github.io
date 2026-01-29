@@ -1,0 +1,160 @@
+<div class="sidebar side-left beveled-box">
+        <div class="box-header cyber-scan"
+                style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+                <img src="https://blob.gifcities.org/gifcities/UPJ2MGDAOUWO62DOMBNADRRWO5LTNMBB.gif" alt="icon"
+                        style="height: 20px;">
+                Navigation
+        </div>
+        <ul>
+
+                <li>
+                        <a href="{{ '/' | relative_url }}"
+                                style="display: flex; align-items: center; width: 100%; text-decoration: none; color: inherit;">
+                                <img src="{{ '/assets/gifs/bullets/squares/red.gif' | relative_url }}"
+                                        style="margin-right: 5px;">
+                                Home
+                        </a>
+                </li>
+                <li>
+                        <a href="#" onclick="return false;"
+                                style="display: flex; align-items: center; width: 100%; text-decoration: none; color: inherit; cursor: default;">
+                                <img src="{{ '/assets/gifs/bullets/squares/blue.gif' | relative_url }}"
+                                        style="margin-right: 5px;">
+                                Blogs
+                        </a>
+                        <ul>
+                                <li>
+                                        <a href="{{ '/blogs/devlogs/' | relative_url }}"
+                                                style="display: flex; align-items: center; width: 100%; text-decoration: none; color: inherit;">
+                                                <img src="{{ '/assets/gifs/bullets/tacks/tackblue.gif' | relative_url }}"
+                                                        style="margin-right: 5px;">
+                                                Devlogs
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="{{ '/blogs/tech/' | relative_url }}"
+                                                style="display: flex; align-items: center; width: 100%; text-decoration: none; color: inherit;">
+                                                <img src="{{ '/assets/gifs/bullets/tacks/tackred.gif' | relative_url }}"
+                                                        style="margin-right: 5px;">
+                                                Tech
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="{{ '/blogs/journal/' | relative_url }}"
+                                                style="display: flex; align-items: center; width: 100%; text-decoration: none; color: inherit;">
+                                                <img src="{{ '/assets/gifs/bullets/tacks/tackgreen.gif' | relative_url }}"
+                                                        style="margin-right: 5px;">
+                                                Journal
+                                        </a>
+                                </li>
+                        </ul>
+                </li>
+                <li>
+                        <a href="{{ '/gallery/' | relative_url }}"
+                                style="display: flex; align-items: center; width: 100%; text-decoration: none; color: inherit;">
+                                <img src="{{ '/assets/gifs/bullets/squares/green.gif' | relative_url }}"
+                                        style="margin-right: 5px;">
+                                Gallery
+                        </a>
+                </li>
+                <li>
+                        <a href="{{ '/projects/' | relative_url }}"
+                                style="display: flex; align-items: center; width: 100%; text-decoration: none; color: inherit;">
+                                <img src="{{ '/assets/gifs/bullets/squares/purple.gif' | relative_url }}"
+                                        style="margin-right: 5px;">
+                                Projects
+                        </a>
+                </li>
+                <li>
+                        <a href="{{ '/aboutme/' | relative_url }}"
+                                style="display: flex; align-items: center; width: 100%; text-decoration: none; color: inherit;">
+                                <img src="{{ '/assets/gifs/bullets/squares/yellow.gif' | relative_url }}"
+                                        style="margin-right: 5px;">
+                                About Me
+                        </a>
+                </li>
+        </ul>
+
+        <!-- Swimming Dolphin Animation (Vertical) -->
+        <div id="ocean-area" style="position: relative; width: 100%; flex: 1; margin: 0; padding: 15px 0 0 0; overflow: hidden; min-height: 150px; 
+                    background: linear-gradient(180deg, 
+                        transparent 0%,
+                        rgba(0, 50, 80, 0.15) 10%, 
+                        rgba(0, 80, 120, 0.25) 50%, 
+                        rgba(0, 60, 100, 0.2) 90%,
+                        transparent 100%);
+                    box-shadow: inset 0 0 20px rgba(0, 100, 150, 0.1);">
+
+                <!-- Subtle Wave Overlay -->
+                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+                            background: linear-gradient(180deg, transparent 0%, rgba(0, 150, 200, 0.05) 50%, transparent 100%);
+                            animation: water-wave 8s ease-in-out infinite; z-index: 5; pointer-events: none;"></div>
+
+                <!-- Ocean Surface Line (Top) -->
+                <img src="https://blob.gifcities.org/gifcities/2WHKBM5FDDZHZB5GMYHCTFVKABHYZ3DT.gif" alt="Ocean Surface"
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: auto; z-index: 4;">
+
+                <!-- Dolphin -->
+                <img id="dolphin" src="https://blob.gifcities.org/gifcities/CQZMWLPPGH5MN5VDHKIF7UQTV4QWSWR5.gif"
+                        alt="Swimming Dolphin"
+                        style="position: absolute; height: auto; width: 140px; left: 50%; transform: translateX(-50%) rotate(-90deg); top: 25px; z-index: 2;">
+        </div>
+
+        <style>
+                @keyframes dolphin-swim-vertical {
+                        0% {
+                                top: 25px;
+                                transform: translateX(-50%) rotate(-90deg);
+                        }
+
+                        48% {
+                                top: calc(100% - 100px);
+                                transform: translateX(-50%) rotate(-90deg);
+                        }
+
+                        50% {
+                                top: calc(100% - 100px);
+                                transform: translateX(-50%) rotate(-90deg) scaleX(-1);
+                        }
+
+                        98% {
+                                top: 25px;
+                                transform: translateX(-50%) rotate(-90deg) scaleX(-1);
+                        }
+
+                        100% {
+                                top: 25px;
+                                transform: translateX(-50%) rotate(-90deg);
+                        }
+                }
+
+                #dolphin {
+                        animation: dolphin-swim-vertical 15s linear infinite;
+                }
+
+                @keyframes water-wave {
+
+                        0%,
+                        100% {
+                                opacity: 0.3;
+                                transform: translateY(0);
+                        }
+
+                        50% {
+                                opacity: 0.5;
+                                transform: translateY(-5px);
+                        }
+                }
+        </style>
+
+        <!-- Ocean Floor Line (Above Blinker) -->
+        <div style="width: 100%; padding: 0; margin: 0;">
+                <img src="https://blob.gifcities.org/gifcities/ZKSTNPQMJRKPI7T3PJRMKHKTIYVG45RF.gif" alt="Ocean Floor"
+                        style="width: 100%; height: auto; display: block;">
+        </div>
+
+        <div style="text-align: center; margin-top: auto; padding-top: 20px; padding-bottom: 5px;">
+                <img src="{{ '/assets/gifs/icons/blinkie.gif' | relative_url }}" alt="blinkie"
+                        style="width: 95%; height: auto; max-width: 100%;">
+        </div>
+</div>

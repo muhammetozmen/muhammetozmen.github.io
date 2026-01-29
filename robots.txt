@@ -1,0 +1,12 @@
+---
+layout: null
+---
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: {{ site.url }}{{ site.baseurl }}/sitemap.xml
+
+# Disallow admin/build files
+Disallow: /.jekyll-cache/
+Disallow: /_site/

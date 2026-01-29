@@ -1,0 +1,145 @@
+<div class="sidebar side-right beveled-box">
+    <div class="box-header cyber-scan" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+        <img src="{{ '/assets/gifs/icons/book.gif' | relative_url }}" alt="icon" style="height: 20px;">
+        Guestbook
+    </div>
+    <div class="box-content" style="padding: 5px; background: #000; max-height: 400px; overflow: hidden;">
+        <!-- Giscus Guestbook -->
+        <div class="giscus-container">
+            <script src="https://giscus.app/client.js" data-repo="muhammetozmen/muhammetozmen.github.io"
+                data-repo-id="R_kgDOORT13Q" data-category="General" data-category-id="DIC_kwDOORT13c4C1jSr"
+                data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0"
+                data-input-position="top" data-theme="dark" data-lang="en" data-loading="lazy" crossorigin="anonymous"
+                async>
+                </script>
+        </div>
+    </div>
+
+    <div class="box-header cyber-scan"
+        style="margin-top: 10px; display: flex; align-items: center; justify-content: center; gap: 8px;">
+        <img src="https://blob.gifcities.org/gifcities/G7U7FDLOEPLKRQGM4NXOLJVFIMURGROT.gif" alt="icon"
+            style="height: 20px;">
+        Random Art
+    </div>
+    <div class="box-content" style="padding: 5px; text-align: center;">
+        <a href="{{ '/gallery/' | relative_url }}" id="random-drawing-link">
+            <img id="random-drawing-img" alt="Random Drawing"
+                style="width: 100%; height: auto; aspect-ratio: 1/1; object-fit: cover; border: 2px solid #50aae6; box-shadow: 0 0 10px rgba(80, 170, 230, 0.3);">
+        </a>
+        <div id="drawing-filename"
+            style="color: #50aae6; font-family: 'IBM Plex Mono', monospace; font-size: 11px; margin-top: 5px;">
+        </div>
+        <script>
+            (function () {
+                const drawings = [
+                    {% assign all_drawings = site.static_files | where_exp: "file", "file.path contains '/assets/images/drawings/'" %}
+                    {% for drawing in all_drawings %}
+            {% if drawing.name contains 'HighSchoolSketch_' or drawing.name contains 'TraditionalSketch_' or drawing.name contains 'DigitalSketch_' %}
+            '{{ drawing.path }}'{% unless forloop.last %}, {% endunless %}
+            {% endif %}
+            {% endfor %}
+                ];
+            const randomDrawing = drawings[Math.floor(Math.random() * drawings.length)];
+            document.getElementById('random-drawing-img').src = randomDrawing;
+
+            // Extract and display filename
+            const filename = randomDrawing.split('/').pop().replace('.png', '').replace('.jpg', '').replace('.gif', '').replace('.webp', '');
+            document.getElementById('drawing-filename').textContent = filename;
+            }) ();
+        </script>
+    </div>
+
+    <div class="box-header cyber-scan"
+        style="margin-top: 10px; display: flex; align-items: center; justify-content: center; gap: 8px;">
+        <img src="https://blob.gifcities.org/gifcities/ABRUACYYUDGDHDYHCLPSIDETWC42QE6J.gif" alt="icon"
+            style="height: 20px;">
+        RN Busy With
+    </div>
+    <div class="box-content" style="padding: 5px; text-align: center;">
+        <div id="terminal-status"
+            style="width: 100%; height: auto; aspect-ratio: 1/1; overflow: auto; font-size: 12px !important; line-height: 1.5; border: 2px solid #50aae6; padding: 8px 6px; text-align: left; box-sizing: border-box; background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(10,10,30,0.9) 100%); box-shadow: inset 0 0 20px rgba(80, 170, 230, 0.2), 0 0 15px rgba(80, 170, 230, 0.3); position: relative; border-radius: 2px;">
+            <!-- Terminal prompt style -->
+            <div
+                style="color: #00ff41; font-family: 'Courier New', monospace; margin-bottom: 6px; text-shadow: 0 0 5px rgba(0, 255, 65, 0.5); font-size: 11px;">
+                <span style="color: #ff00ff;">root@ozmen</span><span style="color: #50aae6;">:</span><span
+                    style="color: #ffff00;">~</span><span style="color: #50aae6;">$</span> cat current_status.txt
+            </div>
+            <!-- Content with scan line effect -->
+            <div
+                style="color: #00ff88; font-family: 'Courier New', monospace; position: relative; text-shadow: 0 0 3px rgba(0, 255, 136, 0.3);">
+                {{ site.data.currently.text | newline_to_br }}
+                <!-- Blinking cursor -->
+                <span style="animation: blink 1s infinite; color: #00ff41; margin-left: 2px;">█</span>
+            </div>
+            <!-- Scan line overlay -->
+            <div
+                style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.15) 0px, transparent 1px, transparent 2px, rgba(0, 0, 0, 0.15) 3px); pointer-events: none; border-radius: 2px;">
+            </div>
+        </div>
+    </div>
+
+    <!-- Add blinking cursor animation and custom scrollbar -->
+    <style>
+        @keyframes blink {
+
+            0%,
+            49% {
+                opacity: 1;
+            }
+
+            50%,
+            100% {
+                opacity: 0;
+            }
+        }
+
+        /* Custom Cyberpunk Scrollbar */
+        #terminal-status::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        #terminal-status::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 2px;
+            border: 1px solid rgba(80, 170, 230, 0.3);
+        }
+
+        #terminal-status::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #00ff88 0%, #50aae6 50%, #ff00ff 100%);
+            border-radius: 2px;
+            box-shadow: 0 0 10px rgba(0, 255, 136, 0.6), inset 0 0 5px rgba(255, 255, 255, 0.3);
+        }
+
+        #terminal-status::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #00ffaa 0%, #60bbe6 50%, #ff20ff 100%);
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.9), inset 0 0 8px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Firefox scrollbar */
+        #terminal-status {
+            scrollbar-width: thin;
+            scrollbar-color: #00ff88 rgba(0, 0, 0, 0.5);
+        }
+    </style>
+
+    <!-- Spacer to push Cool Stuffs to bottom -->
+    <div style="flex-grow: 1;"></div>
+
+    <div class="box-header cyber-scan"
+        style="margin-top: 10px; display: flex; align-items: center; justify-content: center; gap: 8px;">
+        <img src="https://blob.gifcities.org/gifcities/4QTN2VHQY2Y6RDRKFBKVLFWIKHVSEOXO.gif" alt="icon"
+            style="height: 20px;">
+        Cool Stuffs
+    </div>
+    <div class="box-content button-wall">
+        {% for button in site.data.buttons %}
+        <a href="{{ button.link }}" title="{{ button.title }}">
+            {% if button.image contains 'http' %}
+            <img src="{{ button.image }}" alt="{{ button.title }}">
+            {% else %}
+            <img src="{{ button.image | relative_url }}" alt="{{ button.title }}">
+            {% endif %}
+        </a>
+        {% endfor %}
+    </div>
+</div>

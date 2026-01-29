@@ -1,0 +1,36 @@
+<header>
+  <div class="beveled-box">
+    <div class="box-header">
+      System Status :: <span id="sys-status" style="color: #ff0000; font-weight: bold;">Offline</span>
+    </div>
+    <a href="{{ '/' | relative_url }}" style="text-decoration: none; color: inherit; display: block;">
+      <div class="box-content holo-crt"
+        style="text-align: center; position: relative; min-height: 80px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <img src="{{ '/assets/gifs/icons/spining_computer.gif' | relative_url }}" alt="decoration"
+          style="height: 100px; position: absolute; left: 10%; top: 50%; transform: translateY(-50%);">
+        <h1 class="pulse-glow" style="margin: 0; letter-spacing: 2px;">
+          Muhammet Özmen<span class="blink-defect">'s Webspace</span>
+        </h1>
+        <img src="{{ '/assets/gifs/icons/spining_computer.gif' | relative_url }}" alt="decoration"
+          style="height: 100px; position: absolute; right: 10%; top: 50%; transform: translateY(-50%);">
+        <p id="typing-desc" style="margin: 5px 0 0 0; color: #888;">{{ site.description }}</p>
+      </div>
+    </a>
+  </div>
+
+  <div class="marquee-container">
+    <div class="marquee-content">
+      <span class="glitch-marquee">
+
+        Welcome to the system. This is my personal website.
+        <img src="{{ '/assets/gifs/icons/globe.gif' | relative_url }}" class="marquee-icon" alt="globe">
+        Look around. We have very cool stuff here.
+        <img src="{{ '/assets/gifs/icons/globe.gif' | relative_url }}" class="marquee-icon" alt="globe">
+        I promise you, it's not as bad as it looks.
+        <img src="{{ '/assets/gifs/icons/globe.gif' | relative_url }}" class="marquee-icon" alt="globe">
+        Check my blogs for interesting posts r my gallery for some drawing of me.
+      </span>
+    </div>
+  </div>
+  <script src="{{ '/assets/js/glitch.js' | relative_url }}"></script>
+</header>

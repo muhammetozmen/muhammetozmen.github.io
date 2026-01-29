@@ -1,0 +1,57 @@
+title: "Özmen's Webspace"
+email: ozmen.muhammet@outlook.com
+description: >-
+  Personal website of Muhammet Özmen.
+baseurl: ""
+url: "https://muhammetozmen.github.io"
+author: "Muhammet Özmen"
+keywords: "software engineer, web development, retro web, personal website, tech blog, digital art"
+
+# Social links for SEO
+social:
+  name: Muhammet Özmen
+  links:
+    - https://github.com/muhammetozmen
+
+# Build settings
+markdown: kramdown
+theme: null
+future: true
+
+# Collections
+collections_dir: _collections
+
+collections:
+  tech:
+    output: true
+    permalink: /blogs/tech/:slug/
+  journal:
+    output: true
+    permalink: /blogs/journal/:slug/
+  devlogs:
+    output: true
+    permalink: /blogs/devlogs/:slug/
+  drawings:
+    output: true
+    permalink: /gallery/:slug/
+  projects:
+    output: true
+    permalink: /projects/:slug/
+
+
+# Exclude list
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+

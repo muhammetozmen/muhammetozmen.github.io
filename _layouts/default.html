@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    <meta name="keywords" content="{{ site.keywords }}">
+    <meta name="author" content="{{ site.author }}">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="{{ page.url | absolute_url }}">
+
+    <!-- Open Graph (Facebook/LinkedIn) -->
+    <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+    <meta property="og:description"
+        content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+    <meta property="og:site_name" content="{{ site.title }}">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="{{ '/assets/images/site/icon.png' | absolute_url }}">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+    <meta name="twitter:description"
+        content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    <meta name="twitter:image" content="{{ '/assets/images/site/icon.png' | absolute_url }}">
+
+    <!-- Fonts & Styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=IBM+Plex+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css?v={{ site.time | date: '%s' }}">
+    <link rel="icon" type="image/png" href="{{ '/assets/images/site/icon.png' | relative_url }}">
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- HEADER (Global) -->
+        {% include header.html %}
+
+        <!-- LEFT SIDEBAR (Global) -->
+        {% include sidebar-left.html %}
+
+        <!-- MAIN CONTENT (Injects Child Layouts Here) -->
+        <main class="beveled-box">
+            <div class="box-header">
+                {% if page.title %}{{ page.title }}{% else %}Main_Window{% endif %}
+            </div>
+            <div class="box-content">
+
+                {% if page.collection_name %}
+                <!-- BLOG LIST LOGIC -->
+                <ul class="blog-list">
+                    {% assign col_key = page.collection_name | strip %}
+
+                    <!-- Try accessing directly (e.g. site.devlogs) -->
+                    {% assign posts = site[col_key] %}
+
+                    <!-- Fallback: Try accessing via site.collections array -->
+                    {% unless posts %}
+                    {% assign target_col = site.collections | where: "label", col_key | first %}
+                    {% assign posts = target_col.docs %}
+                    {% endunless %}
+
+                    {% if posts.size > 0 %}
+                    {% for post in posts %}
+                    <li>
+                        {% if page.collection_name == 'tech' %}
+                        <img src="{{ '/assets/gifs/bullets/balls/red.gif' | relative_url }}"
+                            style="vertical-align: middle; margin-right: 8px;">
+                        {% elsif page.collection_name == 'journal' %}
+                        <img src="{{ '/assets/gifs/bullets/balls/green.gif' | relative_url }}"
+                            style="vertical-align: middle; margin-right: 8px;">
+                        {% elsif page.collection_name == 'devlogs' %}
+                        <img src="{{ '/assets/gifs/bullets/balls/blue.gif' | relative_url }}"
+                            style="vertical-align: middle; margin-right: 8px;">
+                        {% endif %}
+                        <span style="color: #888; font-size: 0.9em;">{{ post.date | date: "%Y-%m-%d" }}</span>
+                        &mdash;
+                        <a href="{{ post.url | relative_url }}" style="color: #fff;">{{ post.title }}</a>
+                    </li>
+                    {% endfor %}
+                    {% else %}
+                    <p>No posts in this category yet. (Collection: {{ col_key }})</p>
+
+                    {% endif %}
+                </ul>
+
+                {% elsif page.date %}
+                <!-- SINGLE POST LOGIC -->
+                <article>
+                    <div style="border-bottom: 1px solid #333; margin-bottom: 15px; padding-bottom: 5px;">
+                        <h1 style="margin: 0;">{{ page.title }}</h1>
+                        <small style="color: #666; font-family: monospace;">
+                            [DATE: {{ page.date | date: "%Y-%m-%d" }}]
+                            {% if page.last_modified_at %}
+                            [UPDATED: {{ page.last_modified_at | date: "%Y-%m-%d" }}]
+                            {% endif %}
+                        </small>
+                    </div>
+
+                    {{ content }}
+
+                    <div style="margin-top: 30px; border-top: 1px dashed #333; padding-top: 10px;">
+                        <a href="javascript:history.back()" style="text-decoration: none;"><img
+                                src="{{ '/assets/gifs/nav_buttons/left.gif' | relative_url }}"
+                                style="vertical-align: middle;"></a>
+                    </div>
+                </article>
+
+                {% else %}
+                <!-- STANDARD PAGE LOGIC (Home, Gallery, Projects) -->
+                {% if page.url contains '/gallery/' and page.url != '/gallery/' %}
+                <!-- DRAWING CATEGORY BACK LINK -->
+                <div style="margin-bottom: 15px;">
+                    <a href="{{ '/gallery/' | relative_url }}">&larr; Back to Gallery</a>
+                </div>
+                <div class="drawing-content">
+                    {{ content }}
+                </div>
+                {% else %}
+                {{ content }}
+                {% endif %}
+
+                {% endif %}
+
+            </div>
+        </main>
+
+        <!-- RIGHT SIDEBAR (Global) -->
+        {% include sidebar-right.html %}
+
+        <!-- FOOTER (Global) -->
+        {% include footer.html %}
+    </div>
+
+</body>
+
+</html>
