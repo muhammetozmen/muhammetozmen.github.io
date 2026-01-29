@@ -12,6 +12,13 @@ social:
   name: Muhammet Özmen
   links:
     - https://github.com/muhammetozmen
+    - https://twitter.com/muhammetozmen  # Varsa ekleyin, yoksa silebilirsiniz
+    - https://instagram.com/muhammetozmen # Varsa...
+
+# Plugins
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
 
 # Build settings
 markdown: kramdown
