@@ -120,8 +120,10 @@
 }
 
 // Color transition on theme switch
-[data-theme-transitioning] * {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease !important;
+[data-theme-transitioning] *,
+[data-theme-transitioning] *::before,
+[data-theme-transitioning] *::after {
+  transition: color 0.3s ease, border-color 0.3s ease !important;
 }
 
 // SCSS vars for breakpoints

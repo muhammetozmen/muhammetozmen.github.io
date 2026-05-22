@@ -346,12 +346,16 @@
   border-bottom: 1px solid var(--border);
   position: sticky;
   top: var(--nav-height);
-  background: var(--bg-primary);
+  background-color: var(--bg-primary);
   z-index: 10;
   padding-top: var(--space-4);
   margin-bottom: var(--space-8); // Space below buttons
-  transition: background-color 0.3s ease, top 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: top 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform, top;
+
+  &.reveal {
+    transition: opacity 0.5s ease, transform 0.5s ease, top 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
 
   // Extend background to absolute edges of resume-wrap to hide underlying text
   margin-left: calc(-1 * var(--space-6));
@@ -367,7 +371,7 @@
     bottom: 0;
     left: -200px;
     right: -200px;
-    background: var(--bg-primary);
+    background-color: var(--bg-primary);
     z-index: -1;
     pointer-events: none;
   }
@@ -391,7 +395,7 @@
     color: var(--text-secondary);
     text-decoration: none;
     padding: var(--space-2) var(--space-6);
-    background: linear-gradient(to bottom, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    background-color: var(--bg-secondary);
     border-radius: var(--radius-lg) var(--radius-lg) 0 0;
     box-shadow: inset 0 -3px 6px rgba(0, 0, 0, 0.05);
     border: 1px solid var(--border);
@@ -400,12 +404,12 @@
 
     &:hover {
       color: var(--text-primary);
-      background: var(--bg-hover);
+      background-color: var(--bg-hover);
     }
 
     &.active {
       color: var(--accent);
-      background: var(--bg-primary);
+      background-color: var(--bg-primary);
       box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05);
       border-color: var(--border);
       border-bottom-color: var(--bg-primary);

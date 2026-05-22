@@ -12,11 +12,19 @@
     return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
   }
 
+  let transitionTimeout = null;
+
   function applyTheme(theme, animate) {
     const root = document.documentElement;
     if (animate) {
+      if (transitionTimeout) {
+        clearTimeout(transitionTimeout);
+      }
       root.setAttribute('data-theme-transitioning', '');
-      setTimeout(() => root.removeAttribute('data-theme-transitioning'), 320);
+      transitionTimeout = setTimeout(() => {
+        root.removeAttribute('data-theme-transitioning');
+        transitionTimeout = null;
+      }, 500);
     }
     root.setAttribute(ATTR, theme);
     localStorage.setItem(THEME_KEY, theme);
