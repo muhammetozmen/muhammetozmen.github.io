@@ -2,8 +2,45 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="baseurl" content="{{ site.baseurl }}">
 
-<!-- SEO -->
+<!-- SEO - jekyll-seo-tag -->
 {% seo %}
+
+<!-- Canonical & hreflang for bilingual SEO -->
+{% if page.lang == 'tr' %}
+  <link rel="canonical" href="https://muhammetozmen.org{{ page.url }}">
+  <link rel="alternate" hreflang="tr" href="https://muhammetozmen.org{{ page.url }}">
+  <link rel="alternate" hreflang="en" href="https://muhammetozmen.org/en{{ page.url }}">
+  <link rel="alternate" hreflang="x-default" href="https://muhammetozmen.org{{ page.url }}">
+{% else %}
+  <link rel="canonical" href="https://muhammetozmen.org{{ page.url }}">
+  <link rel="alternate" hreflang="en" href="https://muhammetozmen.org{{ page.url }}">
+  {% assign tr_url = page.url | remove_first: '/en' %}
+  {% if tr_url == '' %}{% assign tr_url = '/' %}{% endif %}
+  <link rel="alternate" hreflang="tr" href="https://muhammetozmen.org{{ tr_url }}">
+  <link rel="alternate" hreflang="x-default" href="https://muhammetozmen.org{{ tr_url }}">
+{% endif %}
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:type" content="{% if page.layout == 'blog' %}article{% else %}website{% endif %}">
+<meta property="og:title" content="{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}">
+<meta property="og:description" content="{% if page.description %}{{ page.description }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | truncatewords: 30 }}{% else %}{{ site.description }}{% endif %}">
+<meta property="og:url" content="https://muhammetozmen.org{{ page.url }}">
+<meta property="og:image" content="{% if page.image %}https://muhammetozmen.org{{ page.image }}{% else %}https://muhammetozmen.org/assets/img/og-image.png{% endif %}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="{% if page.lang == 'tr' %}tr_TR{% else %}en_US{% endif %}">
+
+<!-- Twitter / X Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}">
+<meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | truncatewords: 30 }}{% else %}{{ site.description }}{% endif %}">
+<meta name="twitter:image" content="{% if page.image %}https://muhammetozmen.org{{ page.image }}{% else %}https://muhammetozmen.org/assets/img/og-image.png{% endif %}">
+
+<!-- Extra SEO meta -->
+<meta name="author" content="{{ site.title }}">
+<meta name="robots" content="index, follow">
+{% if page.tags %}<meta name="keywords" content="{{ page.tags | join: ', ' }}">{% endif %}
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,11 +54,27 @@
 <!-- Theme script (runs immediately to avoid FOUC) -->
 <script>
 (function(){
-  var saved = localStorage.getItem('theme');
-  var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  // Block all transitions during initial render to prevent
+  // theme/lang slider from animating on page load/refresh.
+  document.documentElement.classList.add('no-transition');
+
+  var savedTheme = localStorage.getItem('theme');
+  var theme = savedTheme || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
   document.documentElement.setAttribute('data-theme', theme);
+
+  var savedLang = localStorage.getItem('lang') || 'tr';
+  document.documentElement.setAttribute('data-lang-pref', savedLang);
+
+  // Remove after the browser has painted the initial state
+  document.addEventListener('DOMContentLoaded', function() {
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+        document.documentElement.classList.remove('no-transition');
+      });
+    });
+  });
 })();
 </script>
 
-<!-- Favicon placeholder -->
+<!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>[/]</text></svg>">

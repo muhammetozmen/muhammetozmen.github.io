@@ -228,7 +228,12 @@
     transition: color 0.4s;
   }
 
-  &.toggled .slider-knob {
+  // Positioning driven directly by HTML attributes to avoid JS flash on load
+  [data-theme="dark"] &.theme-slider .slider-knob {
+    transform: translateX(24px);
+  }
+
+  [data-lang-pref="tr"] &.lang-slider .slider-knob {
     transform: translateX(24px);
   }
 

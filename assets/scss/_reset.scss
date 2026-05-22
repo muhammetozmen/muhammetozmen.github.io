@@ -111,3 +111,13 @@ button {
   outline-offset: 2px;
   border-radius: var(--radius);
 }
+
+// Suppress all transitions during initial page load to prevent
+// theme/lang slider knob from animating on refresh.
+html.no-transition *,
+html.no-transition *::before,
+html.no-transition *::after {
+  transition: none !important;
+  animation: none !important;
+}
+

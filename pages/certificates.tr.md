@@ -2,8 +2,8 @@
 layout: default
 lang: tr
 page_id: certificates
-permalink: /tr/certificates
-permalink_tr: /tr/certificates
+permalink: /certificates
+permalink_tr: /certificates
 ---
 
 <div class="certificates-wrap page-content">

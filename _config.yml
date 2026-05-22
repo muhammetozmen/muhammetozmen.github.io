@@ -1,7 +1,19 @@
 title: "Muhammet Özmen"
-description: "Embedded & Computer Engineer"
+description: "Gömülü Sistemler ve Bilgisayar Mühendisi | Embedded & Computer Engineer"
 url: "https://muhammetozmen.org"
 baseurl: ""
+author: "Muhammet Özmen"
+logo: "/assets/img/og-image.png"
+
+social:
+  name: Muhammet Özmen
+  links:
+    - https://github.com/muhammetozmen
+    - https://linkedin.com/in/muhammetozmen/
+    - https://www.youtube.com/@ozmen-muhammet
+
+twitter:
+  username: muhammetozmen
 
 permalink: /posts/:title/
 
@@ -36,9 +48,9 @@ defaults:
       path: "pages"
     values:
       paired_pages:
-        home:     { en: "/",         tr: "/tr/" }
-        resume:   { en: "/resume",   tr: "/tr/resume" }
-        projects: { en: "/projects", tr: "/tr/projects" }
+        home:     { en: "/en/",      tr: "/" }
+        resume:   { en: "/en/resume", tr: "/resume" }
+        projects: { en: "/en/projects", tr: "/projects" }
 
 # Plugins
 plugins:

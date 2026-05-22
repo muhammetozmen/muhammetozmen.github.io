@@ -6,7 +6,7 @@
   const LANG_KEY = 'lang';
 
   // --- On every page load: enforce language consistency ---
-  const savedLang = localStorage.getItem(LANG_KEY) || 'en';
+  const savedLang = localStorage.getItem(LANG_KEY) || 'tr';
   const currentLang = window.CURRENT_PAGE_LANG;
   const pageId = window.CURRENT_PAGE_ID;
 
@@ -23,6 +23,9 @@
     }
   }
 
+  document.documentElement.setAttribute('data-lang-pref', savedLang);
+
+
 
 
   // --- Apply UI language strings ---
@@ -37,14 +40,8 @@
       }
     });
 
-    // Update toggle button state
-    document.querySelectorAll('[data-lang-toggle]').forEach(btn => {
-      if (lang === 'tr') {
-        btn.classList.add('toggled');
-      } else {
-        btn.classList.remove('toggled');
-      }
-    });
+    // Update global lang attribute for CSS knob position
+    document.documentElement.setAttribute('data-lang-pref', lang);
 
     // Update lang filter on blog listings
     filterPostsByLang(lang);
@@ -73,7 +70,7 @@
   }
 
   function toggleLang() {
-    const current = localStorage.getItem(LANG_KEY) || 'en';
+    const current = localStorage.getItem(LANG_KEY) || 'tr';
     const next = current === 'en' ? 'tr' : 'en';
     localStorage.setItem(LANG_KEY, next);
 
@@ -89,7 +86,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    const lang = localStorage.getItem(LANG_KEY) || 'en';
+    const lang = localStorage.getItem(LANG_KEY) || 'tr';
     applyLang(lang);
 
     document.querySelectorAll('[data-lang-toggle]').forEach(btn => {
@@ -99,7 +96,7 @@
 
   // Expose for SPA re-init
   window.LangInit = function () {
-    const lang = localStorage.getItem(LANG_KEY) || 'en';
+    const lang = localStorage.getItem(LANG_KEY) || 'tr';
     applyLang(lang);
 
     document.querySelectorAll('[data-lang-toggle]').forEach(btn => {

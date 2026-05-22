@@ -1,34 +1,60 @@
-# Jekyll Portfolio Website
+# Muhammet Özmen — Kişisel Portfolyo Sitesi
 
-A bilingual (English/Turkish), dark-themed static portfolio website built with Jekyll for embedded/computer engineers.
+**[muhammetozmen.org](https://muhammetozmen.org)** adresinde yayında olan bu site; gömülü sistemler ve bilgisayar mühendisliği alanında çalışan Muhammet Özmen'in kişisel portfolyo, blog ve özgeçmiş sitesidir.
 
-## Local Development
+## Site Hakkında
 
-1. **Install Ruby and build tools**:
-   ```bash
-   sudo pacman -S ruby base-devel
-   ```
-2. **Install Bundler**:
-   ```bash
-   gem install bundler
-   # Ensure gem bin directory is in your PATH
-   export PATH=$PATH:$(ruby -e 'puts Gem.user_dir')/bin
-   ```
-3. **Install dependencies**:
-   ```bash
-   bundle config set --local path 'vendor/bundle'
-   bundle install
-   ```
-4. **Start the local development server**:
-   ```bash
-   bundle exec jekyll serve
-   ```
-5. **Open `http://localhost:4000` in your browser.**
+Bu site [Jekyll](https://jekyllrb.com/) ile oluşturulmuş, **GitHub Pages** üzerinde barındırılan statik bir web sitesidir. İki dilli (Türkçe / İngilizce), karanlık temalı ve tamamen özel CSS ile tasarlanmıştır.
 
-## How to Add Content
+### Sitede Neler Var?
 
-See `DOCUMENTATION.md` for a complete, step-by-step guide on how to add blog posts, devlogs, projects, and update your personal information.
+| Bölüm | Açıklama |
+|---|---|
+| **Ana Sayfa** | Kısa tanıtım, son yazılar ve son projeler |
+| **Özgeçmiş** | Eğitim, deneyim, beceriler ve zaman tüneli |
+| **Projeler** | Portfolyo niteliğindeki teknik projeler |
+| **Devlog** | Gömülü sistemler ve donanım geliştirme günlükleri |
+| **Blog** | Gündelik yazılar ve teknik makaleler |
+| **Sertifikalar** | Alınan kurslar ve sertifikalar |
 
-## Deployment
+## Yerel Geliştirme
 
-This site is designed to be hosted on GitHub Pages. Push the `main` branch to your repository and configure GitHub Pages to build from the root of the `main` branch.
+### Gereksinimler
+
+- Ruby 3.x
+- Bundler
+
+### Kurulum (Arch / CachyOS)
+
+```bash
+# 1. Ruby ve derleme araçlarını yükle
+sudo pacman -S ruby base-devel
+
+# 2. Bundler'ı yükle
+gem install bundler
+export PATH=$PATH:$(ruby -e 'puts Gem.user_dir')/bin
+
+# 3. Bağımlılıkları yükle
+bundle config set --local path 'vendor/bundle'
+bundle install
+
+# 4. Geliştirme sunucusunu başlat
+bundle exec jekyll serve
+```
+
+Ardından tarayıcında `http://localhost:4000` adresini aç.
+
+## İçerik Ekleme
+
+Detaylı rehber için `DOCUMENTATION.md` dosyasına bakın.
+
+## Yayınlama
+
+`main` branch'e push edildiğinde GitHub Actions otomatik olarak siteyi derleyip yayına alır.
+
+---
+
+**İletişim:** [ozmen.muhammet@outlook.com](mailto:ozmen.muhammet@outlook.com)  
+**LinkedIn:** [linkedin.com/in/muhammetozmen](https://linkedin.com/in/muhammetozmen/)  
+**GitHub:** [github.com/muhammetozmen](https://github.com/muhammetozmen)  
+**YouTube:** [youtube.com/@ozmen-muhammet](https://www.youtube.com/@ozmen-muhammet)

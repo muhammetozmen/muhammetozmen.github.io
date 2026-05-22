@@ -92,8 +92,8 @@
 
   function setActiveNav(url) {
     const rawPath = new URL(url, window.location.href).pathname;
-    // Normalize: strip /tr/ prefix for comparison with nav links (which use EN paths)
-    const path = rawPath.replace(/^\/tr(\/|$)/, '/').replace(/\/$/, '') || '/';
+    // Normalize: strip /en/ prefix for comparison with nav links (which use EN paths)
+    const path = rawPath.replace(/^\/en(\/|$)/, '/').replace(/\/$/, '') || '/';
     const navLinks = document.querySelectorAll('.nav-inner a');
 
     navLinks.forEach(link => {

@@ -2,8 +2,8 @@
 layout: default
 lang: en
 page_id: projects
-permalink: /projects
-permalink_tr: /tr/projects
+permalink: /en/projects
+permalink_tr: /projects
 ---
 <div class="projects-wrap page-content">
   <header class="projects-header reveal">

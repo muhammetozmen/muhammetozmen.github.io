@@ -25,13 +25,6 @@
 
   function updateButtons(theme) {
     document.documentElement.setAttribute('data-theme', theme);
-    document.querySelectorAll('[data-theme-toggle]').forEach(btn => {
-      if (theme === 'dark') {
-        btn.classList.add('toggled');
-      } else {
-        btn.classList.remove('toggled');
-      }
-    });
   }
 
   function toggle() {

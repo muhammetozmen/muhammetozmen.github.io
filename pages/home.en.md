@@ -2,8 +2,8 @@
 layout: home
 lang: en
 page_id: home
-permalink: /
-permalink_tr: /tr/
+permalink: /en/
+permalink_tr: /
 ---
 
 <!-- Giriş metni -->
