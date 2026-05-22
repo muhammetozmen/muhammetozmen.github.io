@@ -1,0 +1,102 @@
+---
+layout: default
+---
+{% assign title = page.title_en %}
+{% assign desc = page.description_en %}
+<script>
+// Client-side lang check for single post title (optional fallback)
+document.addEventListener('DOMContentLoaded', () => {
+  const l = localStorage.getItem('lang') || 'en';
+  if(l === 'tr' && "{{ page.title_tr }}") {
+    document.title = "{{ page.title_tr }} | {{ site.title }}";
+  }
+});
+</script>
+
+<article class="project-detail-wrap page-content">
+  <header class="project-detail-header reveal">
+    <div class="project-detail-meta">
+      {% assign status_key = 'status_' | append: page.status %}
+      <span class="project-status status-{{ page.status }}"
+            data-lang-en="{{ site.data.translations.en[status_key] }}"
+            data-lang-tr="{{ site.data.translations.tr[status_key] }}">
+        {{ site.data.translations.en[status_key] | default: page.status }}
+      </span>
+      <span class="project-card-year">{{ page.year }}</span>
+      <div class="project-card-types">
+        {% for type in page.type %}
+        {% assign type_key = 'type_' | append: type %}
+        <span class="tag tag-{{ type }}"
+              data-lang-en="{{ site.data.translations.en[type_key] }}"
+              data-lang-tr="{{ site.data.translations.tr[type_key] }}">
+          {{ site.data.translations.en[type_key] | default: type }}
+        </span>
+        {% endfor %}
+      </div>
+    </div>
+
+    <h1 class="project-detail-title">
+      <span data-lang-en="{{ page.title_en }}" data-lang-tr="{{ page.title_tr }}">{{ page.title_en }}</span>
+    </h1>
+  </header>
+
+  {% if page.images and page.images.size > 0 %}
+  <div class="project-gallery reveal anim-delay-1">
+    {% if page.images.size > 3 %}
+    <div class="gallery-scroll">
+      {% for img in page.images %}
+      <img src="{{ img | relative_url }}" alt="Project image {{ forloop.index }}" loading="lazy">
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="gallery-grid">
+      {% for img in page.images %}
+      <img src="{{ img | relative_url }}" alt="Project image {{ forloop.index }}" loading="lazy">
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  <div class="post-content" id="post-body">
+    {% if page.text_en or page.text_tr %}
+      <div data-lang="en">
+        {% if page.ai_translated %}
+        <blockquote class="alert alert-info">
+          <strong>Note:</strong> This page was translated into English by AI. The original write-up is in Turkish.
+        </blockquote>
+        {% endif %}
+        {{ page.text_en | markdownify }}
+      </div>
+      <div data-lang="tr">
+        {{ page.text_tr | markdownify }}
+      </div>
+    {% else %}
+      {{ content }}
+    {% endif %}
+  </div>
+
+  <div class="post-tags-bottom reveal">
+    <span class="post-tags-label" data-lang-en="{{ site.data.translations.en.tags }}" data-lang-tr="{{ site.data.translations.tr.tags }}">{{ site.data.translations.en.tags }}:</span>
+    {% for tag in page.tags %}
+    <span class="tag">{{ tag }}</span>
+    {% endfor %}
+  </div>
+
+  {% if page.github %}
+  <div class="reveal">
+    <a href="{{ page.github }}" target="_blank" rel="noopener noreferrer" class="project-github-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+      <span data-lang-en="{{ site.data.translations.en.view_on_github }}" data-lang-tr="{{ site.data.translations.tr.view_on_github }}">{{ site.data.translations.en.view_on_github }}</span>
+    </a>
+  </div>
+  {% endif %}
+
+  <a href="{{ '/projects' | relative_url }}" class="project-back reveal"
+     data-lang-en="{{ site.data.translations.en.back_to_projects }}"
+     data-lang-tr="{{ site.data.translations.tr.back_to_projects }}">
+    {{ site.data.translations.en.back_to_projects }}
+  </a>
+</article>
+
+

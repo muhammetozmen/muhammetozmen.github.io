@@ -1,0 +1,403 @@
+// ============================================================
+// TYPOGRAPHY
+// ============================================================
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.3;
+  color: var(--text-primary);
+}
+
+h1 {
+  font-size: 2.4rem;
+}
+
+h2 {
+  font-size: 1.7rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+h4 {
+  font-size: 1.1rem;
+}
+
+h5 {
+  font-size: 0.95rem;
+}
+
+h6 {
+  font-size: 0.85rem;
+}
+
+p {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+  margin-bottom: var(--space-3);
+}
+
+// Meta / Labels
+.meta,
+.label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+}
+
+// Section labels (bracket-style)
+.section-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  font-family: var(--font-mono);
+  margin-bottom: var(--space-6);
+
+  &::before {
+    content: "[ ";
+    color: var(--accent);
+  }
+
+  &::after {
+    content: " ]";
+    color: var(--accent);
+  }
+}
+
+// Post content typography
+.post-content {
+  font-family: var(--font-body);
+  font-size: 0.97rem;
+  line-height: 1.65;
+  color: var(--text-primary);
+  max-width: var(--max-text);
+
+  h1 {
+    font-size: 1.8rem;
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-4);
+    color: var(--accent);
+  }
+
+  h2 {
+    font-size: 1.4rem;
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-4);
+    padding-bottom: var(--space-2);
+    border-bottom: 1px solid var(--border);
+    color: color-mix(in srgb, var(--accent) 80%, var(--text-primary));
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-3);
+    color: color-mix(in srgb, var(--accent) 60%, var(--text-primary));
+  }
+
+  h4 {
+    font-size: 1rem;
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-3);
+    color: color-mix(in srgb, var(--accent) 40%, var(--text-primary));
+  }
+
+  h5 {
+    font-size: 0.95rem;
+    margin-top: var(--space-4);
+    margin-bottom: var(--space-2);
+    color: color-mix(in srgb, var(--accent) 25%, var(--text-primary));
+  }
+
+  h6 {
+    font-size: 0.9rem;
+    margin-top: var(--space-4);
+    margin-bottom: var(--space-2);
+    color: color-mix(in srgb, var(--accent) 15%, var(--text-primary));
+  }
+
+  p {
+    margin-bottom: var(--space-3);
+  }
+
+  a {
+    color: var(--link);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+
+    &:hover {
+      color: var(--link-hover);
+    }
+  }
+
+  ul,
+  ol {
+    list-style: disc;
+    padding-left: var(--space-6);
+    margin-bottom: var(--space-4);
+
+    li {
+      margin-bottom: var(--space-2);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+  }
+
+  ol {
+    list-style: decimal;
+  }
+
+  blockquote {
+    border-left: 3px solid var(--accent);
+    padding: var(--space-3) var(--space-6);
+    margin: var(--space-6) 0;
+    background: var(--bg-card);
+    border-radius: 0 var(--radius) var(--radius) 0;
+
+    p {
+      margin-bottom: 0;
+      font-style: italic;
+      color: var(--text-secondary);
+    }
+  }
+
+  // Custom Callout / Alert Boxes
+  .alert {
+    padding: var(--space-4) var(--space-6);
+    margin: var(--space-6) 0;
+    border-radius: var(--radius-lg);
+    border-left: 3px solid transparent;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+
+    p {
+      margin-bottom: var(--space-2);
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+    
+    strong:first-child {
+      display: block;
+      margin-bottom: var(--space-2);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+  }
+
+  .alert-info {
+    border-left-color: var(--accent);
+    strong:first-child { color: var(--accent); }
+  }
+
+  .alert-warning {
+    border-left-color: #f87171;
+    strong:first-child { color: #f87171; }
+
+    [data-theme="light"] & {
+      border-left-color: #dc2626;
+      strong:first-child { color: #dc2626; }
+    }
+  }
+
+  .alert-tip {
+    border-left-color: var(--accent-green);
+    strong:first-child { color: var(--accent-green); }
+  }
+
+  code {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1px 6px;
+    color: var(--accent-warm);
+
+    &.language-plaintext {
+      color: var(--text-primary);
+    }
+  }
+
+  .code-block-wrap {
+    position: relative;
+    margin: var(--space-6) 0;
+
+    &:hover .copy-code-btn,
+    .copy-code-btn:focus {
+      opacity: 1;
+    }
+  }
+
+  pre {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4) var(--space-6);
+    overflow-x: auto;
+    margin: 0;
+
+    code {
+      background: none;
+      border: none;
+      padding: 0;
+      color: var(--text-primary);
+      font-size: 0.87rem;
+      line-height: 1.6;
+    }
+  }
+
+  .copy-code-btn {
+    position: absolute;
+    top: 50%;
+    right: var(--space-2);
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    background: var(--bg-base, var(--bg-card));
+    backdrop-filter: blur(4px);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s ease, color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    z-index: 2;
+    user-select: none;
+    white-space: nowrap;
+
+    svg {
+      width: 13px;
+      height: 13px;
+      flex-shrink: 0;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    &:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      background: rgba(var(--accent-rgb, 100, 181, 246), 0.08);
+    }
+
+    &.copied {
+      color: var(--accent-green);
+      border-color: var(--accent-green);
+      background: rgba(93, 184, 136, 0.08);
+      opacity: 1;
+    }
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: var(--space-8) 0;
+  }
+
+  img {
+    border-radius: var(--radius-lg);
+    margin: var(--space-6) auto;
+    cursor: zoom-in;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--space-6) 0;
+    font-size: 0.9rem;
+
+    th {
+      text-align: left;
+      padding: var(--space-2) var(--space-4);
+      border-bottom: 1px solid var(--border-accent);
+      color: var(--text-secondary);
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+    }
+
+    td {
+      padding: var(--space-2) var(--space-4);
+      border-bottom: 1px solid var(--border);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+  }
+}
+
+// Inline tag / badge
+.tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  padding: 2px 8px;
+  border-radius: 2px;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  background: var(--bg-card);
+  letter-spacing: 0.04em;
+  transition: var(--transition);
+
+  &.tag-hardware {
+    color: #f87171;
+    border-color: rgba(248, 113, 113, 0.3);
+    background: rgba(248, 113, 113, 0.08);
+  }
+
+  &.tag-firmware {
+    color: var(--accent-green);
+    border-color: rgba(93, 184, 136, 0.3);
+    background: rgba(93, 184, 136, 0.08);
+  }
+
+  &.tag-software {
+    color: #7c9ef5;
+    border-color: rgba(124, 158, 245, 0.3);
+    background: rgba(124, 158, 245, 0.08);
+
+    [data-theme="light"] & {
+      color: #3d5fc4;
+      border-color: rgba(61, 95, 196, 0.3);
+      background: rgba(61, 95, 196, 0.08);
+    }
+  }
+
+  &.tag-soft {
+    color: #eab308;
+    border-color: rgba(234, 179, 8, 0.3);
+    background: rgba(234, 179, 8, 0.08);
+  }
+
+  &.tag-ai {
+    color: #fb923c;
+    border-color: rgba(251, 146, 60, 0.3);
+    background: rgba(251, 146, 60, 0.08);
+  }
+}

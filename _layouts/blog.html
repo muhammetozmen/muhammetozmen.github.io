@@ -1,0 +1,69 @@
+---
+layout: default
+---
+{% assign collection = site.posts %}
+{% if page.category == 'devlog' %}
+  {% assign collection = site.devlogs %}
+{% endif %}
+
+<article class="post-wrap page-content">
+  <div class="post-main">
+    <header class="post-header reveal">
+      <div class="post-meta-row">
+        <span class="post-date">{{ page.date | date: "%Y-%m-%d" }}</span>
+        <span class="badge tag-software cat-{{ page.category }}">{{ page.category }}</span>
+        {% if page.reading_time %}
+        <span class="post-reading-time">
+          {% assign words_en = page.text_en | strip_html | number_of_words %}
+          {% if words_en == 0 %}{% assign words_en = content | strip_html | number_of_words %}{% endif %}
+          {% assign rt_en = words_en | divided_by: 180 | plus: 1 %}
+          
+          {% assign words_tr = page.text_tr | strip_html | number_of_words %}
+          {% if words_tr == 0 %}{% assign words_tr = content | strip_html | number_of_words %}{% endif %}
+          {% assign rt_tr = words_tr | divided_by: 180 | plus: 1 %}
+          
+          <span data-lang-en="{{ rt_en }} {{ site.data.translations.en.reading_time }}" data-lang-tr="{{ rt_tr }} {{ site.data.translations.tr.reading_time }}">
+            {{ rt_en }} {{ site.data.translations.en.reading_time }}
+          </span>
+        </span>
+        {% endif %}
+      </div>
+
+      <h1 class="post-title">
+        {% assign display_title_en = page.title_en | default: page.title %}
+        {% assign display_title_tr = page.title_tr | default: page.title %}
+        <span data-lang-en="{{ display_title_en }}" data-lang-tr="{{ display_title_tr }}">{{ display_title_en }}</span>
+      </h1>
+
+    </header>
+
+    <div class="post-content reveal anim-delay-2" id="post-body">
+      <div data-lang="en">
+        {% if page.ai_translated %}
+        <blockquote class="alert alert-info">
+          <strong>Note:</strong> This page was translated into English by AI. The original write-up is in Turkish.
+        </blockquote>
+        {% endif %}
+        {{ page.text_en | markdownify }}
+      </div>
+      <div data-lang="tr">
+        {{ page.text_tr | markdownify }}
+      </div>
+    </div>
+
+    <div class="post-tags-bottom reveal">
+      <span class="post-tags-label" data-lang-en="{{ site.data.translations.en.tags }}" data-lang-tr="{{ site.data.translations.tr.tags }}">{{ site.data.translations.en.tags }}:</span>
+      {% for tag in page.tags_en %}
+      <span class="tag" data-lang-en="{{ tag }}" data-lang-tr="{{ page.tags_tr[forloop.index0] | default: tag }}">{{ tag }}</span>
+      {% endfor %}
+    </div>
+
+    <a href="{{ '/blog' | relative_url }}" class="post-back reveal"
+       data-lang-en="{{ site.data.translations.en.back_to_blog }}"
+       data-lang-tr="{{ site.data.translations.tr.back_to_blog }}">
+      {{ site.data.translations.en.back_to_blog }}
+    </a>
+  </div>
+</article>
+
+

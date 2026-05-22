@@ -1,0 +1,33 @@
+{% assign title = include.post.title_en %}
+{% assign desc = include.post.description_en %}
+
+<a href="{{ include.post.url | relative_url }}" class="project-card reveal">
+  <div class="project-card-thumb">
+    {% if include.post.thumbnail and include.post.thumbnail != '' %}
+      <img src="{{ include.post.thumbnail | relative_url }}" alt="Project thumbnail" loading="lazy">
+    {% else %}
+      <img src="{{ '/assets/images/site/placeholder.png' | relative_url }}" alt="Placeholder" class="project-card-placeholder-img">
+    {% endif %}
+  </div>
+  <div class="project-card-body">
+    <div class="project-card-header">
+      <h3 class="project-card-title">
+        <span data-lang-en="{{ title }}" data-lang-tr="{{ include.post.title_tr }}">{{ title }}</span>
+      </h3>
+      <span class="project-card-year">{{ include.post.year }}</span>
+    </div>
+    <div class="project-card-types">
+      {% for type in include.post.type %}
+      {% assign type_key = 'type_' | append: type %}
+      <span class="tag tag-{{ type }}"
+            data-lang-en="{{ site.data.translations.en[type_key] }}"
+            data-lang-tr="{{ site.data.translations.tr[type_key] }}">
+        {{ site.data.translations.en[type_key] | default: type }}
+      </span>
+      {% endfor %}
+    </div>
+    <p class="project-card-desc">
+      <span data-lang-en="{{ desc }}" data-lang-tr="{{ include.post.description_tr }}">{{ desc }}</span>
+    </p>
+  </div>
+</a>

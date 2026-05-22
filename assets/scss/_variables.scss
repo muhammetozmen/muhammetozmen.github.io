@@ -1,0 +1,129 @@
+// ============================================================
+// CSS CUSTOM PROPERTIES — COLOR SYSTEM
+// ============================================================
+
+:root {
+  // Dark theme (default)
+  --bg-primary: #0d0d0d;
+  --bg-secondary: #141414;
+  --bg-card: #1a1a1a;
+  --bg-hover: #1f1f1f;
+  --border: #2a2a2a;
+  --border-dim: #1a1a1a;
+  --border-accent: #3d3d3d;
+  --text-primary: #d1d1d6;
+  --text-secondary: #888888;
+  --text-muted: #555555;
+  --accent: #FFC024;
+  --accent-warm: #e8956d;
+  --accent-green: #5db888;
+  --accent-dim: #3d2e07;
+  --link: #FFC024;
+  --link-hover: #ffd15c;
+
+  // Spacing scale (4px base)
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+
+  // Typography
+  --font-mono: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  // Transitions
+  --transition: all 0.2s ease;
+  --transition-slow: all 0.35s ease;
+
+  // Borders
+  --radius: 4px;
+  --radius-lg: 8px;
+
+  // Max widths
+  --max-text: 760px;
+  --max-layout: 1100px;
+
+  // Nav height
+  --nav-height: 56px;
+}
+
+[data-theme="light"] {
+  --bg-primary: #f5f4f0;
+  --bg-secondary: #eceae4;
+  --bg-card: #ffffff;
+  --bg-hover: #f0eee8;
+  --border: #dddbd4;
+  --border-dim: #e8e6e0;
+  --border-accent: #c8c5bc;
+  --text-primary: #1a1a1a;
+  --text-secondary: #5a5a5a;
+  --text-muted: #9a9a9a;
+  --accent: #d99c00;
+  --accent-warm: #c4622d;
+  --accent-green: #2d8a5e;
+  --accent-dim: #fcf4dc;
+  --link: #d99c00;
+  --link-hover: #b88100;
+}
+
+// ============================================================
+// DYNAMIC COLOR PALETTE SYSTEM (Yellow, Blue, Green, Red)
+// ============================================================
+
+// --- Dark Mode Accent Themes ---
+[data-theme="dark"][data-accent="blue"] {
+  --accent: #7c9ef5;
+  --accent-dim: rgba(124, 158, 245, 0.12);
+  --link: #7c9ef5;
+  --link-hover: #a8bef8;
+}
+
+[data-theme="dark"][data-accent="green"] {
+  --accent: #5db888;
+  --accent-dim: rgba(93, 184, 136, 0.12);
+  --link: #5db888;
+  --link-hover: #82ceaa;
+}
+
+[data-theme="dark"][data-accent="red"] {
+  --accent: #f87171;
+  --accent-dim: rgba(248, 113, 113, 0.12);
+  --link: #f87171;
+  --link-hover: #fca5a5;
+}
+
+// --- Light Mode Accent Themes ---
+[data-theme="light"][data-accent="blue"] {
+  --accent: #3d5fc4;
+  --accent-dim: #dce4f5;
+  --link: #3d5fc4;
+  --link-hover: #2a45a0;
+}
+
+[data-theme="light"][data-accent="green"] {
+  --accent: #2d8a5e;
+  --accent-dim: #e1f0e8;
+  --link: #2d8a5e;
+  --link-hover: #1f6041;
+}
+
+[data-theme="light"][data-accent="red"] {
+  --accent: #c2410c;
+  --accent-dim: #fcece6;
+  --link: #c2410c;
+  --link-hover: #9a3412;
+}
+
+// Color transition on theme switch
+[data-theme-transitioning] * {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease !important;
+}
+
+// SCSS vars for breakpoints
+$bp-mobile: 768px;
+$bp-tablet: 1024px;

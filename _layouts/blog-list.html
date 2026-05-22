@@ -1,0 +1,37 @@
+---
+layout: default
+---
+<div class="blog-wrap page-content">
+  {% include search-box.html %}
+
+  <div class="blog-tabs reveal">
+    <button class="blog-tab active" data-tab="blog"
+            data-lang-en="{{ site.data.translations.en.tab_blog }}"
+            data-lang-tr="{{ site.data.translations.tr.tab_blog }}">
+      {{ site.data.translations.en.tab_blog }}
+    </button>
+    <button class="blog-tab" data-tab="devlogs"
+            data-lang-en="{{ site.data.translations.en.tab_devlogs }}"
+            data-lang-tr="{{ site.data.translations.tr.tab_devlogs }}">
+      {{ site.data.translations.en.tab_devlogs }}
+    </button>
+  </div>
+
+  <div class="post-panel active" id="panel-blog">
+    <div class="post-list reveal-group">
+      {% assign blog_posts = site.posts | where: 'category', 'blog' | sort: 'date' | reverse %}
+      {% for post in blog_posts %}
+        {% include post-card.html post=post %}
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="post-panel" id="panel-devlogs">
+    <div class="post-list reveal-group">
+      {% assign devlogs = site.posts | where: 'category', 'devlog' | sort: 'date' | reverse %}
+      {% for post in devlogs %}
+        {% include post-card.html post=post %}
+      {% endfor %}
+    </div>
+  </div>
+</div>

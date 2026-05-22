@@ -1,0 +1,57 @@
+title: "Muhammet Özmen"
+description: "Embedded & Computer Engineer"
+url: "https://muhammetozmen.org"
+baseurl: ""
+
+permalink: /posts/:title/
+
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /projects/:title/
+
+sass:
+  sass_dir: assets/scss
+
+defaults:
+  - scope:
+      path: "_posts/blog"
+      type: posts
+    values:
+      layout: blog
+      category: blog
+  - scope:
+      path: "_posts/devlogs"
+      type: posts
+    values:
+      layout: blog
+      category: devlog
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: project
+  - scope:
+      path: "pages"
+    values:
+      paired_pages:
+        home:     { en: "/",         tr: "/tr/" }
+        resume:   { en: "/resume",   tr: "/tr/resume" }
+        projects: { en: "/projects", tr: "/tr/projects" }
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Exclude
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - AGENT.MD
+  - node_modules
+  - vendor
+  - .bundle

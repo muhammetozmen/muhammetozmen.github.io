@@ -1,0 +1,343 @@
+// ============================================================
+// HOME PAGE
+// ============================================================
+
+.home-wrap {
+  max-width: var(--max-text);
+  margin: 0 auto;
+  padding: var(--space-4) var(--space-6) 0;
+
+  @media (max-width: 768px) {
+    padding: var(--space-4) var(--space-4) 0;
+  }
+}
+
+// Hero
+.hero {
+  padding: var(--space-2) 0 var(--space-4);
+  margin-bottom: 0;
+  animation: fadeInUp 0.5s ease both;
+}
+
+.hero-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-4);
+}
+
+.hero-name {
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
+  line-height: 1.1;
+  margin-bottom: var(--space-2);
+  position: relative;
+  width: fit-content;
+
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
+  }
+}
+
+.hero-title {
+  font-size: 1rem;
+  color: var(--accent);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--space-3);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.loop-text {
+  display: inline-block;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+#search-results.fade-in {
+  animation: fadeInSearch 0.4s ease forwards;
+}
+
+@keyframes fadeInSearch {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-desc {
+  font-family: var(--font-body);
+  font-size: 0.97rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 100%;
+}
+
+.home-section {
+  margin-bottom: var(--space-4);
+  padding-top: 0;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.home-section-label {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-3);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+
+  &::before {
+    content: '';
+    width: 3px;
+    height: 14px;
+    background: var(--accent);
+    border-radius: 1px;
+  }
+}
+
+.home-about p {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: var(--space-4);
+}
+
+// Navigation guide cards
+.nav-guide {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.nav-guide-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: var(--transition);
+
+  &:hover {
+    border-color: var(--accent);
+    background: var(--accent-dim);
+  }
+}
+
+.nav-guide-path {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent);
+  font-weight: 600;
+  white-space: nowrap;
+  padding-top: 1px;
+  min-width: 100px;
+}
+
+.nav-guide-desc {
+  font-family: var(--font-body);
+  font-size: 0.87rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+// Recent activity
+.recent-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+
+  // Compact post-card overrides — home page only
+  .post-card {
+    padding: var(--space-2) var(--space-3);
+    gap: var(--space-2);
+  }
+
+  .post-card-image {
+    width: 144px;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    
+    img {
+      border-radius: var(--radius-lg);
+    }
+    
+    @media (max-width: 640px) {
+      width: 100px;
+    }
+  }
+
+  .post-card-header {
+    margin-bottom: 0;
+  }
+
+  .post-card-title {
+    font-size: 0.88rem;
+  }
+
+  .post-card-excerpt-text {
+    font-size: 0.78rem;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: unset;
+  }
+
+  .post-card-readmore {
+    font-size: 0.72rem;
+  }
+
+  // Hide tags on home showcase
+  .post-card-tags {
+    display: none;
+  }
+}
+
+.home-projects-gallery-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: var(--space-2);
+
+  .projects-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: var(--space-2);
+    gap: var(--space-3);
+    scroll-snap-type: x mandatory;
+    flex: 1;
+    min-width: 0;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .project-card {
+      flex: 0 0 calc(45% - var(--space-2));
+      scroll-snap-align: start;
+      min-width: 255px;
+
+      @media (max-width: 600px) {
+        flex: 0 0 75%;
+      }
+    }
+  }
+
+  .pt-gallery-btn-next.at-end {
+    background: var(--accent);
+    color: var(--bg-primary);
+    border-color: var(--accent);
+    
+    // Rotate arrow to point right or display different indication?
+    // We can just highlight it as a button to enter the projects section
+    &:hover {
+      background: var(--link-hover);
+      border-color: var(--link-hover);
+      color: var(--bg-primary);
+    }
+  }
+}
+
+// Home-section compact project-card overrides (does not affect /projects page)
+.home-section .project-card-title {
+  font-size: 0.85rem;
+}
+
+.home-section .project-card-year {
+  font-size: 0.65rem;
+}
+
+.home-section .project-card-desc {
+  font-size: 0.78rem;
+  -webkit-line-clamp: 1;
+  line-height: 1.5;
+}
+
+.home-section .project-card-types {
+  margin-bottom: var(--space-1);
+}
+
+.recent-section-divider {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: var(--space-3) 0 var(--space-2);
+  font-family: var(--font-mono);
+  font-size: 0.70rem;
+  letter-spacing: 0.08em;
+
+  span {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  &::before {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+}
+
+.recent-footer {
+  margin-top: var(--space-1);
+  margin-bottom: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-align: center;
+  letter-spacing: 0.02em;
+
+  a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    &:hover { color: var(--link-hover); }
+  }
+}

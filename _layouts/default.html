@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: 'en' }}" data-theme="dark">
+
+<head>
+  {% include head.html %}
+</head>
+
+<body>
+  {% include nav.html %}
+
+  <!-- Page Map for lang.js -->
+  <script data-page-vars>
+    window.PAGE_MAP = {
+      "home": { "en": "/", "tr": "/tr/" },
+      "resume": { "en": "/resume", "tr": "/tr/resume" },
+      "projects": { "en": "/projects", "tr": "/tr/projects" },
+      "blog": { "en": "/blog", "tr": "/tr/blog" },
+      "devlogs": { "en": "/devlogs", "tr": "/tr/devlogs" },
+      "certificates": { "en": "/certificates", "tr": "/tr/certificates" }
+    };
+    window.CURRENT_PAGE_ID = "{{ page.page_id }}";
+    window.CURRENT_PAGE_LANG = "{{ page.lang }}";
+  </script>
+
+  <main id="main-content" data-page-id="{{ page.page_id }}" data-page-lang="{{ page.lang }}">
+    {{ content }}
+  </main>
+
+  {% include footer.html %}
+
+  <!-- Global Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close image">&times;</button>
+    <img src="" alt="Enlarged image" class="lightbox-img" id="lightbox-img">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+
+  <!-- Scroll FAB -->
+  <button id="scroll-fab" class="scroll-fab" aria-label="Scroll">
+    <svg class="fab-icon" viewBox="0 0 24 24">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <script src="{{ '/assets/js/theme.js' | relative_url }}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="{{ '/assets/js/scramble.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/lang.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/scroll-reveal.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/nav.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/search.js' | relative_url }}"></script>
+</body>
+
+</html>

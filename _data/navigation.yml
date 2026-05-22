@@ -1,0 +1,27 @@
+main:
+  - title: home
+    url: /
+    key: nav_home
+  - title: blog
+    url: /blog
+    key: nav_blog
+    dropdown:
+      - title: blog
+        url: /blog
+        key: nav_blog
+      - title: devlogs
+        url: /devlogs
+        key: nav_devlogs
+  - title: projects
+    url: /projects
+    key: nav_projects
+  - title: resume
+    url: /resume
+    key: nav_resume
+    dropdown:
+      - title: cv
+        url: /assets/documents/cv-en.pdf
+        key: nav_cv
+      - title: certificates
+        url: /certificates
+        key: nav_certificates

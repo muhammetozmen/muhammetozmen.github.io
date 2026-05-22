@@ -1,0 +1,93 @@
+<nav class="site-nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+
+    <!-- Center links -->
+    <ul class="nav-links" role="list">
+      {% for item in site.data.navigation.main %}
+      <li class="nav-item">
+        {% assign is_active = false %}
+        {% if page.url == item.url %}
+          {% assign is_active = true %}
+        {% elsif item.url != '/' and page.url contains item.url %}
+          {% assign is_active = true %}
+        {% endif %}
+        
+        {% if item.dropdown %}
+          {% for sub in item.dropdown %}
+            {% if page.url == sub.url %}
+              {% assign is_active = true %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+
+        <a href="{{ item.url | relative_url }}"
+          class="nav-link{% if is_active %} active{% endif %}"
+          data-lang-en="{{ site.data.translations.en[item.key] }}"
+          data-lang-tr="{{ site.data.translations.tr[item.key] }}">
+          {{ site.data.translations.en[item.key] }}
+        </a>
+        {% if item.dropdown %}
+        <div class="nav-dropdown" role="menu">
+          {% for sub in item.dropdown %}
+          <a href="{{ sub.url | relative_url }}" role="menuitem" data-lang-en="{{ site.data.translations.en[sub.key] }}"
+            data-lang-tr="{{ site.data.translations.tr[sub.key] }}">
+            {{ site.data.translations.en[sub.key] }}
+          </a>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+
+    <!-- Right controls -->
+    <div class="nav-controls">
+      <button class="nav-palette-btn" id="accent-toggle-btn" data-accent-toggle aria-label="Toggle color palette" title="Change accent color">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 14.7255 3.09032 17.1962 4.85857 19C5.35857 19.5 5.5 20 5.5 20.5C5.5 21.3284 6.17157 22 7 22H12Z"></path>
+          <circle cx="7.5" cy="10.5" r="1.5" fill="currentColor"></circle>
+          <circle cx="11.5" cy="7.5" r="1.5" fill="currentColor"></circle>
+          <circle cx="16.5" cy="9.5" r="1.5" fill="currentColor"></circle>
+          <circle cx="15.5" cy="14.5" r="1.5" fill="currentColor"></circle>
+        </svg>
+      </button>
+
+      {% include theme-toggle.html %}
+
+      <div class="nav-slider lang-slider" id="lang-toggle-btn" data-lang-toggle aria-label="Switch language" role="button" tabindex="0">
+        <span class="slider-knob"></span>
+        <span class="lang-text">EN</span>
+        <span class="lang-text">TR</span>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false"
+        aria-controls="nav-mobile">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="nav-mobile" id="nav-mobile" aria-label="Mobile navigation">
+  {% for item in site.data.navigation.main %}
+  <a href="{{ item.url | relative_url }}" data-lang-en="{{ site.data.translations.en[item.key] }}"
+    data-lang-tr="{{ site.data.translations.tr[item.key] }}">
+    {{ site.data.translations.en[item.key] }}
+  </a>
+  {% if item.dropdown %}
+  {% for sub in item.dropdown %}
+  {% unless sub.url == item.url %}
+  <a href="{{ sub.url | relative_url }}" style="padding-left: 1.5rem;"
+    data-lang-en="{{ site.data.translations.en[sub.key] }}" data-lang-tr="{{ site.data.translations.tr[sub.key] }}">
+    {{ site.data.translations.en[sub.key] }}
+  </a>
+  {% endunless %}
+  {% endfor %}
+  {% endif %}
+  {% endfor %}
+</div>

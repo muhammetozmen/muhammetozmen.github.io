@@ -1,0 +1,19 @@
+---
+layout: none
+---
+[
+  {% for post in site.posts %}
+  {
+    "title_en": {{ post.title_en | default: post.title | jsonify }},
+    "title_tr": {{ post.title_tr | default: post.title | jsonify }},
+    "url": {{ post.url | relative_url | jsonify }},
+    "date": {{ post.date | date: "%Y-%m-%d" | jsonify }},
+    "category": {{ post.category | default: "blog" | jsonify }},
+    "tags_en": {{ post.tags_en | jsonify }},
+    "tags_tr": {{ post.tags_tr | jsonify }},
+    "keywords": {{ post.keywords | jsonify }},
+    "excerpt_en": {{ post.text_en | markdownify | strip_html | strip_newlines | truncatewords: 30 | jsonify }},
+    "excerpt_tr": {{ post.text_tr | markdownify | strip_html | strip_newlines | truncatewords: 30 | jsonify }}
+  }{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+]

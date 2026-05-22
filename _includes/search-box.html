@@ -1,0 +1,25 @@
+<div class="search-wrapper">
+  <div class="search-input-row">
+    <span class="search-icon" aria-hidden="true"></span>
+    <input type="search"
+           id="search-input"
+           class="search-input"
+           placeholder="{{ site.data.translations.en.search_placeholder }}"
+           data-lang-en="{{ site.data.translations.en.search_placeholder }}"
+           data-lang-tr="{{ site.data.translations.tr.search_placeholder }}"
+           autocomplete="off"
+           aria-label="Search posts">
+    <button class="search-clear" id="search-clear" aria-label="Clear search">&times;</button>
+  </div>
+  <p class="search-count" id="search-count" aria-live="polite"></p>
+  <p class="search-no-results" id="search-no-results"
+     data-lang-en="{{ site.data.translations.en.search_no_results }}"
+     data-lang-tr="{{ site.data.translations.tr.search_no_results }}">
+    {{ site.data.translations.en.search_no_results }}
+  </p>
+</div>
+
+<!-- Search results injected here by search.js -->
+<div id="search-results" style="display:none;" class="post-list"></div>
+
+
