@@ -350,8 +350,8 @@
   z-index: 10;
   padding-top: var(--space-4);
   margin-bottom: var(--space-8); // Space below buttons
-  transition: background-color 0.3s ease;
-  will-change: transform;
+  transition: background-color 0.3s ease, top 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, top;
 
   // Extend background to absolute edges of resume-wrap to hide underlying text
   margin-left: calc(-1 * var(--space-6));

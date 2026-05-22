@@ -2,8 +2,35 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="baseurl" content="{{ site.baseurl }}">
 
-<!-- SEO - jekyll-seo-tag -->
-{% seo %}
+<!-- Primary Meta Tags -->
+{% if page.lang == 'en' %}
+  {% assign seo_title = page.title_en | default: page.title %}
+  {% assign seo_desc = page.description_en | default: page.excerpt_en | default: page.description | default: page.excerpt %}
+{% else %}
+  {% assign seo_title = page.title_tr | default: page.title %}
+  {% assign seo_desc = page.description_tr | default: page.excerpt_tr | default: page.description | default: page.excerpt %}
+{% endif %}
+
+{% if seo_title %}
+  {% assign display_title = seo_title | append: " | " | append: site.title %}
+{% else %}
+  {% assign display_title = site.title | append: " | " | append: site.description %}
+{% endif %}
+
+{% if seo_desc == nil or seo_desc == "" or seo_desc == " " %}
+  {% assign display_desc = site.description %}
+{% else %}
+  {% assign display_desc = seo_desc | strip_html | strip_newlines | truncate: 160 %}
+{% endif %}
+
+{% assign og_image = page.image | default: site.logo %}
+{% unless og_image contains "://" %}
+  {% assign og_image = og_image | prepend: site.url %}
+{% endunless %}
+
+<title>{{ display_title }}</title>
+<meta name="title" content="{{ display_title }}">
+<meta name="description" content="{{ display_desc }}">
 
 <!-- Canonical & hreflang for bilingual SEO -->
 {% if page.lang == 'tr' %}
@@ -20,22 +47,23 @@
   <link rel="alternate" hreflang="x-default" href="https://muhammetozmen.org{{ tr_url }}">
 {% endif %}
 
-<!-- Open Graph -->
+<!-- Open Graph / Facebook -->
 <meta property="og:site_name" content="{{ site.title }}">
 <meta property="og:type" content="{% if page.layout == 'blog' %}article{% else %}website{% endif %}">
-<meta property="og:title" content="{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}">
-<meta property="og:description" content="{% if page.description %}{{ page.description }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | truncatewords: 30 }}{% else %}{{ site.description }}{% endif %}">
 <meta property="og:url" content="https://muhammetozmen.org{{ page.url }}">
-<meta property="og:image" content="{% if page.image %}https://muhammetozmen.org{{ page.image }}{% else %}https://muhammetozmen.org/assets/img/og-image.png{% endif %}">
+<meta property="og:title" content="{{ display_title }}">
+<meta property="og:description" content="{{ display_desc }}">
+<meta property="og:image" content="{{ og_image }}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="{% if page.lang == 'tr' %}tr_TR{% else %}en_US{% endif %}">
 
-<!-- Twitter / X Card -->
+<!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}">
-<meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | truncatewords: 30 }}{% else %}{{ site.description }}{% endif %}">
-<meta name="twitter:image" content="{% if page.image %}https://muhammetozmen.org{{ page.image }}{% else %}https://muhammetozmen.org/assets/img/og-image.png{% endif %}">
+<meta name="twitter:url" content="https://muhammetozmen.org{{ page.url }}">
+<meta name="twitter:title" content="{{ display_title }}">
+<meta name="twitter:description" content="{{ display_desc }}">
+<meta name="twitter:image" content="{{ og_image }}">
 
 <!-- Extra SEO meta -->
 <meta name="author" content="{{ site.title }}">
@@ -77,4 +105,4 @@
 </script>
 
 <!-- Favicon -->
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>[/]</text></svg>">
+<link rel="icon" href="data:,">
