@@ -20,18 +20,42 @@ layout: default
   <div class="post-panel active" id="panel-blog">
     <div class="post-list reveal-group">
       {% assign blog_posts = site.posts | where: 'category', 'blog' | sort: 'date' | reverse %}
-      {% for post in blog_posts %}
-        {% include post-card.html post=post %}
-      {% endfor %}
+      {% if blog_posts.size > 0 %}
+        {% for post in blog_posts %}
+          {% include post-card.html post=post %}
+        {% endfor %}
+      {% else %}
+        <div class="empty-state reveal">
+          <p class="empty-state-text">
+            {% if page.lang == 'en' %}
+              {{ site.data.translations.en.no_blog_posts }}
+            {% else %}
+              {{ site.data.translations.tr.no_blog_posts }}
+            {% endif %}
+          </p>
+        </div>
+      {% endif %}
     </div>
   </div>
 
   <div class="post-panel" id="panel-devlogs">
     <div class="post-list reveal-group">
       {% assign devlogs = site.posts | where: 'category', 'devlog' | sort: 'date' | reverse %}
-      {% for post in devlogs %}
-        {% include post-card.html post=post %}
-      {% endfor %}
+      {% if devlogs.size > 0 %}
+        {% for post in devlogs %}
+          {% include post-card.html post=post %}
+        {% endfor %}
+      {% else %}
+        <div class="empty-state reveal">
+          <p class="empty-state-text">
+            {% if page.lang == 'en' %}
+              {{ site.data.translations.en.no_devlogs }}
+            {% else %}
+              {{ site.data.translations.tr.no_devlogs }}
+            {% endif %}
+          </p>
+        </div>
+      {% endif %}
     </div>
   </div>
 </div>

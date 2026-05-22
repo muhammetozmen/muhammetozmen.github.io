@@ -51,6 +51,8 @@ en:
   download_cv_en: "English CV"
   nav_cv: "cv"
   nav_certificates: "certificates & documents"
+  no_blog_posts: "There are no blog posts yet. Please check the devlogs!"
+  no_devlogs: "There are no devlog entries yet. Please check the blog posts!"
 
 tr:
   nav_home: "anasayfa"
@@ -105,3 +107,5 @@ tr:
   download_cv_en: "İngilizce CV"
   nav_cv: "cv"
   nav_certificates: "sertifikalar ve belgeler"
+  no_blog_posts: "Henüz blog yazısı bulunmuyor. Lütfen devlog sekmesine göz atın!"
+  no_devlogs: "Henüz devlog yazısı bulunmuyor. Lütfen blog sekmesine göz atın!"
