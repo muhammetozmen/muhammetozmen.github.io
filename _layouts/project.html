@@ -6,7 +6,7 @@ layout: default
 <script>
 // Client-side lang check for single post title (optional fallback)
 document.addEventListener('DOMContentLoaded', () => {
-  const l = localStorage.getItem('lang') || 'en';
+  const l = localStorage.getItem('lang') || 'tr';
   if(l === 'tr' && "{{ page.title_tr }}") {
     document.title = "{{ page.title_tr }} | {{ site.title }}";
   }

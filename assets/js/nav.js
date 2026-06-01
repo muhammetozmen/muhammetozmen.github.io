@@ -171,7 +171,7 @@
 
   // --- Intercept link clicks ---
   function getLocalizedUrl(url) {
-    const lang = localStorage.getItem('lang') || 'en';
+    const lang = localStorage.getItem('lang') || 'tr';
     try {
       const u = new URL(url, window.location.href);
       const path = u.pathname;
