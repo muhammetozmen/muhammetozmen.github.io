@@ -10,7 +10,7 @@ permalink_tr: /
 <div class="hero reveal">
   <h1 class="hero-name">muhammet özmen</h1>
   <div class="hero-title"><span class="loop-text" id="hero-loop" data-lang="tr">Gömülü Sistemler ve Bilgisayar Mühendisi</span></div>
-  <p class="hero-desc">Selam, ben Muhammet. Gömülü sistemler üzerine çalışan bir bilgisayar mühendisiyim. Burası benim hakkımda çok fazla şey öğrenebileceğiniz kişisel web sitem.
+  <p class="hero-desc">Selam, ben <strong>Muhammet</strong>. Gömülü sistemler üzerine çalışan bir bilgisayar mühendisiyim. Burası benim hakkımda çok fazla şey öğrenebileceğiniz kişisel web sitem.
   <br> Bu sitede teknik bloglar olan <a href="{{ '/devlogs' | relative_url }}">devloglarım</a>, gündelik yazılar olan <a href="{{ '/blog' | relative_url }}">bloglarımı</a> veya portfolyo niteliğindeki <a href="{{ '/projects' | relative_url }}">projelerimi</a> inceleyebilirsiniz.
   <br> Benim hakkımda daha fazla şey öğrenmek istiyorsanız <a href="{{ '/resume' | relative_url }}">özgeçmiş</a> kısmında CV'me, becerilerime ve kronolojik sıralanmış zaman tünelime ulaşabilirsiniz.
   </p>

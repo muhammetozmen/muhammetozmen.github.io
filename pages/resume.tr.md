@@ -208,7 +208,7 @@ permalink_tr: /resume
 
   <div class="pt-item reveal">
     <div class="pt-header">
-      <span class="pt-date">Mart 2026 - Günümüz</span>
+      <span class="pt-date">Mart 2026 - Haziran 2026</span>
       <h3 class="pt-title"> TÜBİTAK 1812 BİGG - Girişim Projesi</h3>
     </div>
     <p class="pt-desc"> Ekibimle TÜBİTAK 1812 BİGG girişimcilik programı kapsamında yatırım tabanlı girişim programının 1. aşamasını başarıyla geçerek BİGGVADİ programına dahil olduk. Ekip arkadaşlarım Umutcan Gökdemir ve Busenur Aygün ile beraber yaratacağımız inovatif çözümlerin ilk adımını başarıyla attık.</p>

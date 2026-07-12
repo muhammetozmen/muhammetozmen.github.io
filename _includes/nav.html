@@ -82,7 +82,7 @@
   {% if item.dropdown %}
   {% for sub in item.dropdown %}
   {% unless sub.url == item.url %}
-  <a href="{{ sub.url | relative_url }}" style="padding-left: 1.5rem;"
+  <a href="{{ sub.url | relative_url }}" class="nav-mobile-sub"
     data-lang-en="{{ site.data.translations.en[sub.key] }}" data-lang-tr="{{ site.data.translations.tr[sub.key] }}">
     {{ site.data.translations.en[sub.key] }}
   </a>

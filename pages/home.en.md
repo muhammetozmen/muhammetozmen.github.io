@@ -10,7 +10,7 @@ permalink_tr: /
 <div class="hero reveal">
   <h1 class="hero-name">muhammet özmen</h1>
   <div class="hero-title"><span class="loop-text" id="hero-loop" data-lang="en">Embedded Systems and Computer Engineer</span></div>
-  <p class="hero-desc">Hi, I'm Muhammet. I am a computer engineer working on embedded systems. This is my personal website where you can learn a lot about me.
+  <p class="hero-desc">Hi, I'm <strong>Muhammet</strong>. I am a computer engineer working on embedded systems. This is my personal website where you can learn a lot about me.
   <br> On this site, you can explore my technical blogs <a href="{{ '/devlogs' | relative_url }}">devlogs</a>, my daily writings <a href="{{ '/blog' | relative_url }}">blogs</a>, or my portfolio-style <a href="{{ '/projects' | relative_url }}">projects</a>.
   <br> If you want to learn more about me, you can access my CV, skills, and chronologically ordered timeline in the <a href="{{ '/resume' | relative_url }}">resume</a> section.
   </p>

@@ -208,7 +208,7 @@ permalink_tr: /resume
 
   <div class="pt-item reveal">
     <div class="pt-header">
-      <span class="pt-date">March 2026 - Present</span>
+      <span class="pt-date">March 2026 - June 2026</span>
       <h3 class="pt-title"> TÜBİTAK 1812 BİGG - Startup Project</h3>
     </div>
     <p class="pt-desc"> Together with my team, we successfully passed the first phase of the investment-based startup programme under TÜBİTAK 1812 BİGG and were admitted to the BİGGVADİ programme. With my teammates Umutcan Gökdemir and Busenur Aygün, we took the first step toward the innovative solutions we will create together.</p>

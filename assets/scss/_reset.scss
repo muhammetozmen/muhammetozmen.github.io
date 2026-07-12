@@ -11,7 +11,7 @@
 }
 
 html {
-  font-size: 15px;
+  font-size: 93.75%; // ~15px — percentage respects browser/OS font scaling at all zoom levels
   // scroll-behavior is intentionally omitted — Lenis smooth scroll handles this.
   // Adding scroll-behavior: smooth here conflicts with Lenis and causes janky scrolling.
   -webkit-text-size-adjust: 100%;

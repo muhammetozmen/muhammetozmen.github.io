@@ -557,7 +557,7 @@
     margin-top: 0;
     width: auto;
     max-width: none;
-    height: 220px;
+    height: clamp(160px, 17vw, 220px); // fluid — scales at all zoom levels
     flex-shrink: 0;
     border-radius: var(--radius-lg);
     border: 2px solid var(--border);
@@ -574,7 +574,7 @@
 
   @media (max-width: 768px) {
     .pt-image {
-      height: 160px;
+      height: clamp(120px, 35vw, 160px);
     }
   }
 }

@@ -19,10 +19,11 @@
   flex-wrap: nowrap;
 
   @media (max-width: 768px) {
-    flex-direction: row;
+    flex-direction: column-reverse;
     align-items: center;
-    justify-content: space-between;
-    gap: var(--space-3);
+    justify-content: center;
+    gap: var(--space-4);
+    padding: var(--space-6) 0;
   }
 }
 
@@ -33,7 +34,9 @@
   flex-wrap: nowrap;
 
   @media (max-width: 768px) {
-    gap: var(--space-3);
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
     a {

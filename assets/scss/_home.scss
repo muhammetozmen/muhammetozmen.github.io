@@ -38,7 +38,11 @@
   position: relative;
   width: fit-content;
 
-  @media (max-width: 768px) {
+  @media (max-width: $bp-mid) {
+    font-size: 2rem; // smooth step before full mobile squeeze
+  }
+
+  @media (max-width: $bp-mobile) {
     font-size: 1.8rem;
   }
 }
