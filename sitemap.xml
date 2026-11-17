@@ -1,0 +1,13 @@
+---
+layout: null
+permalink: /sitemap.xml
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- assign all = site.pages | concat: site.posts | concat: site.projects %}
+{%- for p in all %}
+  {%- comment %}Noktalı adresler (404.html, feed.xml, robots.txt…) sayfa değildir.{% endcomment %}
+  {%- if p.sitemap == false or p.url contains '.' %}{% continue %}{% endif %}
+  <url><loc>{{ p.url | replace: 'index.html', '' | absolute_url }}</loc>{% if p.date %}<lastmod>{{ p.date | date_to_xmlschema }}</lastmod>{% endif %}</url>
+{%- endfor %}
+</urlset>

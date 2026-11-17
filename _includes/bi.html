@@ -1,0 +1,2 @@
+{%- comment %}İki dilli düz metin: {% include bi.html tr=... en=... %}. en yoksa tr kullanılır.{% endcomment -%}
+<span lang="tr">{{ include.tr }}</span><span lang="en">{{ include.en | default: include.tr }}</span>

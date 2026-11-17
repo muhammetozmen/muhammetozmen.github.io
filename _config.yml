@@ -1,69 +1,46 @@
-title: "Muhammet Özmen"
-description: "Gömülü Sistemler ve Bilgisayar Mühendisi | Embedded & Computer Engineer"
-url: "https://muhammetozmen.org"
+title: Muhammet Özmen
+description: "Muhammet Özmen: gömülü sistemler ve bilgisayar mühendisi. Portfolyo, projeler ve yazılar."
+description_en: "Muhammet Özmen: embedded systems and computer engineer. Portfolio, projects and writing."
+# Arama motorları ve yapay zeka sistemleri için anahtar kelimeler (yalnızca gerçekten sitede olan konular).
+# Sayfa front matter'ında `keywords:` ile ezilebilir.
+keywords: "Muhammet Özmen, gömülü sistemler, embedded systems, bilgisayar mühendisi, computer engineer, portfolyo, portfolio, Jetson Nano, Raspberry Pi, Qt, Python, C++, Teknofest"
+# Alan adı mozmen.dev (CNAME dosyası + url). DNS ve Pages özel alan adı ayarı kullanıcıda: CLAUDE.md §10.
+url: "https://mozmen.dev"
 baseurl: ""
-author: "Muhammet Özmen"
-logo: "/assets/img/og-image.png"
+lang: tr
+timezone: Europe/Istanbul
+author: Muhammet Özmen
 
-social:
-  name: Muhammet Özmen
-  links:
-    - https://github.com/muhammetozmen
-    - https://linkedin.com/in/muhammetozmen/
-    - https://www.youtube.com/@ozmen-muhammet
+permalink: /yazilarim/:year/:title/
 
-twitter:
-  username: muhammetozmen
-
-permalink: /posts/:title/
-
-# Collections
 collections:
   projects:
     output: true
-    permalink: /projects/:title/
-
-sass:
-  sass_dir: assets/scss
+    permalink: /projelerim/:name/
+  portfolio:
+    output: false   # öğeler /portfolyom/ sayfasında açık gösterilir, ayrı sayfaları yok
 
 defaults:
-  - scope:
-      path: "_posts/blog"
-      type: posts
-    values:
-      layout: blog
-      category: blog
-  - scope:
-      path: "_posts/devlogs"
-      type: posts
-    values:
-      layout: blog
-      category: devlog
-  - scope:
-      path: ""
-      type: projects
-    values:
-      layout: project
-  - scope:
-      path: "pages"
-    values:
-      paired_pages:
-        home:     { en: "/en/",      tr: "/" }
-        resume:   { en: "/en/resume", tr: "/resume" }
-        projects: { en: "/en/projects", tr: "/projects" }
+  - scope: { path: "", type: posts }
+    values: { layout: post }
+  - scope: { path: "", type: projects }
+    values: { layout: item }
 
-# Plugins
 plugins:
   - jekyll-feed
-  - jekyll-seo-tag
-  - jekyll-sitemap
 
-# Exclude
+feed:
+  path: feed.xml
+
+# Yayınlanmayacak dosyalar
 exclude:
   - Gemfile
   - Gemfile.lock
-  - README.md
-  - AGENT.MD
+  - package.json
+  - package-lock.json
+  - playwright.config.js
   - node_modules
+  - tests
   - vendor
-  - .bundle
+  - _reference
+  - README.md

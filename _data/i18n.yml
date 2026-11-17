@@ -1,0 +1,13 @@
+# Arayüz metinleri: anahtar -> {tr, en}. {% include t.html key="..." %} ile basılır.
+logo_text:    { tr: "Muhammet ÖZMEN'in Websitesi", en: "Muhammet ÖZMEN's Website" }
+nav_home:     { tr: "Ana Sayfa",  en: "Home" }
+nav_projects: { tr: "Projelerim", en: "Projects" }
+nav_writing:  { tr: "Yazılarım",  en: "Writing" }
+nav_drawings: { tr: "Çizimlerim", en: "Drawings" }
+nav_portfolio: { tr: "Portfolyom", en: "Portfolio" }
+nav_about:    { tr: "Hakkımda",   en: "About" }
+recent_posts: { tr: "Son Paylaşımlar", en: "Recent Posts" }
+more:         { tr: "Daha fazla", en: "More" }
+links:        { tr: "Bağlantılar", en: "Links" }
+rss:          { tr: "RSS beslemesi", en: "RSS feed" }
+rights:       { tr: "Tüm hakları saklıdır", en: "All rights reserved" }

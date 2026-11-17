@@ -1,0 +1,7 @@
+---
+layout: default
+---
+<h1>{% include bi.html tr=page.title en=page.title_en %}</h1>
+<p class="posted">{{ page.date | date: "%d.%m.%Y" }}</p>
+{%- include ai-note.html %}
+{{ content }}

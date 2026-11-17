@@ -1,0 +1,9 @@
+---
+layout: default
+---
+<h1>{% include bi.html tr=page.title en=page.title_en %}</h1>
+{%- include ai-note.html %}
+{%- if page.tags or page.github %}
+<p class="note">{% if page.tags %}{{ page.tags | join: " · " }}{% endif %}{% if page.tags and page.github %} — {% endif %}{% if page.github %}<a href="{{ page.github }}" rel="noopener">GitHub</a>{% endif %}</p>
+{%- endif %}
+{{ content }}

@@ -1,60 +1,21 @@
-# Muhammet Özmen — Kişisel Portfolyo Sitesi
+# Muhammet ÖZMEN'in Websitesi
 
-**[muhammetozmen.org](https://muhammetozmen.org)** adresinde yayında olan bu site; gömülü sistemler ve bilgisayar mühendisliği alanında çalışan Muhammet Özmen'in kişisel portfolyo, blog ve özgeçmiş sitesidir.
+Kişisel portfolyo ve yazı sitesi. [Jekyll](https://jekyllrb.com/) ile üretilir, GitHub Pages'te yayınlanır. Her sayfa tek adreste Türkçe ve İngilizce.
 
-## Site Hakkında
-
-Bu site [Jekyll](https://jekyllrb.com/) ile oluşturulmuş, **GitHub Pages** üzerinde barındırılan statik bir web sitesidir. İki dilli (Türkçe / İngilizce), karanlık temalı ve tamamen özel CSS ile tasarlanmıştır.
-
-### Sitede Neler Var?
-
-| Bölüm | Açıklama |
-|---|---|
-| **Ana Sayfa** | Kısa tanıtım, son yazılar ve son projeler |
-| **Özgeçmiş** | Eğitim, deneyim, beceriler ve zaman tüneli |
-| **Projeler** | Portfolyo niteliğindeki teknik projeler |
-| **Devlog** | Gömülü sistemler ve donanım geliştirme günlükleri |
-| **Blog** | Gündelik yazılar ve teknik makaleler |
-| **Sertifikalar** | Alınan kurslar ve sertifikalar |
-
-## Yerel Geliştirme
-
-### Gereksinimler
-
-- Ruby 3.x
-- Bundler
-
-### Kurulum (Arch / CachyOS)
+## Yerelde çalıştırma
 
 ```bash
-# 1. Ruby ve derleme araçlarını yükle
-sudo pacman -S ruby base-devel
-
-# 2. Bundler'ı yükle
-gem install bundler
-export PATH=$PATH:$(ruby -e 'puts Gem.user_dir')/bin
-
-# 3. Bağımlılıkları yükle
-bundle config set --local path 'vendor/bundle'
+bundle config set --local path vendor/bundle
 bundle install
-
-# 4. Geliştirme sunucusunu başlat
-bundle exec jekyll serve
+bundle exec jekyll serve   # http://127.0.0.1:4000
+npm ci && npm test         # Playwright testleri (kendi sunucusunu 4001'de açar)
 ```
 
-Ardından tarayıcında `http://localhost:4000` adresini aç.
+## İçerik ekleme
 
-## İçerik Ekleme
+- **Yazı:** `_posts/YYYY-MM-DD-slug.md` (`category: teknik|genel`, `tr_keyword`, `en_keyword`)
+- **Proje:** `_projects/slug.md`
+- **Portfolyo:** `_portfolio/` altındaki dört dosyadan ilgilisine yeni bir `##` kaydı
+- **Çizim:** `assets/cizimler/<kategori>/dosya.svg|png|jpg|webp`
 
-Detaylı rehber için `DOCUMENTATION.md` dosyasına bakın.
-
-## Yayınlama
-
-`main` branch'e push edildiğinde GitHub Actions otomatik olarak siteyi derleyip yayına alır.
-
----
-
-**İletişim:** [ozmen.muhammet@outlook.com](mailto:ozmen.muhammet@outlook.com)  
-**LinkedIn:** [linkedin.com/in/muhammetozmen](https://linkedin.com/in/muhammetozmen/)  
-**GitHub:** [github.com/muhammetozmen](https://github.com/muhammetozmen)  
-**YouTube:** [youtube.com/@ozmen-muhammet](https://www.youtube.com/@ozmen-muhammet)
+Ayrıntılı kurallar: [`.claude/CLAUDE.md`](.claude/CLAUDE.md).

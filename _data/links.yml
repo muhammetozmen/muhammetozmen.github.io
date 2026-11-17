@@ -1,0 +1,5 @@
+# Sağ bar bağlantıları ve JSON-LD sameAs. Adlar çevrilmez.
+- { name: GitHub,   url: "https://github.com/muhammetozmen" }
+- { name: LinkedIn, url: "https://linkedin.com/in/muhammetozmen/" }
+- { name: YouTube,  url: "https://www.youtube.com/@ozmen-muhammet" }
+- { name: E-posta,  url: "mailto:ozmen.muhammet@outlook.com" }

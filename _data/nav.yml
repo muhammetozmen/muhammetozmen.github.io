@@ -1,0 +1,7 @@
+# Menü sırası burada belirlenir. key -> i18n.yml içindeki nav_<key>
+- { key: home,      url: / }
+- { key: projects,  url: /projelerim/ }
+- { key: writing,   url: /yazilarim/ }
+- { key: drawings,  url: /cizimlerim/ }
+- { key: portfolio, url: /portfolyom/ }
+- { key: about,     url: /hakkimda/ }

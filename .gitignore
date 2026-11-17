@@ -1,7 +1,10 @@
 _site/
-.sass-cache/
 .jekyll-cache/
-.jekyll-metadata
-Gemfile.lock
-.DS_Store
-AGENT.MD
+.sass-cache/
+node_modules/
+test-results/
+playwright-report/
+vendor/
+.bundle/
+# Telifli orijinal SimpleBits görselleri: yalnızca yerel referans, yayınlanmaz
+_reference/

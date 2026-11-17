@@ -1,0 +1,3 @@
+# Yazı kategorileri (sıra burada). Yazının front matter'ında `category: teknik` ya da `category: genel`.
+- { key: teknik, tr: "Teknik Yazılar", en: "Technical Posts" }
+- { key: genel,  tr: "Genel Yazılar",  en: "General Posts" }

@@ -1,0 +1,18 @@
+---
+layout: null
+permalink: /llms.txt
+---
+# {{ site.title }}
+
+> {{ site.description_en }}
+
+Every page is bilingual (Turkish and English) at a single URL. / Her sayfa tek adreste iki dillidir (Türkçe ve İngilizce).
+
+## Pages
+{% for item in site.data.nav %}{% capture k %}nav_{{ item.key }}{% endcapture %}- [{{ site.data.i18n[k].en }}]({{ item.url | absolute_url }})
+{% endfor %}
+## Recent writing
+{% for post in site.posts limit: 10 %}- [{{ post.title_en | default: post.title }}]({{ post.url | absolute_url }}): {{ post.description_en | default: post.description }}
+{% endfor %}
+## Feed
+- [RSS]({{ '/feed.xml' | absolute_url }})

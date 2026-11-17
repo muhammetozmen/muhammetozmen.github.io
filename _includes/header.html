@@ -1,0 +1,19 @@
+<header id="logo">
+  <a href="{{ '/' | relative_url }}"><span class="logo-text">{% include t.html key="logo_text" %}</span></a>
+</header>
+<nav id="nav" aria-label="Menü">
+  <ul>
+  {%- for item in site.data.nav %}
+    {%- comment %}Liquid'de assign karşılaştırma yapmaz; durum if ile belirlenir. Ana Sayfa tam eşleşir, diğerleri önek.{% endcomment %}
+    {%- assign on = false %}
+    {%- if item.url == '/' %}{% if page.url == '/' %}{% assign on = true %}{% endif %}
+    {%- elsif page.url contains item.url %}{% assign on = true %}{% endif %}
+    {%- capture k %}nav_{{ item.key }}{% endcapture %}
+    <li><a href="{{ item.url | relative_url }}"{% if on %} class="active" aria-current="page"{% endif %}>{% include t.html key=k %}</a></li>
+  {%- endfor %}
+  </ul>
+  <div class="toggles">
+    <button type="button" id="theme-toggle" aria-label="Tema değiştir / Toggle theme">{% include theme-icons.html %}</button>
+    <button type="button" id="lang-toggle" aria-label="Dil değiştir / Switch language"><span lang="tr">TR</span><span lang="en">EN</span></button>
+  </div>
+</nav>

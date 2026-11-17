@@ -1,108 +1,51 @@
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="baseurl" content="{{ site.baseurl }}">
-
-<!-- Primary Meta Tags -->
-{% if page.lang == 'en' %}
-  {% assign seo_title = page.title_en | default: page.title %}
-  {% assign seo_desc = page.description_en | default: page.excerpt_en | default: page.description | default: page.excerpt %}
-{% else %}
-  {% assign seo_title = page.title_tr | default: page.title %}
-  {% assign seo_desc = page.description_tr | default: page.excerpt_tr | default: page.description | default: page.excerpt %}
-{% endif %}
-
-{% if seo_title %}
-  {% assign display_title = seo_title | append: " | " | append: site.title %}
-{% else %}
-  {% assign display_title = site.title | append: " | " | append: site.description %}
-{% endif %}
-
-{% if seo_desc == nil or seo_desc == "" or seo_desc == " " %}
-  {% assign display_desc = site.description %}
-{% else %}
-  {% assign display_desc = seo_desc | strip_html | strip_newlines | truncate: 160 %}
-{% endif %}
-
-{% assign og_image = page.image | default: site.logo %}
-{% unless og_image contains "://" %}
-  {% assign og_image = og_image | prepend: site.url %}
-{% endunless %}
-
-<title>{{ display_title }}</title>
-<meta name="title" content="{{ display_title }}">
-<meta name="description" content="{{ display_desc }}">
-
-<!-- Canonical & hreflang for bilingual SEO -->
-{% if page.lang == 'tr' %}
-  <link rel="canonical" href="https://muhammetozmen.org{{ page.url }}">
-  <link rel="alternate" hreflang="tr" href="https://muhammetozmen.org{{ page.url }}">
-  <link rel="alternate" hreflang="en" href="https://muhammetozmen.org/en{{ page.url }}">
-  <link rel="alternate" hreflang="x-default" href="https://muhammetozmen.org{{ page.url }}">
-{% else %}
-  <link rel="canonical" href="https://muhammetozmen.org{{ page.url }}">
-  <link rel="alternate" hreflang="en" href="https://muhammetozmen.org{{ page.url }}">
-  {% assign tr_url = page.url | remove_first: '/en' %}
-  {% if tr_url == '' %}{% assign tr_url = '/' %}{% endif %}
-  <link rel="alternate" hreflang="tr" href="https://muhammetozmen.org{{ tr_url }}">
-  <link rel="alternate" hreflang="x-default" href="https://muhammetozmen.org{{ tr_url }}">
-{% endif %}
-
-<!-- Open Graph / Facebook -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{%- assign title_tr = page.title | default: site.title -%}
+{%- assign title_en = page.title_en | default: title_tr -%}
+<title data-tr="{{ title_tr | escape }} | {{ site.title }}" data-en="{{ title_en | escape }} | {{ site.title }}">{{ title_tr | escape }} | {{ site.title }}</title>
+{%- assign desc = page.description | default: site.description -%}
+{%- assign canonical = page.url | replace: 'index.html', '' | absolute_url -%}
+<meta name="description" content="{{ desc | escape }}">
+{%- assign kws = "" | split: "" -%}{%- if page.tr_keyword %}{% assign kws = kws | push: page.tr_keyword %}{% endif -%}{%- if page.en_keyword %}{% assign kws = kws | push: page.en_keyword %}{% endif -%}{%- assign post_kw = kws | join: ", " -%}
+<meta name="keywords" content="{% if post_kw != "" %}{{ post_kw | escape }}{% else %}{{ page.keywords | default: site.keywords | escape }}{% endif %}">
+<meta name="author" content="{{ site.author }}">
+{%- if page.sitemap == false %}
+<meta name="robots" content="noindex">
+{%- else %}
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="{{ canonical }}">
+{%- endif %}
 <meta property="og:site_name" content="{{ site.title }}">
-<meta property="og:type" content="{% if page.layout == 'blog' %}article{% else %}website{% endif %}">
-<meta property="og:url" content="https://muhammetozmen.org{{ page.url }}">
-<meta property="og:title" content="{{ display_title }}">
-<meta property="og:description" content="{{ display_desc }}">
-<meta property="og:image" content="{{ og_image }}">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:locale" content="{% if page.lang == 'tr' %}tr_TR{% else %}en_US{% endif %}">
-
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="https://muhammetozmen.org{{ page.url }}">
-<meta name="twitter:title" content="{{ display_title }}">
-<meta name="twitter:description" content="{{ display_desc }}">
-<meta name="twitter:image" content="{{ og_image }}">
-
-<!-- Extra SEO meta -->
-<meta name="author" content="{{ site.title }}">
-<meta name="robots" content="index, follow">
-{% if page.tags %}<meta name="keywords" content="{{ page.tags | join: ', ' }}">{% endif %}
-
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<!-- Styles -->
+<meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+<meta property="og:title" content="{{ title_tr | escape }}">
+<meta property="og:description" content="{{ desc | escape }}">
+<meta property="og:url" content="{{ canonical }}">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{ title_tr | escape }}">
+<meta name="twitter:description" content="{{ desc | escape }}">
+{%- comment %}Yapılandırılmış veri (JSON-LD): arama motorları ve LLM tabanlı sistemler siteyi ve yazarı buradan tanır. Yalnızca sayfada gerçekten olan bilgi.{% endcomment %}
+<script type="application/ld+json">
+{%- if page.layout == 'post' %}
+{"@context":"https://schema.org","@type":"BlogPosting","headline":{{ title_tr | jsonify }},"alternativeHeadline":{{ title_en | jsonify }},"description":{{ desc | jsonify }},"datePublished":{{ page.date | date_to_xmlschema | jsonify }},"inLanguage":["tr","en"],"keywords":{{ post_kw | jsonify }},"mainEntityOfPage":{{ canonical | jsonify }},"author":{"@type":"Person","name":{{ site.author | jsonify }},"url":{{ '/' | absolute_url | jsonify }}}}
+{%- else %}
+{"@context":"https://schema.org","@graph":[{"@type":"WebSite","name":{{ site.title | jsonify }},"url":{{ '/' | absolute_url | jsonify }},"inLanguage":["tr","en"],"description":{{ site.description | jsonify }}},{"@type":"Person","name":{{ site.author | jsonify }},"url":{{ '/' | absolute_url | jsonify }},"jobTitle":"Computer Engineer","knowsAbout":["Embedded systems","Embedded Linux","Computer vision","Qt","C/C++","Python"],"sameAs":{{ site.data.links | where_exp: "l", "l.url contains 'https://'" | map: "url" | jsonify }}}]}
+{%- endif %}
+</script>
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-<link rel="stylesheet" href="https://unpkg.com/lenis@1.1.20/dist/lenis.css">
-
-<!-- Theme script (runs immediately to avoid FOUC) -->
+<link rel="icon" href="data:,"> <!-- ikon yok; boş veri adresi tarayıcının /favicon.ico isteğini (404) engeller -->
+{% feed_meta %}
+{%- comment -%}
+  Flash önleme: dil ve tema sayfa çizilmeden önce ayarlanır (site.js'den bağımsız).
+  localStorage erişimi gizli pencerede fırlatabildiği için try/catch içinde.
+{%- endcomment -%}
 <script>
-(function(){
-  // Block all transitions during initial render to prevent
-  // theme/lang slider from animating on page load/refresh.
-  document.documentElement.classList.add('no-transition');
-
-  var savedTheme = localStorage.getItem('theme');
-  var theme = savedTheme || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-  document.documentElement.setAttribute('data-theme', theme);
-
-  var savedLang = localStorage.getItem('lang') || 'tr';
-  document.documentElement.setAttribute('data-lang-pref', savedLang);
-
-  // Remove after the browser has painted the initial state
-  document.addEventListener('DOMContentLoaded', function() {
-    requestAnimationFrame(function() {
-      requestAnimationFrame(function() {
-        document.documentElement.classList.remove('no-transition');
-      });
-    });
-  });
+(function () {
+  var d = document.documentElement, get = function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } };
+  var lang = get('lang'); if (lang !== 'tr' && lang !== 'en') lang = /^tr/i.test(navigator.language || '') ? 'tr' : 'en';
+  var theme = get('theme'); if (theme !== 'dark' && theme !== 'light') theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  d.dataset.lang = lang; d.lang = lang; d.dataset.theme = theme;
+  document.title = document.querySelector('title').dataset[lang];
 })();
 </script>
-
-<!-- Favicon -->
-<link rel="icon" href="data:,">
