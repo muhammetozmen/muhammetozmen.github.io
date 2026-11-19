@@ -2,16 +2,16 @@
 const { test, expect } = require('@playwright/test');
 
 test.describe('yazılar: kategoriler ve arama', () => {
-  test('iki kategori başlığı var; yazı Teknik Yazılar altında, Genel Yazılar boş', async ({ page }) => {
-    await page.goto('/yazilarim/');
-    await expect(page.locator('#left .postcat h3 span:visible')).toHaveText(['Technical Posts', 'General Posts']);
-    await expect(page.locator('#left .postcat').nth(0).locator('.entry')).toHaveCount(1);
-    await expect(page.locator('#left .postcat').nth(1).locator('.empty:visible')).toHaveCount(1);
+  test('yazısı olan kategori görünür, boş kategori gizlenir', async ({ page }) => {
+    await page.goto('/writing/');
+    await expect(page.locator('#left .postcat')).toHaveCount(1);
+    await expect(page.locator('#left .postcat h3 span:visible')).toHaveText(['Technical Posts']);
+    await expect(page.locator('#left .postcat .entry')).toHaveCount(1);
     expect(await page.locator('#left').innerText()).not.toMatch(/by year|yıllara göre/i);
   });
 
   test('anahtar kelime, başlık ve metin eşleşir; Türkçe karakter ve harf boyutu fark etmez', async ({ page }) => {
-    await page.goto('/yazilarim/');
+    await page.goto('/writing/');
     const entries = page.locator('#left .entry:visible');
     for (const q of ['NVIDIA', 'surucu', 'SÜRÜCÜ', 'rawhide', 'fedora driver']) { // anahtar, anahtar, anahtar, yalnızca metin, çok sözcük
       await page.fill('#post-search', q);
@@ -26,7 +26,7 @@ test.describe('yazılar: kategoriler ve arama', () => {
   });
 
   test('sıralama: anahtar kelime eşleşmesi, başlık ve metin eşleşmesinin önünde', async ({ page }) => {
-    await page.goto('/yazilarim/');
+    await page.goto('/writing/');
     // Tek gerçek yazı var; kopyalayıp sahte dizinle üç yazılık bir senaryo kur (dizin ilk aramada okunur).
     await page.evaluate(() => {
       const list = /** @type {HTMLElement} */ (document.querySelector('.postcat'));

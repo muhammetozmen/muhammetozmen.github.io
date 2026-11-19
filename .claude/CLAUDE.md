@@ -62,13 +62,13 @@ Bu dosya, bu repoda çalışan her agent için tek doğru kaynaktır. Kararlar b
 ├── _posts/                  # YYYY-MM-DD-slug.md
 ├── _projects/               # slug.md
 ├── _portfolio/              # slug.md
-├── pages/                   # projelerim.md, yazilarim.md, cizimlerim.md, portfolyom.md, hakkimda.md, 404.md
+├── pages/                   # projects.md, writing.md, drawings.md, portfolio.md, about.md, 404.md
 ├── index.md                 # Ana Sayfa
 ├── assets/
 │   ├── css/main.css
 │   ├── js/site.js
 │   ├── img/                 # proje/portfolyo görselleri
-│   └── cizimler/<kategori>/ # çizimler; klasör adı = kategori
+│   └── drawings/<category>/ # çizimler; klasör adı = kategori
 ├── tests/                   # *.spec.js (Playwright)
 └── _reference/              # GİTIGNORE: orijinal SimpleBits GIF'leri, yalnızca yerel referans
 ```
@@ -88,7 +88,7 @@ title: Hakkımda          # TR başlık (feed ve SEO bunu kullanır)
 title_en: About
 description: "Placeholder: Kısa TR özet."      # listelerde kullanılır
 description_en: "Placeholder: Short EN summary."
-permalink: /hakkimda/
+permalink: /about/
 ---
 <div lang="tr" markdown="1">
 
@@ -152,13 +152,13 @@ Tasarım, 2003 tarihli simplebits.com/about sayfasının birebir CSS uyarlaması
 | `--nav-text` | `#fff` | menü linkleri: 10px, bold, line-height 20px, margin 4px 10px 0, alt boşluk 2px, küçük harf |
 | `--nav-active` | `#fc6` | aktif/hover link rengi + `border-bottom: 4px solid #fff` |
 | `--text` | `#333` | gövde metni |
-| `--heading` | `#c63` | h1/h2 ve sağ bar h3 |
+| `--heading` | `#a9552a` (AA için koyulaştırıldı; orijinal `#c63`) | h1/h2 ve sağ bar h3 |
 | `--heading-hover` | `#930` | başlık linki hover |
-| `--link` | `#5b80b2` | a:link (altı çizili) |
-| `--link-visited` | `#969` | a:visited |
+| `--link` | `#4e6e99` (orijinal `#5b80b2`) | a:link (altı çizili) |
+| `--link-visited` | `#966496` | a:visited |
 | `--link-hover` | `#036` | a:hover |
-| `--side-text` | `#963` | sağ bar metni |
-| `--muted` | `#999` | tarih, footer, `.note` |
+| `--side-text` | `#936231` | sağ bar metni |
+| `--muted` | `#767676` | tarih, footer, `.note` |
 | `--rule` | `#ddd` | içerik h3 alt çizgisi, footer üst çizgisi (2px) |
 | `--thumb-border` | `#ccc` | görsel çerçeveleri (1px + 5px iç boşluk) |
 
@@ -167,7 +167,7 @@ Tasarım, 2003 tarihli simplebits.com/about sayfasının birebir CSS uyarlaması
 - `#right`: %88 font, `padding: 15px`, `line-height: 1.4em`. h3'lerde solda turuncu kutucuk (`h3::before`, 8px, `#f93`, 1px `#c63` kenar), `padding-left: 19px`.
 - `#left ul li`: madde işareti yok, yerine küçük ok/kutu ikonu (CSS ile çiz). `dl dt` bold, `dd` `margin:0; padding-bottom:1em`.
 - `#footer`: %88, `#999`, `border-top: 2px solid #ddd`.
-- Header'daki ad: `span.logo-text`, metin `_data/i18n.yml` `logo_text` (TR: "Muhammet ÖZMEN'in Websitesi", EN: "Muhammet ÖZMEN's Website"; `<title>`/SEO adı yine `site.title`), gövdeyle aynı yazı ailesi (`lucida grande, verdana`), 700, `letter-spacing:-.01em`, beyaz + `1px 1px 0 #c63` ince koyu turuncu kenar (açık turuncuda silik kalmasın; parlama yok). `left:24px`, dikeyde ortalı; boyut `min(28px, (100vw/zoom − 48px)/19)`. Web yazı tipi, simge ve animasyon yok. Eski görseller `_reference/` altında. Yazıyı değiştirmek için `_config.yml` `title`.
+- Header'daki ad: `span.logo-text`, metin `_data/i18n.yml` `logo_text` (TR: "Muhammet ÖZMEN'in Websitesi", EN: "Muhammet ÖZMEN's Website"; `<title>`/SEO adı yine `site.title`), gövdeyle aynı yazı ailesi (`lucida grande, verdana`), 700, `letter-spacing:-.01em`, `#930` kahve + `1px 1px 0 var(--header-light)` açık kabartma (turuncu zeminde okunur; parlama yok). `left:24px`, dikeyde ortalı; boyut `min(28px, (100vw/zoom − 48px)/19)`. Yazının solunda piksel-sanat bilgisayar simgesi var (`assets/img/icon.png`, `1.5em`, yazıyla küçülür; aynı simge `favicon.png`). Web yazı tipi ve animasyon yok. Eski görseller `_reference/` altında. Yazıyı değiştirmek için `_config.yml` `title`.
 - Tema ve dil butonları `#nav` içinde en sağda, tema butonu dil butonunun **solunda**. Menü linkleriyle aynı stilde (`<button>`, 10px bold beyaz). Tema butonu piksel-sanat SVG gösterir (açık temada hilal, koyu temada güneş; `_includes/theme-icons.html`, 13×13 hücre, boyut `calc(13px / var(--zoom))`, `currentColor`), dil butonu geçerli dilin kodunu (`tr`/`en`) gösterir. İkisinde de `aria-label` olmalı. Unicode ay/güneş karakteri kullanma: yazı tipine göre boyut ve ağırlığı değişir.
 
 ### 6.3 Karanlık tema (`html[data-theme="dark"]`)
@@ -198,33 +198,35 @@ Menü (`_data/nav.yml`, sırası sabit):
 | key | TR | EN | URL | Kaynak |
 |---|---|---|---|---|
 | home | Ana Sayfa | Home | `/` | `index.md` |
-| projects | Projelerim | Projects | `/projelerim/` | `pages/projelerim.md`, `_projects` listesi |
-| writing | Yazılarım | Writing | `/yazilarim/` | `pages/yazilarim.md`, yıllara göre gruplanmış `_posts` |
-| drawings | Çizimlerim | Drawings | `/cizimlerim/` | `pages/cizimlerim.md`, galeri |
-| portfolio | Portfolyom | Portfolio | `/portfolyom/` | `pages/portfolyom.md`, `_portfolio` listesi |
-| about | Hakkımda | About | `/hakkimda/` | `pages/hakkimda.md` (orijinaldeki gibi `dl` yapısında) |
+| projects | Projelerim | Projects | `/projects/` | `pages/projects.md`, `_projects` listesi |
+| writing | Yazılarım | Writing | `/writing/` | `pages/writing.md`, yıllara göre gruplanmış `_posts` |
+| documents | Belgelerim | Documents | `/documents/` | `pages/documents.md` (içerik `_includes/documents.md`) |
+| ~~drawings~~ | Çizimlerim | Drawings | `/drawings/` | **Menüde ve sitemap'te yok** (placeholder bitene dek); sayfa duruyor, `nav.yml` satırı geri açılınca döner |
+| portfolio | Portfolyom | Portfolio | `/portfolio/` | `pages/portfolio.md`, `_portfolio` listesi |
+| about | Hakkımda | About | `/about/` | `pages/about.md` (orijinaldeki gibi `dl` yapısında) |
 
 - Aktif menü öğesi, `page.url` ilgili URL ile başlıyorsa `class="active"` alır. Ana Sayfa için tam eşleşme gerekir.
-- Permalink'ler: yazılar `/yazilarim/:year/:title/`, projeler `/projelerim/:name/`, portfolyo öğelerinin ayrı adresi yok (§7).
+- Permalink'ler: yazılar `/writing/:year/:title/`, projeler `/projects/:name/`, portfolyo öğelerinin ayrı adresi yok (§7).
 - Ana Sayfa: iki dilli kısa tanıtım placeholder'ı + son 5 yazı (başlık, tarih, description).
 - Liste sayfalarında her öğe şunları gösterir: başlık (link), tarih (yazılarda), description. Front matter'da `image` varsa sağa yaslı `img.thumb` da gösterilir.
 - **Sağ bar** (`sidebar.html`), sırasıyla:
-  1. **Son Paylaşımlar / Recent Posts**: `site.posts | slice: 0, 5`, ardından **More ››** linki `/yazilarim/` adresine gider (orijinaldeki gibi `<strong>` içinde).
+  1. **Son Paylaşımlar / Recent Posts**: `site.posts | slice: 0, 5`, ardından **More ››** linki `/writing/` adresine gider (orijinaldeki gibi `<strong>` içinde).
   2. **Bağlantılar / Links**: `_data/links.yml` içinden (GitHub, LinkedIn, YouTube, E-posta).
   3. **RSS**: `{{ '/feed.xml' | relative_url }}` linki.
 - **Çizimlerim galerisi:** Agent `.md` dosyası oluşturmaz. Yapılış:
   ```liquid
-  {% assign imgs = site.static_files | where_exp: "f", "f.path contains '/assets/cizimler/'" %}
-  {% assign groups = imgs | group_by_exp: "f", "f.path | remove_first: '/assets/cizimler/' | split: '/' | first" %}
+  {% assign imgs = site.static_files | where_exp: "f", "f.path contains '/assets/drawings/'" %}
+  {% assign groups = imgs | group_by_exp: "f", "f.path | remove_first: '/assets/drawings/' | split: '/' | first" %}
   ```
-  Her grup için bir `h3` (kategori adı) ve bir ızgara (`display:grid; grid-template-columns:repeat(auto-fill,minmax(120px,1fr))`) basılır. Her öğe 1px `#ccc` çerçeveli, 5px iç boşluklu `<a href=dosya><img loading="lazy" alt="dosya adı"></a>`. Yalnızca `.png .jpg .jpeg .gif .webp .svg` uzantıları alınır. Başlangıç verisi: 2 kategori (`eskizler`, `dijital`), her birinde 2–3 küçük placeholder SVG.
+  Her grup için bir `h3` (kategori adı) ve bir ızgara (`display:grid; grid-template-columns:repeat(auto-fill,minmax(120px,1fr))`) basılır. Her öğe 1px `#ccc` çerçeveli, 5px iç boşluklu `<a href=dosya><img loading="lazy" alt="dosya adı"></a>`. Yalnızca `.png .jpg .jpeg .gif .webp .svg` uzantıları alınır. Başlangıç verisi: 2 kategori (`sketches`, `digital`), her birinde 2–3 küçük placeholder SVG.
+- **Ana Sayfa / Projeler / Portfolyo (Kasım 2026):** Ana Sayfa'da CV-GitHub-LinkedIn butonları ve `featured: true` projeler çıkar. Proje front matter'ı isteğe bağlı `result`/`result_en` (tek cümle sonuç) ve `demo` (bağlantı) alır. Portfolyo'da `<details>` bölümler (hepsi açık gelir, kullanıcı kapatabilir; `site.js` `#hash` ile açar). Boş yazı kategorisi gizlenir.
 - **Başlık kuralı:** Menü sayfalarında (Ana Sayfa, Projelerim, Yazılarım, Çizimlerim, Portfolyom, Hakkımda) `hide_title: true` kullanılır: `h1` yalnızca ekran okuyucu/SEO için var (`.sr-only`), menüdeki adı sayfada tekrar yazmaz. Yazı ve proje detaylarında `h1` görünür.
-- **Yazılar:** `pages/yazilarim.md` iki kategoriye böler (`_data/post_categories.yml`: `teknik` = Teknik Yazılar, `genel` = Genel Yazılar; yazıda `category: teknik|genel` zorunlu). Yazı front matter'ı ayrıca `tr_keyword` ve `en_keyword` alır (virgüllü metin ya da liste); `<meta keywords>`, JSON-LD ve arama bunları kullanır. Sayfanın üstündeki arama kutusu (`#post-search`, mantık `site.js`'te) yazdıkça filtreler: önce anahtar kelime (100 puan), sonra başlık (50), sonra metin (1) eşleşmesi; ı/i, ö/o gibi Türkçe karakter farkı ve harf boyutu yok sayılır, birden çok sözcüğün hepsi geçmeli. Arama dizini sayfaya `#post-index` JSON'u olarak gömülür (TR bloğu `<div lang="en"` öncesi, EN sonrası). Testler: `tests/search.spec.js`.
-- **Hakkımda fotoğrafı:** `assets/img/ben-acik.png` ve `ben-koyu.png` (eski siteden, tema zeminine uyan iki sürüm); `img.portrait.when-light/.when-dark` ile temaya göre biri görünür. Fotoğrafı değiştirirken iki dosyayı da yenile.
+- **Yazılar:** `pages/writing.md` iki kategoriye böler (`_data/post_categories.yml`: `teknik` = Teknik Yazılar, `genel` = Genel Yazılar; yazıda `category: teknik|genel` zorunlu). Yazı front matter'ı ayrıca `tr_keyword` ve `en_keyword` alır (virgüllü metin ya da liste); `<meta keywords>`, JSON-LD ve arama bunları kullanır. Sayfanın üstündeki arama kutusu (`#post-search`, mantık `site.js`'te) yazdıkça filtreler: önce anahtar kelime (100 puan), sonra başlık (50), sonra metin (1) eşleşmesi; ı/i, ö/o gibi Türkçe karakter farkı ve harf boyutu yok sayılır, birden çok sözcüğün hepsi geçmeli. Arama dizini sayfaya `#post-index` JSON'u olarak gömülür (TR bloğu `<div lang="en"` öncesi, EN sonrası). Testler: `tests/search.spec.js`.
+- **Hakkımda fotoğrafı:** `assets/img/me-light.png` ve `me-dark.png` (eski siteden, tema zeminine uyan iki sürüm); `img.portrait.when-light/.when-dark` ile temaya göre biri görünür. Fotoğrafı değiştirirken iki dosyayı da yenile.
 - **Resim görüntüleyici:** `site.js`, `#left` içindeki görsele tıklayınca tam ekran görüntüleyici açar (sağ üstte × düğmesi, Esc, arka plana tık). Hariç: liste küçük resimleri (`.thumb`), `.certs` (PDF'e gider), resim dosyası olmayan bağlantı içindeki görseller (YouTube vb.). Sertifika önizlemesi 16:10 sabit kutu, `object-position: top` (dikey belgelerde yalnızca üst kısım görünür). Testler: `tests/viewer.spec.js`.
-- **Portfolyom:** Dört markdown dosyası, dört bölüm: `_portfolio/deneyim.md`, `yarismalar-ve-girisim.md`, `topluluk-ve-liderlik.md`, `belgeler.md` (front matter: `title`, `title_en`, `order`). `output: false`: ayrı sayfaları yok; `pages/portfolyom.md` `order`a göre hepsini sayfada açık basar (`h3.group` + `.groupbody`). Dosya içi yazım: her kayıt `## Başlık` + `<p class="when">dönem · kurum</p>` + isteğe bağlı `<div class="pics"><img …></div>` + metin; TR ve EN blokları ayrı `<div lang markdown="1">` içinde. Yeni bölüm = yeni `.md` dosyası. HTML bloklarında satır başı girintisi bırakma (markdown kod bloğu sayar).
+- **Portfolyom:** Üç markdown dosyası, üç bölüm: `_portfolio/experience.md`, `competitions-and-startup.md`, `community-and-leadership.md`; dördüncü bölüm Belgeler'in tek kaynağı `_includes/documents.md`'dir ve hem `/documents/` sayfası (`pages/documents.md`, CV'den bağlanabilir, `#certificates` gibi alt başlık adresleri) hem portfolyo onu basar (front matter: `title`, `title_en`, `order`). `output: false`: ayrı sayfaları yok; `pages/portfolio.md` `order`a göre hepsini sayfada açık basar (`h3.group` + `.groupbody`). Dosya içi yazım: her kayıt `## Başlık` + `<p class="when">dönem · kurum</p>` + isteğe bağlı `<div class="pics"><img …></div>` + metin; TR ve EN blokları ayrı `<div lang markdown="1">` içinde. Yeni bölüm = yeni `.md` dosyası. HTML bloklarında satır başı girintisi bırakma (markdown kod bloğu sayar).
 - **Gerçek içerik (Kasım 2026):** Kaynaklar: eski site deposu ve kullanıcının yerel iş evrakları (güncel CV'ler, kişisel profil notu). Projeler = `_projects` (BrowserAPI, MÜDEK, Vishand, Taret, bu site). Portfolyom = `_portfolio` (deneyim, yarışmalar/girişim, topluluk, belgeler). Yazılar = `_posts` (Fedora NVIDIA rehberi). Hakkımda = biyografi, yetenekler, eğitim, CV bağlantıları. Yeni içerikte iki dilli bloklar ve `description(_en)` zorunlu; İngilizcesi yapay zekâ çevirisiyse front matter'a `ai_translated: true` (EN notu otomatik çıkar).
-- **Yayınlanmayan veriler:** Kullanıcının yerel profil ve iş-bulma notları kişisel strateji/özel bilgi içerir (yaş, doğum yeri, not dökümü, resmî kayıtlar, kişisel durum bilgileri vb.). Siteye, commit'e ya da testlere alınmaz. Üçüncü kişilerin adları (takım arkadaşları) yazılmaz. Fotoğraflarda çocukların yüzü bulanıklaştırılır (`assets/img/portfolio/t3-egitim.jpg` örneği); yüzü seçilebilen çocuk fotoğrafı bulanıklaştırılmadan yayınlanmaz. CV PDF'leri kullanıcının onayıyla telefon dahil yayınlanır (`assets/belgeler/`).
+- **Yayınlanmayan veriler:** Kullanıcının yerel profil ve iş-bulma notları kişisel strateji/özel bilgi içerir (yaş, doğum yeri, not dökümü, resmî kayıtlar, kişisel durum bilgileri vb.). Siteye, commit'e ya da testlere alınmaz. Üçüncü kişilerin adları (takım arkadaşları) yazılmaz. Fotoğraflarda çocukların yüzü bulanıklaştırılır (`assets/img/portfolio/t3-training.jpg` örneği); yüzü seçilebilen çocuk fotoğrafı bulanıklaştırılmadan yayınlanmaz. CV PDF'leri kullanıcının onayıyla telefon dahil yayınlanır (`assets/documents/`).
 
 ### 7.1 SEO ve yapay zeka görünürlüğü
 - `head.html` her sayfada basar: `description`, `keywords` (`_config.yml` `keywords`, sayfada `keywords:` ile ezilir), `canonical`, Open Graph, Twitter card ve JSON-LD (ana sayfa `WebSite`+`Person`, yazılar `BlogPosting`). 404 `noindex` alır. Ana sayfanın `description`'ı `site.description`'dır (front matter'a yazma).
@@ -256,7 +258,7 @@ Koleksiyonlar, `page/post/item` layout'ları, 5 menü sayfası, Ana Sayfa, place
 
 **Aşama 4 — Sağ bar ve RSS**
 `sidebar.html`, `links.yml`, `jekyll-feed`.
-*Bitti:* Test, sağ barda en fazla 5 yazı ve `/yazilarim/` adresine giden More linki olduğunu doğruluyor. `/feed.xml` geçerli XML.
+*Bitti:* Test, sağ barda en fazla 5 yazı ve `/writing/` adresine giden More linki olduğunu doğruluyor. `/feed.xml` geçerli XML.
 
 **Aşama 5 — Çizimler galerisi**
 *Bitti:* Bir test, kategori `h3` sayısının klasör sayısına, görsel sayısının dosya sayısına eşit olduğunu doğruluyor. Yeni bir klasör ve görsel eklenip tekrar build alınınca galeride görünüyor.
@@ -285,13 +287,13 @@ Repo köküne içinde `mozmen.dev` yazan bir `CNAME` dosyası eklenir, `_config.
 
 ## 12. Mevcut durum ve bakım
 
-**Durum:** Site çalışıyor, `npm test` ile 61 Playwright testi geçiyor. Branch'ler üst üste dizili (`feat/kurulum` → … → son branch); `main` henüz boş. `main`'e alma, `git push` ve GitHub ayarları kullanıcı onayı bekler (§9). Uzak repo tanımlı değil.
+**Durum:** Site çalışıyor, `npm test` ile 70 Playwright testi (çizim yokken 5'i atlanır). Branch'ler üst üste dizili (`feat/kurulum` → … → son branch); `main` henüz boş. `main`'e alma, `git push` ve GitHub ayarları kullanıcı onayı bekler (§9). Uzak repo tanımlı değil.
 
 **Çalıştırma:**
 ```
-export GEM_HOME=$HOME/.local/share/gem/ruby/3.4.0 PATH=$GEM_HOME/bin:$PATH
-bundle exec jekyll serve      # http://127.0.0.1:4000
+npm run serve                 # http://127.0.0.1:4000 (GEM_HOME'u kendisi ayarlar)
 npm test                      # kendi sunucusunu 4001'de açar, 4000'e dokunmaz
+npm run build                 # _site/
 ```
 Playwright sistem Chromium'unu kullanır (`/usr/bin/chromium`, `CHROMIUM_PATH` ile değişir). Yoksa ya da CI'daysa kendi tarayıcısını kullanır.
 
@@ -303,14 +305,14 @@ Playwright sistem Chromium'unu kullanır (`/usr/bin/chromium`, `CHROMIUM_PATH` i
 **İçerik ekleme (kod değişmez):**
 - Yazı: `_posts/YYYY-MM-DD-slug.md` (§5 şablonu + `category`, `tr_keyword`, `en_keyword`). Gelecek tarihli yazı yayınlanmaz.
 - Proje: `_projects/slug.md` (`image:` listede küçük görsel). Portfolyo: ilgili bölüm dosyasına yeni `##` kaydı ekle (§7).
-- Çizim: `assets/cizimler/<kategori>/dosya.(png|jpg|jpeg|gif|webp|svg)`. Klasör adı kategori olur. Uzantılar küçük harf olmalı. Dosya adında boşluk ve Türkçe karakter sorun çıkarmaz (Jekyll yolu yüzde-kodlar, `Çizgi örneği.svg` ile test edilir).
+- Çizim: `assets/drawings/<kategori>/dosya.(png|jpg|jpeg|gif|webp|svg)`. Klasör adı kategori olur. Uzantılar küçük harf olmalı. Dosya adında boşluk ve Türkçe karakter sorun çıkarmaz (Jekyll yolu yüzde-kodlar, `Çizgi örneği.svg` ile test edilir).
 
 **Bilinen sınırlar (karar verildi, hata değil):**
 - RSS içeriği iki dili birden taşır (RSS okuyucu CSS çalıştırmaz); `summary` yalnızca TR `description`.
-- Çizim galerisinde doğrudan `assets/cizimler/` altına konan dosya kategori sayılır (klasör zorunlu değil).
+- Çizim galerisinde doğrudan `assets/drawings/` altına konan dosya kategori sayılır (klasör zorunlu değil).
 - Çizgili kenar solması 980px altında gizlenir (§6.6). Tarayıcı zoom'u %100 değilse çizgiler düzensizleşebilir.
 - Testler içerik sayılarını dosya sistemindeki `.md` dosyalarından okur (sidebar, listeler, sitemap); içerik eklemek testleri bozmaz. Yazı sayısı 5'ten azken "en çok 5" sınırı fiilen sınanmaz.
 - RSS içindeki görsel yolları göreli (`/assets/...`); RSS okuyucularda görsel görünmeyebilir.
-- Çizim galerisindeki örnek SVG'ler (`eskizler`, `dijital`) kullanıcının kendi çizimleriyle değiştirilecek placeholder'dır.
+- Çizimler sayfası yayında değil: `_config.yml` `exclude` satırı ve `nav.yml` yorumu; kullanıcı kendi çizimlerini `assets/drawings/<kategori>/` altına koyunca ikisini de açar. Çizim yokken galeri testleri atlanır.
 
 **Test yazarken:** Menü `text-transform: lowercase` kullanır, `innerText` küçük harf döner; metin eşleştirmelerini harf duyarsız (`/^ana sayfa$/i`) yaz. Görseller `loading="lazy"`: `naturalWidth`'i `expect.poll` ile bekle. Sayfada TR ve EN için çift bağlantı olabilir: `:visible` ile filtrele.

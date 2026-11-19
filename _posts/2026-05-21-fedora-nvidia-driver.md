@@ -3,7 +3,7 @@ title: "Fedora'ya NVIDIA sürücüsü nasıl kurulur?"
 title_en: "How to install NVIDIA driver on Fedora?"
 description: "Fedora'ya nasıl nvidia sürücüsü kurulur hakkında bir rehber."
 description_en: "A guide about how to install Nvidia drivers on Fedora."
-image: "/assets/img/posts/fedora-nvidia-driver/banner.png"
+image: "/assets/img/thumbs/fedora-nvidia.webp"
 category: teknik
 tr_keyword: "nvidia, fedora, linux, sürücü, driver, rpm, secure boot"
 en_keyword: "nvidia, fedora, linux, driver, rpm, secure boot"

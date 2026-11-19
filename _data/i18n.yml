@@ -5,9 +5,15 @@ nav_projects: { tr: "Projelerim", en: "Projects" }
 nav_writing:  { tr: "Yazılarım",  en: "Writing" }
 nav_drawings: { tr: "Çizimlerim", en: "Drawings" }
 nav_portfolio: { tr: "Portfolyom", en: "Portfolio" }
+nav_documents: { tr: "Belgelerim", en: "Documents" }
 nav_about:    { tr: "Hakkımda",   en: "About" }
 recent_posts: { tr: "Son Paylaşımlar", en: "Recent Posts" }
 more:         { tr: "Daha fazla", en: "More" }
 links:        { tr: "Bağlantılar", en: "Links" }
 rss:          { tr: "RSS beslemesi", en: "RSS feed" }
 rights:       { tr: "Tüm hakları saklıdır", en: "All rights reserved" }
+result:        { tr: "Sonuç", en: "Result" }
+featured:      { tr: "Öne Çıkan Projeler", en: "Featured Projects" }
+skip:          { tr: "İçeriğe geç", en: "Skip to content" }
+open_title:    { tr: "Yeni fırsatlara açığım", en: "Open to work" }
+open_cta:      { tr: "İletişime geç", en: "Get in touch" }

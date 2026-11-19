@@ -5,7 +5,7 @@ title_en: Projects
 hide_title: true
 description: "Yaptığım yazılım ve donanım projeleri."
 description_en: "Software and hardware projects I have built."
-permalink: /projelerim/
+permalink: /projects/
 ---
 <div lang="tr" markdown="1">
 

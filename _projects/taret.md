@@ -4,7 +4,8 @@ title_en: "Autonomous Vehicle Threat Assessment Integration – Graduation Proje
 date: 2025-10-17
 description: "Bitirme projem için geliştirilen yerel çalışan bir tehdit değerlendirme modülü — YOLOv8 ile silahlı/silahsız kişiyi tespit eder ve iki eksenli servo türetle takip eder."
 description_en: "A locally-running threat assessment module built for my senior capstone — detects armed/unarmed persons with YOLOv8 and tracks them with a two-axis servo turret."
-image: "/assets/img/projects/turret/turet-1.png"
+image: "/assets/img/thumbs/taret.webp"
+featured: true
 tags: [YOLOv8, Python, Arduino, OpenCV, PySide6, Servo, Embedded]
 ai_translated: true
 ---
@@ -14,7 +15,7 @@ ai_translated: true
 
 Bu proje, İskenderun Teknik Üniversitesi'nde tamamladığım lisans bitirme tezimdir (4. sınıf, Güz 2025). Tez kabul edilmiş ve başarıyla savunulmuştur.
 
-Tezin tamamına <a href="{{ '/assets/belgeler/lisans-bitirme-tezi.pdf' | relative_url }}" target="_blank">buradan</a> ulaşabilirsiniz.
+Tezin tamamına <a href="{{ '/assets/documents/bachelor-thesis.pdf' | relative_url }}" target="_blank">buradan</a> ulaşabilirsiniz.
 
 Kent güvenliğine yönelik otonom/yarı otonom sistemlere entegre edilmek üzere **yerel çalışan** bir tehdit değerlendirme modülü geliştirilmiştir. Sistem, kamera görüntüsünden bir **kişinin silahlı mı yoksa silahsız mı** olduğunu gerçek zamanlı olarak belirler, durum ve koordinat bilgisini ana bilgisayara iletir ve eş zamanlı olarak hedefi iki eksenli bir türetle takip eder. Tasarım, hafif bir gimbal yapısı aracılığıyla insansız hava araçlarına veya kara araçlarına entegre edilebilecek şekilde kurgulanmıştır.
 
@@ -169,7 +170,7 @@ Karşılaştırma örnekleri: **SafePointe** ve **Xtract One** gibi ticari siste
 
 This project is my senior capstone (Undergraduate, 4th year, Fall 2025) completed at İskenderun Technical University. The thesis was accepted and successfully defended. Because of that, some words in images or diagrams are in Turkish.
 
-You can access the full, more detailed thesis <a href="{{ '/assets/belgeler/lisans-bitirme-tezi.pdf' | relative_url }}" target="_blank">here</a>.
+You can access the full, more detailed thesis <a href="{{ '/assets/documents/bachelor-thesis.pdf' | relative_url }}" target="_blank">here</a>.
 
 A **locally running** threat-assessment module was developed to be mounted on urban-security-oriented autonomous/semi-autonomous systems. From the camera stream, it determines in real time whether a **person is armed or unarmed**, reports status and coordinates to the host PC, and simultaneously tracks the target with a two-axis turret. The system is designed to be integrated into drones or ground robots via a lightweight gimbal structure.
 

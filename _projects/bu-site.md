@@ -17,7 +17,7 @@ Portfolyomu ve yazılarımı tek yerde, bakımı en az çaba isteyen bir yapıda
 
 - **Tek dosyada iki dil.** Her sayfanın Türkçe ve İngilizce metni aynı Markdown dosyasında durur. Dil düğmesi adresi değiştirmeden görünen bloğu değiştirir. Tercih tarayıcıda saklanır.
 - **Açık ve koyu tema.** Sayfa çizilmeden önce uygulanır, yanlış temanın bir an görünmesi engellenir.
-- **Çizim galerisi.** `assets/cizimler/<kategori>/` klasörüne konan görseller kategori olarak otomatik listelenir.
+- **Çizim galerisi.** `assets/drawings/<kategori>/` klasörüne konan görseller kategori olarak otomatik listelenir.
 - **Çerçevesiz teknoloji.** Çerçeve ve paketleyici yok: tek CSS, tek JavaScript dosyası, yalnızca RSS eklentisi.
 - **Testli yayın.** Playwright testleri GitHub Actions'ta çalışır, testler geçmeden site yayınlanmaz.
 
@@ -32,7 +32,7 @@ To publish my portfolio and writing in one place, in a structure that needs as l
 
 - **Two languages in one file.** The Turkish and English text of each page live in the same Markdown file. The language button swaps the visible block without changing the address. The choice is stored in the browser.
 - **Light and dark theme.** Applied before the first paint so the wrong theme never flashes.
-- **Drawing gallery.** Images placed in `assets/cizimler/<category>/` are listed automatically, one section per folder.
+- **Drawing gallery.** Images placed in `assets/drawings/<category>/` are listed automatically, one section per folder.
 - **No frameworks.** No framework or bundler: one CSS file, one JavaScript file, only the RSS plugin.
 - **Tested deploys.** Playwright tests run in GitHub Actions, and the site is not published unless they pass.
 

@@ -4,7 +4,8 @@ title_en: "Vishand – Vision-Based Robot Hand Control"
 date: 2025-08-21
 description: "Web kamerası aracılığıyla gerçek zamanlı kontrol edilen bir robot el — MediaPipe parmak bükülme oranlarını takip eder ve bunları seri port üzerinden Arduino servolara iletir."
 description_en: "A robot hand controlled in real time via webcam — MediaPipe tracks finger curl ratios and sends them to Arduino servos over serial."
-image: "/assets/img/projects/vishand/video.jpg"
+image: "/assets/img/thumbs/vishand.webp"
+featured: true
 tags: [Python, OpenCV, MediaPipe, PyQt6, Arduino, PySerial, Servo]
 github: "https://github.com/muhammetozmen/vishand"
 ai_translated: true

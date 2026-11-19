@@ -25,14 +25,14 @@ Jetson Nano üzerinde Embedded Linux eğitimi verdim.
 ## Eğitmen Mentör, Türkiye Teknoloji Takımı Vakfı (T3)
 <p class="when">Mart 2023 – günümüz</p>
 
-<div class="pics"><img src="{{ '/assets/img/portfolio/t3-egitim.jpg' | relative_url }}" alt="" loading="lazy"></div>
+<div class="pics"><img src="{{ '/assets/img/portfolio/t3-training.jpg' | relative_url }}" alt="" loading="lazy"></div>
 
 Robotik kodlama ve temel elektrik eğitimleri verdim, eğitim materyalleri hazırladım.
 
 ## Computer Science Başkanı, IEEE İSTE Öğrenci Kolu
 <p class="when">Haziran 2022 – Ekim 2023</p>
 
-<div class="pics"><img src="{{ '/assets/img/portfolio/ieee-egitim.jpg' | relative_url }}" alt="" loading="lazy"><img src="{{ '/assets/img/portfolio/ieee-baykar.jpg' | relative_url }}" alt="" loading="lazy"></div>
+<div class="pics"><img src="{{ '/assets/img/portfolio/ieee-training.jpg' | relative_url }}" alt="" loading="lazy"><img src="{{ '/assets/img/portfolio/ieee-baykar.jpg' | relative_url }}" alt="" loading="lazy"></div>
 
 Python programlama eğitimleri ve uygulamalı mühendislik atölyeleri düzenledim; TÜBİTAK ve Teknofest'te finale kalan projelere mentorluk yaptım.
 
@@ -59,14 +59,14 @@ Delivered Embedded Linux training on Jetson Nano.
 ## Instructor Mentor, Turkey Technology Team Foundation (T3)
 <p class="when">March 2023 – present</p>
 
-<div class="pics"><img src="{{ '/assets/img/portfolio/t3-egitim.jpg' | relative_url }}" alt="" loading="lazy"></div>
+<div class="pics"><img src="{{ '/assets/img/portfolio/t3-training.jpg' | relative_url }}" alt="" loading="lazy"></div>
 
 Taught robotics coding and basic electricity, prepared training materials.
 
 ## Computer Science Chair, IEEE İSTE Student Branch
 <p class="when">June 2022 – October 2023</p>
 
-<div class="pics"><img src="{{ '/assets/img/portfolio/ieee-egitim.jpg' | relative_url }}" alt="" loading="lazy"><img src="{{ '/assets/img/portfolio/ieee-baykar.jpg' | relative_url }}" alt="" loading="lazy"></div>
+<div class="pics"><img src="{{ '/assets/img/portfolio/ieee-training.jpg' | relative_url }}" alt="" loading="lazy"><img src="{{ '/assets/img/portfolio/ieee-baykar.jpg' | relative_url }}" alt="" loading="lazy"></div>
 
 Organized Python programming trainings and hands-on engineering workshops; mentored projects that reached the TÜBİTAK and Teknofest finals.
 

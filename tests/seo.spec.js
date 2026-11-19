@@ -17,7 +17,7 @@ test.describe('SEO', () => {
     await page.goto('/');
     const home = JSON.parse(await page.locator('script[type="application/ld+json"]').innerText());
     expect(home['@graph'].map((/** @type {any} */ n) => n['@type'])).toEqual(['WebSite', 'Person']);
-    await page.goto('/yazilarim/2026/fedora-nvidia-surucusu/');
+    await page.goto('/writing/2026/fedora-nvidia-driver/');
     const post = JSON.parse(await page.locator('script[type="application/ld+json"]').innerText());
     expect(post['@type']).toBe('BlogPosting');
     expect(post.datePublished).toMatch(/^2026-05-21/);
@@ -40,7 +40,7 @@ test.describe('SEO', () => {
   test('llms.txt site adı, menü ve son yazıları listeler', async ({ request }) => {
     const txt = await (await request.get('/llms.txt')).text();
     expect(txt).toMatch(/^# Muhammet Özmen/);
-    expect(txt).toMatch(/\/yazilarim\//);
+    expect(txt).toMatch(/\/writing\//);
     expect(txt).toMatch(/NVIDIA/);
   });
 });

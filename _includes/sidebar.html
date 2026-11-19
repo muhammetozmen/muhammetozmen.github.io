@@ -4,12 +4,12 @@
     {%- for post in site.posts limit: 5 %}
     <li><a href="{{ post.url | relative_url }}">{% include bi.html tr=post.title en=post.title_en %}</a></li>
     {%- endfor %}
-    <li class="more"><strong><a href="{{ '/yazilarim/' | relative_url }}">{% include t.html key="more" %} &#8250;&#8250;</a></strong></li>
+    <li class="more"><strong><a href="{{ '/writing/' | relative_url }}">{% include t.html key="more" %} &#8250;&#8250;</a></strong></li>
   </ul>
   <h3>{% include t.html key="links" %}</h3>
   <ul id="links">
     {%- for l in site.data.links %}
-    <li><a href="{{ l.url }}">{{ l.name }}</a></li>
+    <li><a href="{{ l.url }}">{% include bi.html tr=l.name en=l.name_en %}</a></li>
     {%- endfor %}
   </ul>
   <h3>RSS</h3>

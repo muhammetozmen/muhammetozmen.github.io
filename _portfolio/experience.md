@@ -18,7 +18,7 @@ order: 1
 
 - NVIDIA Jetson Nano üzerinde headless Linux sistemi kurdum. OpenCV tabanlı görüntü işleme ve donanım kontrolünü C++ ile yazdığım uygulamaya entegre ettim.
 - Qt (Widgets/QML) ile çapraz platform kontrol arayüzünü ve arka uç iş akışlarını uçtan uca geliştirdim.
-- Üniversiteler için geliştirilen LLM tabanlı notlandırma otomasyonuna API entegrasyonu ve sesli komut desteği ekledim. Sonucu: [MÜDEK sesli not giriş uygulaması]({{ '/projelerim/mudek/' | relative_url }}).
+- Üniversiteler için geliştirilen LLM tabanlı notlandırma otomasyonuna API entegrasyonu ve sesli komut desteği ekledim. Sonucu: [MÜDEK sesli not giriş uygulaması]({{ '/projects/mudek/' | relative_url }}).
 
 **Yazılım Stajyeri, kısa dönem** (Temmuz – Ağustos 2025)
 
@@ -41,7 +41,7 @@ order: 1
 
 - Set up a headless Linux system on NVIDIA Jetson Nano and integrated OpenCV-based image processing and hardware control into a C++ application.
 - Developed the cross-platform control interface and backend workflows end to end with Qt (Widgets/QML).
-- Added API integration and voice command support to an LLM-based grading automation system built for universities. Result: the [MÜDEK voice-assisted grade entry application]({{ '/projelerim/mudek/' | relative_url }}).
+- Added API integration and voice command support to an LLM-based grading automation system built for universities. Result: the [MÜDEK voice-assisted grade entry application]({{ '/projects/mudek/' | relative_url }}).
 
 **Software Intern, short-term** (July – August 2025)
 

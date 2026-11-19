@@ -1,7 +1,8 @@
 # Menü sırası burada belirlenir. key -> i18n.yml içindeki nav_<key>
 - { key: home,      url: / }
-- { key: projects,  url: /projelerim/ }
-- { key: writing,   url: /yazilarim/ }
-- { key: drawings,  url: /cizimlerim/ }
-- { key: portfolio, url: /portfolyom/ }
-- { key: about,     url: /hakkimda/ }
+- { key: projects,  url: /projects/ }
+- { key: writing,   url: /writing/ }
+# Çizimlerim: kendi çizimlerin gelince _config.yml exclude satırını sil ve şunu aç: - { key: drawings, url: /drawings/ }
+- { key: portfolio, url: /portfolio/ }
+- { key: documents, url: /documents/ }
+- { key: about,     url: /about/ }

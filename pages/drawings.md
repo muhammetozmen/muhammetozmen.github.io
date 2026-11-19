@@ -5,7 +5,8 @@ title_en: Drawings
 hide_title: true
 description: "Eskizler ve dijital çizimlerim."
 description_en: "My sketches and digital drawings."
-permalink: /cizimlerim/
+permalink: /drawings/
+sitemap: false
 ---
 <div lang="tr" markdown="1">
 
@@ -19,13 +20,13 @@ My drawings are listed below by category.
 </div>
 
 {%- comment %}
-  Galeri: assets/cizimler/<kategori>/ klasörleri otomatik kategori olur, .md gerekmez.
+  Galeri: assets/drawings/<kategori>/ klasörleri otomatik kategori olur, .md gerekmez.
   shortcut: yalnızca küçük harfli uzantılar (.jpg, .svg…) ve bir alt klasör derinliği taranır;
-  doğrudan assets/cizimler/ altına konan dosya kategori sayılır. Gerekirse klasör zorunlu kılınır.
+  doğrudan assets/drawings/ altına konan dosya kategori sayılır. Gerekirse klasör zorunlu kılınır.
 {% endcomment %}
 {% assign exts = ".png .jpg .jpeg .gif .webp .svg" | split: " " %}
-{% assign imgs = site.static_files | where_exp: "f", "f.path contains '/assets/cizimler/'" | where_exp: "f", "exts contains f.extname" %}
-{% assign groups = imgs | group_by_exp: "f", "f.path | remove_first: '/assets/cizimler/' | split: '/' | first" %}
+{% assign imgs = site.static_files | where_exp: "f", "f.path contains '/assets/drawings/'" | where_exp: "f", "exts contains f.extname" %}
+{% assign groups = imgs | group_by_exp: "f", "f.path | remove_first: '/assets/drawings/' | split: '/' | first" %}
 {% for g in groups %}
 <h3 class="cat">{{ g.name | replace: "-", " " }}</h3>
 <div class="gallery">

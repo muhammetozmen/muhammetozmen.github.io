@@ -1,9 +1,11 @@
 {%- comment %}Başlık, (isteğe bağlı) tarih, açıklama ve küçük görselle öğe listesi. Kullanım: {% include entry-list.html items=site.projects date=false %}{% endcomment -%}
 {%- for item in include.items %}
 <div class="entry" data-url="{{ item.url }}">
-  {%- if item.image %}<img class="thumb" src="{{ item.image | relative_url }}" alt="">{% endif %}
   <h2><a href="{{ item.url | relative_url }}">{% include bi.html tr=item.title en=item.title_en %}</a></h2>
+  {%- if item.image %}<img class="thumb" src="{{ item.image | relative_url }}" alt="">{% endif %}
   {%- if include.date %}<p class="posted">{{ item.date | date: "%d.%m.%Y" }}</p>{% endif %}
   <p>{% include bi.html tr=item.description en=item.description_en %}</p>
+  {%- if item.result %}<p class="result"><strong>{% include t.html key="result" %}:</strong> {% include bi.html tr=item.result en=item.result_en %}</p>{% endif %}
+  {%- if item.tags %}<p class="note">{{ item.tags | join: " · " }}</p>{% endif %}
 </div>
 {%- endfor %}

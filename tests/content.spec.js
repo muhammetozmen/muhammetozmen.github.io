@@ -3,7 +3,7 @@ const { test, expect } = require('@playwright/test');
 const fs = require('fs');
 const path = require('path');
 
-const MENU = ['/', '/projelerim/', '/yazilarim/', '/cizimlerim/', '/portfolyom/', '/hakkimda/'];
+const MENU = ['/', '/projects/', '/writing/', '/portfolio/', '/documents/', '/about/'];
 
 for (const url of MENU) {
   test(`${url}: 200, tek h1, doğru aktif menü, konsol hatası yok`, async ({ page }) => {
@@ -24,8 +24,8 @@ for (const url of MENU) {
 // Liste sayfaları: öğe sayısı ve her bağlantının açılması
 const count = (/** @type {string} */ d) => fs.readdirSync(path.join(__dirname, '..', d)).filter((f) => f.endsWith('.md')).length;
 const LISTS = [
-  ['/projelerim/', count('_projects')],
-  ['/yazilarim/', count('_posts')],
+  ['/projects/', count('_projects')],
+  ['/writing/', count('_posts')],
 ];
 for (const [url, count] of LISTS) {
   test(`${url}: ${count} öğe, hepsi açılır, detay sayfasında tek h1 ve menü aktif`, async ({ page, request }) => {
@@ -41,10 +41,20 @@ for (const [url, count] of LISTS) {
   });
 }
 
-test('Portfolyom: tüm öğeler sayfada açık (tıklama gerekmez), bölümlü, görselli', async ({ page }) => {
-  await page.goto('/portfolyom/');
-  await expect(page.locator('#left .groupbody')).toHaveCount(count('_portfolio'));
-  await expect(page.locator('#left a[href^="/portfolyom/"][href$="/"]')).toHaveCount(0); // ayrı detay sayfası yok
+test('Portfolyom: hepsi açık gelir, kapatılabilir, bağlantı kapalı bölümü açar', async ({ page }) => {
+  await page.goto('/portfolio/');
+  await expect(page.locator('#left details.group')).toHaveCount(count('_portfolio') + 1);
+  await expect(page.locator('#left details.group[open]')).toHaveCount(count('_portfolio') + 1);
+  await page.locator('#left details.group').last().locator('summary').click(); // kullanıcı kapatabilir
+  await expect(page.locator('#left details.group').last()).toHaveJSProperty('open', false);
+  await page.locator('.jump a:visible').last().click(); // kapalı bölüme bağlantı bölümü açar
+  await expect(page.locator('#left details.group').last()).toHaveJSProperty('open', true);
+  await page.locator('#left details.group').last().locator('summary').click();
+  await page.locator('.jump a:visible').last().click(); // adres aynı kalsa da yeniden açar
+  await expect(page.locator('#left details.group').last()).toHaveJSProperty('open', true);
+  await page.evaluate(() => document.querySelectorAll('details.group').forEach((d) => { d.open = true; }));
+  await expect(page.locator('#left .groupbody')).toHaveCount(count('_portfolio') + 1);
+  await expect(page.locator('#left a[href^="/portfolio/"][href$="/"]')).toHaveCount(0); // ayrı detay sayfası yok
   expect(await page.locator('#left h3.group:visible').count()).toBeGreaterThanOrEqual(3);
   await expect(page.locator('#left .groupbody .pics img:visible').first()).toBeVisible();
   expect(await page.locator('#left .certs a:visible').count()).toBe(4);
@@ -58,7 +68,7 @@ test('Ana Sayfa son yazıları listeler', async ({ page }) => {
 });
 
 test('yazı sayfasında tarih gg.aa.yyyy biçiminde', async ({ page }) => {
-  await page.goto('/yazilarim/');
+  await page.goto('/writing/');
   await page.locator('#left .entry h2 a').first().click();
   await expect(page.locator('#left .posted')).toHaveText(/^\d{2}\.\d{2}\.\d{4}$/);
 });
@@ -69,4 +79,23 @@ test('olmayan adres: 404 durum kodu ve siteye uygun, iki dilli hata sayfası', a
   await expect(page.locator('h1')).toHaveCount(1);
   await expect(page.locator('#nav')).toBeVisible();          // site iskeleti korunur
   await expect(page.locator('#left a[href="/"]:visible')).toHaveCount(1); // seçili dildeki ana sayfa bağlantısı
+});
+
+test('Belgeler: ayrı sayfa var, aynı sertifikalar portfolyoda da çıkar, #certificates bağlantısı var', async ({ page }) => {
+  const res = await page.goto('/documents/');
+  expect(res?.status()).toBe(200);
+  await expect(page.locator('h1')).toHaveCount(1);
+  await expect(page.locator('#left .certs a:visible')).toHaveCount(4);
+  await expect(page.locator('#certificates')).toHaveCount(2); // TR ve EN başlık
+  await page.goto('/portfolio/#documents');
+  await expect(page.locator('details#documents')).toHaveJSProperty('open', true);
+  await expect(page.locator('#left details#documents .certs a:visible')).toHaveCount(4);
+});
+
+test('Projelerim: başlık görselin yanında değil üstünde, tam genişlikte', async ({ page }) => {
+  await page.goto('/projects/');
+  const e = page.locator('#left .entry').filter({ has: page.locator('img.thumb') }).first();
+  const h = await e.locator('h2').boundingBox();
+  const i = await e.locator('img.thumb').boundingBox();
+  expect(h && i && i.y >= h.y + h.height - 1).toBeTruthy();
 });

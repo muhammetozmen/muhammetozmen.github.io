@@ -11,9 +11,9 @@ test.describe('sağ bar', () => {
     const posts = page.locator('#right #recent li:not(.more) a');
     await expect(posts).toHaveCount(Math.min(5, slugs.length));
     const hrefs = await posts.evaluateAll((as) => as.map((a) => a.getAttribute('href')));
-    expect(hrefs.every((h) => h?.startsWith('/yazilarim/'))).toBeTruthy();
+    expect(hrefs.every((h) => h?.startsWith('/writing/'))).toBeTruthy();
     hrefs.forEach((h, i) => expect(h).toContain(slugs[i]));
-    await expect(page.locator('#right #recent li.more a')).toHaveAttribute('href', '/yazilarim/');
+    await expect(page.locator('#right #recent li.more a')).toHaveAttribute('href', '/writing/');
   });
 
   test('Bağlantılar ve RSS blokları var', async ({ page }) => {
@@ -36,5 +36,5 @@ test('/feed.xml geçerli XML ve yazıları içerir', async ({ request }) => {
   const xml = await res.text();
   expect(xml).toMatch(/^<\?xml/);
   expect(xml).toContain('<feed');
-  expect(xml).toContain('fedora-nvidia-surucusu');
+  expect(xml).toContain('fedora-nvidia-driver');
 });

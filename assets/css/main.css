@@ -11,15 +11,16 @@
   --nav-text: #fff;
   --nav-active: #fc6;
   --text: #333;
-  --heading: #c63;
+  --heading: #a9552a;
   --heading-hover: #930;
-  --link: #5b80b2;
-  --link-visited: #969;
+  --link: #4e6e99;
+  --link-visited: #966496;
   --link-hover: #036;
-  --side-text: #963;
-  --muted: #999;
+  --side-text: #936231;
+  --muted: #767676;
   --rule: #ddd;
   --thumb-border: #ccc;
+  --open-bg: #e6f4e1; --open-border: #2e7d32; --open-text: #1b5e20;
   --frame: #000;
   --fade-near: #626262;   /* çerçeve kenarındaki solma rengi; orijinal #6c6c6c, ilk px çerçevenin altında kaldığı için biraz koyu */
 
@@ -42,6 +43,7 @@ html[data-theme="dark"] {
   --muted: #888;
   --rule: #444;
   --thumb-border: #555;
+  --open-bg: #1f3326; --open-border: #4caf50; --open-text: #9fdcaa;
   --fade-near: #3a3a3a;
 }
 
@@ -149,13 +151,15 @@ hr { border: 0; border-top: 1px dashed var(--thumb-border); }
    Boyut dar ekranda 14 harf sığsın diye genişliğe bağlıdır (vw zoom'dan etkilenmez, o yüzden /zoom). */
 .logo-text {
   position: absolute; left: 24px; top: 50%; transform: translateY(-50%);
-  font: 700 min(28px, calc((100vw / var(--zoom) - 48px) / 19)) / 1 "lucida grande", verdana, sans-serif;
+  display: flex; align-items: center; gap: .35em;
+  font: 700 min(28px, calc((100vw / var(--zoom) - 48px) / 21.5)) / 1 "lucida grande", verdana, sans-serif;
   letter-spacing: -.01em;
   white-space: nowrap;
-  color: #fff;
-  text-shadow: 1px 1px 0 #c63;               /* beyaz yazı açık turuncuda silik kalmasın diye ince kenar */
+  color: #930;                               /* başlık hover kahvesi: turuncu zeminde okunur, h1/h2 turuncusuyla aynı aile */
+  text-shadow: 1px 1px 0 var(--header-light); /* açık şerit rengiyle kabartma */
   pointer-events: none;
 }
+.logo-text img { width: 1.5em; height: 1.5em; }   /* yazıyla birlikte küçülür; piksel-sanat bilgisayar simgesi */
 #logo { overflow: hidden; }
 
 #nav {
@@ -317,3 +321,21 @@ h3.group { margin: 1.6em 0 .8em; }
 /* Hakkımda fotoğrafı: açık/koyu temaya göre iki dosya (.when-light/.when-dark ile biri gizlenir) */
 #left img.portrait { float: right; width: 150px; margin: 0 0 8px 16px; padding: 5px; border: 1px solid var(--thumb-border); }
 @media (max-width: 560px) { #left img.portrait { width: 110px; } }
+
+/* Ana sayfa butonları, proje sonucu, portfolyo özeti ve katlanır bölümler */
+.actions { display: flex; flex-wrap: wrap; gap: 8px; margin: 1em 0; }
+.actions a { padding: 3px 10px; border: 1px solid var(--thumb-border); text-decoration: none; font-weight: bold; }
+.actions a:hover { border-color: var(--heading); }
+details.group > summary { cursor: pointer; list-style: none; }
+details.group > summary::-webkit-details-marker { display: none; }
+details.group > summary h3 { display: flex; justify-content: space-between; }
+details.group > summary h3::after { content: "+"; }
+details.group[open] > summary h3::after { content: "\2212"; }
+.skip { position: absolute; left: 8px; top: -40px; z-index: 10; padding: 4px 10px; background: #fff; color: #000; }
+.skip:focus { top: 8px; }
+
+/* Ana sayfa: işe açıklık kutusu (_data/profile.yml open_to_work), yeşil: dikkat çeksin */
+.opennow { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 16px; margin: .8em 0; padding: 4px 10px; border: 1px solid var(--open-border); border-left-width: 6px; background: var(--open-bg); color: var(--open-text); text-align: left; }
+.opennow strong { font-size: 105%; }
+.opennow a, .opennow a:visited { padding: 1px 10px; background: #2e7d32; color: #fff; font-weight: bold; text-decoration: none; }
+.opennow a:hover { background: #1b5e20; color: #fff; }

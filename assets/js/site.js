@@ -122,10 +122,21 @@ if (searchInput) {
       scored.sort((a, b) => b.s - a.s || Number(a.e.dataset.order) - Number(b.e.dataset.order));
       let shown = 0;
       for (const { e, s } of scored) { e.hidden = s === 0; if (s) shown++; sec.append(e); }
-      sec.querySelector('.empty')?.toggleAttribute('hidden', terms.length > 0);
       sec.hidden = terms.length > 0 && shown === 0;
       visible += shown;
     }
     document.getElementById('no-results')?.toggleAttribute('hidden', !terms.length || visible > 0);
   });
 }
+
+// Portfolyo: kapalı bölüme giden bağlantı tıklaması ya da adresteki #hash bölümü açar.
+// Tıklama dinlenir: adres zaten aynıysa hashchange gelmez ve kapatılmış bölüm açılmazdı.
+const openSection = (/** @type {string} */ id) => {
+  const d = document.getElementById(id);
+  if (d instanceof HTMLDetailsElement) d.open = true;
+};
+document.querySelector('.jump')?.addEventListener('click', (e) => {
+  const a = e.target instanceof Element ? e.target.closest('a') : null;
+  if (a) openSection(a.hash.slice(1));
+});
+openSection(decodeURIComponent(location.hash.slice(1)));

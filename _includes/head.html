@@ -22,7 +22,9 @@
 <meta property="og:url" content="{{ canonical }}">
 <meta property="og:locale" content="tr_TR">
 <meta property="og:locale:alternate" content="en_US">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="{{ '/assets/img/og-card.png' | absolute_url }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{{ '/assets/img/og-card.png' | absolute_url }}">
 <meta name="twitter:title" content="{{ title_tr | escape }}">
 <meta name="twitter:description" content="{{ desc | escape }}">
 {%- comment %}Yapılandırılmış veri (JSON-LD): arama motorları ve LLM tabanlı sistemler siteyi ve yazarı buradan tanır. Yalnızca sayfada gerçekten olan bilgi.{% endcomment %}
@@ -34,7 +36,7 @@
 {%- endif %}
 </script>
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-<link rel="icon" href="data:,"> <!-- ikon yok; boş veri adresi tarayıcının /favicon.ico isteğini (404) engeller -->
+<link rel="icon" type="image/png" href="{{ '/assets/img/favicon.png' | relative_url }}">
 {% feed_meta %}
 {%- comment -%}
   Flash önleme: dil ve tema sayfa çizilmeden önce ayarlanır (site.js'den bağımsız).

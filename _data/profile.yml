@@ -1,0 +1,2 @@
+# İşe açıklık durumu: true yaparsan ana sayfada "Yeni fırsatlara açığım" kutusu çıkar, false yaparsan kaybolur.
+open_to_work: true

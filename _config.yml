@@ -11,14 +11,14 @@ lang: tr
 timezone: Europe/Istanbul
 author: Muhammet Özmen
 
-permalink: /yazilarim/:year/:title/
+permalink: /writing/:year/:title/
 
 collections:
   projects:
     output: true
-    permalink: /projelerim/:name/
+    permalink: /projects/:name/
   portfolio:
-    output: false   # öğeler /portfolyom/ sayfasında açık gösterilir, ayrı sayfaları yok
+    output: false   # öğeler /portfolio/ sayfasında açık gösterilir, ayrı sayfaları yok
 
 defaults:
   - scope: { path: "", type: posts }
@@ -34,6 +34,7 @@ feed:
 
 # Yayınlanmayacak dosyalar
 exclude:
+  - pages/drawings.md   # Çizimler sayfası: kendi çizimlerin gelince bu satırı sil, nav.yml'deki satırı aç
   - Gemfile
   - Gemfile.lock
   - package.json

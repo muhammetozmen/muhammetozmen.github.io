@@ -6,10 +6,10 @@ hide_title: true
 description: "Muhammet Özmen: gömülü sistemler ve bilgisayar mühendisi. Özgeçmiş, yetenekler ve CV."
 description_en: "Muhammet Özmen: embedded systems and computer engineer. Resume, skills and CV."
 keywords: "Muhammet Özmen, özgeçmiş, CV, gömülü sistemler, bilgisayar mühendisi, STM32, Jetson Nano, Qt, Python, C++"
-permalink: /hakkimda/
+permalink: /about/
 ---
-<img class="portrait when-light" src="{{ '/assets/img/ben-acik.png' | relative_url }}" alt="Muhammet Özmen">
-<img class="portrait when-dark" src="{{ '/assets/img/ben-koyu.png' | relative_url }}" alt="Muhammet Özmen">
+<img loading="lazy" class="portrait when-light" src="{{ '/assets/img/me-light.png' | relative_url }}" alt="Muhammet Özmen">
+<img loading="lazy" class="portrait when-dark" src="{{ '/assets/img/me-dark.png' | relative_url }}" alt="Muhammet Özmen">
 <div lang="tr">
 <p>Ben Muhammet Özmen. İskenderun Teknik Üniversitesi'nde başladığım bilgisayar mühendisliği yolculuğuna <strong>gömülü sistemler ve yazılım</strong> alanında devam ediyorum. Teknolojilere hızlı uyum sağlayan, öğrenmeye açık ve problem çözme odaklı biriyim. Bir şeyler üretmekten keyif aldığım için yarışmalarda, etkinliklerde ve gönüllü programlarda yer alıyorum. Boş vakitlerimde video oyunu oynar, film izler ve çizim yaparım.</p>
 <dl>
@@ -18,13 +18,13 @@ permalink: /hakkimda/
   <dt>Araçlar</dt>
   <dd>Git, GitHub, Linux, Bash, Qt, MAVLink, MQTT, TCP/IP.</dd>
   <dt>Eğitim</dt>
-  <dd>Bilgisayar Mühendisliği, Lisans, İskenderun Teknik Üniversitesi (Ekim 2021 – Ağustos 2025). GNO: 3,30 / 4,00. Bitirme projesi: <a href="{{ '/projelerim/taret/' | relative_url }}">otonom taret</a>.</dd>
+  <dd>Bilgisayar Mühendisliği, Lisans, İskenderun Teknik Üniversitesi (Ekim 2021 – Ağustos 2025). GNO: 3,30 / 4,00. Bitirme projesi: <a href="{{ '/projects/taret/' | relative_url }}">otonom taret</a>.</dd>
   <dt>Diller</dt>
   <dd>Türkçe (anadil), İngilizce (B2, Berlitz sertifikası, 2024).</dd>
   <dt>Deneyim</dt>
-  <dd>İş deneyimi, yarışmalar, topluluk görevleri ve sertifikalar <a href="{{ '/portfolyom/' | relative_url }}">Portfolyom</a> sayfasında.</dd>
+  <dd>İş deneyimi, yarışmalar, topluluk görevleri ve sertifikalar <a href="{{ '/portfolio/' | relative_url }}">Portfolyom</a> sayfasında.</dd>
   <dt>CV</dt>
-  <dd><a href="{{ '/assets/belgeler/cv-tr.pdf' | relative_url }}">CV (Türkçe, PDF)</a> · <a href="{{ '/assets/belgeler/cv-en.pdf' | relative_url }}">CV (İngilizce, PDF)</a></dd>
+  <dd><a href="{{ '/assets/documents/cv-tr.pdf' | relative_url }}">CV (Türkçe, PDF)</a> · <a href="{{ '/assets/documents/cv-en.pdf' | relative_url }}">CV (İngilizce, PDF)</a></dd>
 </dl>
 </div>
 <div lang="en">
@@ -35,12 +35,12 @@ permalink: /hakkimda/
   <dt>Tools</dt>
   <dd>Git, GitHub, Linux, Bash, Qt, MAVLink, MQTT, TCP/IP.</dd>
   <dt>Education</dt>
-  <dd>B.Sc. in Computer Engineering, İskenderun Technical University (October 2021 – August 2025). GPA: 3.30 / 4.00. Capstone: the <a href="{{ '/projelerim/taret/' | relative_url }}">autonomous turret</a>.</dd>
+  <dd>B.Sc. in Computer Engineering, İskenderun Technical University (October 2021 – August 2025). GPA: 3.30 / 4.00. Capstone: the <a href="{{ '/projects/taret/' | relative_url }}">autonomous turret</a>.</dd>
   <dt>Languages</dt>
   <dd>Turkish (native), English (B2, Berlitz certificate, 2024).</dd>
   <dt>Experience</dt>
-  <dd>Work experience, competitions, community roles and certificates are on the <a href="{{ '/portfolyom/' | relative_url }}">Portfolio</a> page.</dd>
+  <dd>Work experience, competitions, community roles and certificates are on the <a href="{{ '/portfolio/' | relative_url }}">Portfolio</a> page.</dd>
   <dt>CV</dt>
-  <dd><a href="{{ '/assets/belgeler/cv-tr.pdf' | relative_url }}">CV (Turkish, PDF)</a> · <a href="{{ '/assets/belgeler/cv-en.pdf' | relative_url }}">CV (English, PDF)</a></dd>
+  <dd><a href="{{ '/assets/documents/cv-tr.pdf' | relative_url }}">CV (Turkish, PDF)</a> · <a href="{{ '/assets/documents/cv-en.pdf' | relative_url }}">CV (English, PDF)</a></dd>
 </dl>
 </div>

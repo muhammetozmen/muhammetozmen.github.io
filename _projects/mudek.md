@@ -4,7 +4,8 @@ title_en: "MÜDEK – Voice-Assisted Grade Entry Application"
 date: 2025-08-25
 description: "MÜDEK uyumlu Excel şablonlarına öğrenci notlarının sesli tanıma ve manuel giriş ile hızlıca girilmesini sağlayan masaüstü uygulaması."
 description_en: "A desktop application that speeds up student grade entry into MÜDEK-compliant Excel templates using voice recognition and manual input."
-image: "/assets/img/projects/mudek/1.png"
+image: "/assets/img/thumbs/mudek.webp"
+featured: true
 tags: [Python, Speech-Recognition, Excel, PyQt6, AI]
 github: "https://github.com/muhammetozmen/mudek"
 ai_translated: true

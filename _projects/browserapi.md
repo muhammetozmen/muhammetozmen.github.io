@@ -4,7 +4,7 @@ title_en: "BrowserAPI – A tool to make Gemini session available through a loca
 date: 2026-07-12
 description: "Tarayıcınızdaki Gemini oturumunu, API anahtarı gerektirmeden yerel OpenAI uyumlu bir API'ye bağlayan bir CLI."
 description_en: "A CLI that bridges your browser's Gemini session to a local OpenAI-compatible API, no API key required."
-image: "/assets/img/projects/browserapi/1.png"
+image: "/assets/img/thumbs/browserapi.webp"
 tags: [Python, WebSocket, Local API]
 github: "https://github.com/muhammetozmen/browserAPI"
 ai_translated: true

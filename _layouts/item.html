@@ -3,7 +3,8 @@ layout: default
 ---
 <h1>{% include bi.html tr=page.title en=page.title_en %}</h1>
 {%- include ai-note.html %}
-{%- if page.tags or page.github %}
-<p class="note">{% if page.tags %}{{ page.tags | join: " · " }}{% endif %}{% if page.tags and page.github %} — {% endif %}{% if page.github %}<a href="{{ page.github }}" rel="noopener">GitHub</a>{% endif %}</p>
+{%- if page.result %}<p class="result"><strong>{% include t.html key="result" %}:</strong> {% include bi.html tr=page.result en=page.result_en %}</p>{% endif %}
+{%- if page.tags or page.github or page.demo %}
+<p class="note">{% if page.tags %}{{ page.tags | join: " · " }}{% endif %}{% if page.tags and page.github %} — {% endif %}{% if page.github %}<a href="{{ page.github }}" rel="noopener">GitHub</a>{% endif %}{% if page.demo %} · <a href="{{ page.demo }}" rel="noopener">Demo</a>{% endif %}</p>
 {%- endif %}
 {{ content }}

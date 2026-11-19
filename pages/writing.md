@@ -5,7 +5,7 @@ title_en: Writing
 hide_title: true
 description: "Yazılarım: teknik ve genel yazılar."
 description_en: "My writing: technical and general posts."
-permalink: /yazilarim/
+permalink: /writing/
 ---
 <form class="search" role="search" onsubmit="return false">
 <label for="post-search"><span lang="tr">Ara:</span><span lang="en">Search:</span></label>
@@ -21,10 +21,10 @@ permalink: /yazilarim/
 
 {% for cat in site.data.post_categories %}
 {% assign cat_posts = site.posts | where: "category", cat.key %}
-<section class="postcat">
+{% if cat_posts.size > 0 %}<section class="postcat">
 <h3>{% include bi.html tr=cat.tr en=cat.en %}</h3>
-{% if cat_posts.size > 0 %}{% include entry-list.html items=cat_posts date=true %}{% else %}<p class="note empty"><span lang="tr">Henüz yazı yok.</span><span lang="en">No posts yet.</span></p>{% endif %}
-</section>
+{% include entry-list.html items=cat_posts date=true %}
+</section>{% endif %}
 {% endfor %}
 
 <p id="no-results" class="note" hidden><span lang="tr">Eşleşen yazı bulunamadı.</span><span lang="en">No matching posts.</span></p>
